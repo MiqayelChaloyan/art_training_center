@@ -1,11 +1,9 @@
-import Layout from "@/components/layout/Layout";
-// import MainScreen from "@/components/screens/home/MainScreen";
+import Layout from '@/components/layout/Layout';
 
 const CoWorkers = () => {
 	return (
 		<Layout headerPosition='fixed'>
-			 {/* <MainScreen /> */}
-             <p>Co Workers page</p>
+			<p>Co Workers page</p>
 		</Layout>
 	);
 };

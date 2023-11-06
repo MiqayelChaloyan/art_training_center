@@ -1,10 +1,10 @@
-import Layout from "@/components/layout/Layout";
-import MainScreen from "@/components/screens/home/MainScreen";
-import { HomeContent } from "../../../../sanity/sanity-queries/home-queries";
-import { FC, memo } from "react";
-import Head from "next/head";
-import SectionAboutUs from "./SectionAboutUs";
-import SectionCourses from "./SectionCourses";
+import Layout from '@/components/layout/Layout';
+import MainScreen from '@/components/screens/home/MainScreen';
+import { HomeContent } from '../../../../sanity/sanity-queries/home-queries';
+import { FC, memo } from 'react';
+import Head from 'next/head';
+import SectionAboutUs from './SectionAboutUs';
+import SectionCourses from './SectionCourses';
 
 type HomePageProps = {
 	data: HomeContent[];
@@ -16,7 +16,7 @@ const Home: FC<HomePageProps> = ({ data, isError }) => {
 		<Layout headerPosition='fixed'>
 			<Head>
 				<title>ART Training Center</title>
-				<meta name="description" content="Training Center" />
+				<meta name='description' content='Training Center' />
 			</Head>
 			<MainScreen data={data}/>
 			<SectionAboutUs data={data}/>

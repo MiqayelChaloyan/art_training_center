@@ -1,11 +1,11 @@
 
 import { FC } from 'react';
 import styles from './SectionAboutUs.module.sass';
-import cn from 'classnames';
-import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-import components from '@/utils/PortableTextComponents';
-import { PortableText } from '@portabletext/react';
 import FormAppointment from '@/components/forms/FormAppointment';
+import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
+// import cn from 'classnames';
+// import components from '@/utils/PortableTextComponents';
+// import { PortableText } from '@portabletext/react';
 
 type SectionAboutUsProps = {
     data: HomeContent[];
@@ -14,11 +14,9 @@ type SectionAboutUsProps = {
 const SectionAboutUs: FC<SectionAboutUsProps> = ({ data }) => {
     const { aboutUsTitle: title, aboutUsContent } = data[0];
 
-    console.log(aboutUsContent)
-
     return (
-        <div id='about-us' style={{bottom: '100px', position: 'relative'}}>
-            <div className={styles.upper_part}/>
+        <div id='about-us' style={{ bottom: '100px', position: 'relative' }}>
+            <div className={styles.upper_part} />
             <div className={styles.about_us}>
                 <div className={styles.box}>
                     <h2>{title}</h2>
