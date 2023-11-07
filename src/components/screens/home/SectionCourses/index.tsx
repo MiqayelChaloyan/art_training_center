@@ -17,7 +17,7 @@ const SectionCourses: FC<SectionCoursesProps> = ({ data }) => {
 
     return (
         <div id='courses' style={{ bottom: '100px', position: 'relative', background: '#E3E1E1' }}>
-            <div className={styles.upper_part} />
+            <div className={styles.skew} />
             <div className={styles.courses}>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.

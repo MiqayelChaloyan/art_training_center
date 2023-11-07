@@ -19,8 +19,12 @@ const Course = (data: { newsSection: any[]; }[]) => {
             <div key={item.subtitle} className={styles.course}>
                 <div className={styles.content}>
                     <h3>{item.subtitle}</h3>
-                    <PortableText value={item.content} components={components}/>
-                    <button className={styles.button}>Contact Us</button>
+                    <PortableText value={item.content} components={components} />
+
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <p style={{ textDecoration: 'underline' }}>View more</p>
+                        <button className={styles.button}>Contact Us</button>
+                    </div>
                 </div>
                 <div className={styles.images}>
                     <img src={generateImageUrl(item.newsImageOne.asset._ref)} alt={item.newsImageOne.alt} className={styles.image} />
@@ -34,9 +38,16 @@ const Course = (data: { newsSection: any[]; }[]) => {
 const CookingCourses: FC<SectionCoursesProps> = ({ data }) => {
     return (
         <div id='courses' className={styles.courses}>
-            <div className={styles.upper_part}>
-                <h1 style={{textAlign: 'center'}}>News</h1>
-            </div>
+            <div className={styles.skew} />
+
+            <h1 style={{
+                textAlign: 'center',
+                position: 'absolute',
+                margin: '0 auto',
+                width: '27.7%',
+                top: '57px'
+            }}>News</h1>
+
             <div className={styles.cooking_courses}>
                 {Course(data)}
             </div>

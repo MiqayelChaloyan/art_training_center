@@ -22,3 +22,21 @@
        height: 0
     @media screen and ( max-width: 767px )
        height: 0
+
+.skew 
+    display: block
+    height: 64px
+    width: 103%
+    position: relative
+    transform: skew(48deg)
+    -moz-transform: skew(48deg)
+    -ms-transform: skew(48deg)
+    transform: skew(48deg)
+    &:after 
+      height: 115px
+      width: 55%
+      background: #E3E1E1
+      margin: 0 auto
+      position: absolute
+      content: ''
+      right: 0

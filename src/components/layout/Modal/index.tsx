@@ -30,13 +30,13 @@ const SectionCareerServices: React.FC<Props> = ({ children }) => {
 	return (
 		<div className={cn(styles.box, `${isOpen ? styles.boxOpen : ''}`)}>
 			<div className={styles.wrap}>
-				<div
+				{/* <div
 					className={cn(styles.overlay, { [styles.overlayShow]: showModal })}
 					onClick={() => {
 						setShowModal(false);
 						setTimeout(() => dispatch(closeModal()), 500);
 					}}
-				></div>
+				></div> */}
 				<div className={cn(styles.content, { [styles.contentShow]: showModal })}>
 					<button className={styles.close}
 						title='Close'

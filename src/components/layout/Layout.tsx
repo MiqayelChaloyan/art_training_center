@@ -21,9 +21,9 @@ const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 				</div>
 				<Footer/>
 			</div>
-			{/* <Modal>
+			<Modal>
 				<p>fffffffffffffff</p>
-			</Modal> */}
+			</Modal>
 		</Meta>
 	);
 };
