@@ -3,7 +3,11 @@
    justify-content: space-evenly
    align-items: baseline
    background: black
-   height: 488px
+   height: 700px
+   @media screen and ( max-width: 991px )
+      bottom: 0
+   @media screen and ( max-width: 767px )
+      bottom: 0
    h2
      font-size: 48px
    p
@@ -13,4 +17,8 @@
 .upper_part
     height: 5vh
     width: 64%
-    background: linear-gradient(to top right, transparent 50%, #E3E1E1 50%) right -1px top 0/14% 353% no-repeat, black
+    background: linear-gradient(to top right, transparent 56%, #E3E1E1 50%) right -1px top 0/14% 353% no-repeat, black
+    @media screen and ( max-width: 991px )
+       height: 0
+    @media screen and ( max-width: 767px )
+       height: 0

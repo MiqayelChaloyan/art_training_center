@@ -5,7 +5,6 @@ import cn from 'classnames';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import components from '@/utils/PortableTextComponents';
 import { PortableText } from '@portabletext/react';
-import FormAppointment from '@/components/forms/FormAppointment';
 
 type SectionCoursesProps = {
     data: HomeContent[];

@@ -5,6 +5,10 @@ export interface HomeContent {
     mainDescription: string;
     aboutUsTitle: string;
     aboutUsContent: [{ content: [{ children: [{ text: string }] }] }];
+    newsSection: [{
+        articleImage: any;
+        content: any; subtitle: string
+    }, { content: [{ children: [{ text: string }] }] }];
 }
 
 export const homeContentQuery = `{
@@ -14,4 +18,5 @@ export const homeContentQuery = `{
     mainDescription,
     aboutUsTitle,
     aboutUsContent,
+    newsSection,
 }`;

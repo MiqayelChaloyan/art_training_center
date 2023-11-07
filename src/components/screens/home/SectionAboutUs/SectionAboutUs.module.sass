@@ -1,3 +1,11 @@
+.contain
+    bottom: 100px
+    position: relative
+    @media screen and ( max-width: 991px )
+       bottom: 0
+    @media screen and ( max-width: 767px )
+       bottom: 0
+
 .about_us
    display: flex
    justify-content: space-evenly
@@ -5,14 +13,18 @@
    background: #E3E1E1
    @media screen and ( max-width: 991px )
        display: block
+       text-align: center
    @media screen and ( max-width: 767px )
        display: block
+       text-align: center
    h2
-     font-size: 24px
-     @media screen and ( max-width: 991px )
-       text-align: center
-     @media screen and ( max-width: 767px )
-       text-align: center
+      font-size: 24px
+      @media screen and ( max-width: 991px )
+      text-align: center
+      padding: 35px 0 35px 0
+      @media screen and ( max-width: 767px )
+      text-align: center
+      padding: 35px 0 35px 0
    p
      width: 80%
      font-size: 14px
@@ -24,7 +36,11 @@
 .upper_part
     height: 7vh
     width: 42%
-    background: linear-gradient(to top right, transparent 49.8%, #fff  50%) right -1px top 0/14% 140% no-repeat, #E3E1E1
+    background: linear-gradient(to top right, transparent 52%, #fff  52%) right -1px top 0/14% 140% no-repeat, #E3E1E1
+    @media screen and ( max-width: 991px )
+        height: 0
+    @media screen and ( max-width: 767px )
+        height: 0
 
 .box
     width: 25%

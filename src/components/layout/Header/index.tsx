@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Logo from '@/components/icons/Logo';
-import styles from './Header.module.sass';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+import { useAppDispatch } from '@/hooks/useStore';
+import { openModal } from '@/store/stateModalSlice';
+
+import styles from './Header.module.sass';
+import cn from 'classnames';
+
+import Logo from '@/components/icons/Logo';
 import Button from '@/components/ui/Button';
+
+import { Link as ScrollLink, scroller } from 'react-scroll';
 import InputField from '@/components/ui/InputField';
 
 type IHeaderProps = {
@@ -12,42 +20,91 @@ type IHeaderProps = {
 
 const Header = ({ typePosition }: IHeaderProps) => {
     const { pathname } = useRouter();
+    // const dispatch = useAppDispatch();
     const [inputNameValue, setInputNameValue] = useState('');
 
     const inputNameChange = (value: string) => {
         setInputNameValue(value);
     };
 
+    const [isSticky, setIsSticky] = useState(false);
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsSticky(window.scrollY > 0);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const toggleMenuClick = () => {
+        setIsOpenMenu(!isOpenMenu);
+    };
+
+    useEffect(() => {
+
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            setTimeout(() => {
+                scroller.scrollTo(hash, {
+                    duration: 500,
+                    smooth: 'easeInOutQuart',
+                    offset: -86
+                });
+                history.replaceState(null, '', ' ');
+            }, 100);
+        }
+
+    }, []);
+
     return (
-        <header>
-            <div className={styles.nav}>
-                <Link href='/' aria-label='ART Training Center Logo'>
+        <header className={cn(
+            styles.box,
+            `${typePosition === 'fixed' ? styles.boxFixed : ''}`,
+            `${isSticky ? styles.boxScrolled : ''}`,
+            `${isOpenMenu ? styles.boxOpenMenu : ''}`
+        )}>
+            <div className={`container ${styles.wrap}`}>
+                <Link href='/' aria-label='ART Training Center Logo' className={cn(styles.logo, `${isSticky ? styles.logoSticky : ''}`)}>
                     <Logo
                         width='104'
                         height='104'
                         fill='#111111'
                     />
                 </Link>
-                <div className={styles.links}>
-                    <Link href='/'  className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''}`}>About Us</Link>
-                    <Button
-                        className={styles.btn}
-                        text="Courses"
-                        onClick={() => console.log('click')}
-                    />
-                    <Link href='/co_workers'  className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''}`}>CO-Workers</Link>
-                    <Link href='/price_list'  className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''}`}>Price List</Link>
+                <div className={cn(
+                    styles.content,
+                    `${isOpenMenu ? styles.contentShow : ''}`,
+                    `${isSticky && isOpenMenu ? styles.contentSticky : ''}`,
+                )}>
+                    <div className={styles.nav}>
+                        <Link href='/' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''}`}>About Us</Link>
+                        <p>Courses</p>
+                        <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''}`}>CO-Workers</Link>
+                        <Link href='/price_list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''}`}>Price List</Link>
+                    </div>
+                    <div>
+                        <InputField
+                            className={styles.input}
+                            type='name'
+                            placeholder='Search'
+                            requiredField={true}
+                            value={inputNameValue}
+                            onChange={inputNameChange}
+                        />
+                    </div>
                 </div>
-                <div className={styles.inputField}>
-                    <InputField
-                        className={styles.input}
-                        type='name'
-                        placeholder='Search'
-                        requiredField={true}
-                        value={inputNameValue}
-                        onChange={inputNameChange}
-                    />
-                </div>
+                <button
+                    className={cn(
+                        styles.menuBtn,
+                        `${isOpenMenu ? styles.menuBtnActive : ''}`,
+                    )}
+                    onClick={toggleMenuClick}
+                    title='Dwin Tech Logo'
+                ><span></span></button>
             </div>
         </header>
     );

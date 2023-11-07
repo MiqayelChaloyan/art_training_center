@@ -1,8 +1,11 @@
 import { FC } from 'react';
+
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import useConvertData from '@/hooks/useConvertData';
-import styles from './MainScreen.module.sass';
+
 import Button from '@/components/ui/Button';
+
+import styles from './MainScreen.module.sass';
 
 type MainProps = {
 	data: HomeContent[];

@@ -3,9 +3,9 @@ import { FC } from 'react';
 import styles from './SectionAboutUs.module.sass';
 import FormAppointment from '@/components/forms/FormAppointment';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-// import cn from 'classnames';
-// import components from '@/utils/PortableTextComponents';
-// import { PortableText } from '@portabletext/react';
+import cn from 'classnames';
+import components from '@/utils/PortableTextComponents';
+import { PortableText } from '@portabletext/react';
 
 type SectionAboutUsProps = {
     data: HomeContent[];
@@ -15,11 +15,12 @@ const SectionAboutUs: FC<SectionAboutUsProps> = ({ data }) => {
     const { aboutUsTitle: title, aboutUsContent } = data[0];
 
     return (
-        <div id='about-us' style={{ bottom: '100px', position: 'relative' }}>
-            <div className={styles.upper_part} />
+        <div id='about-us' className={styles.contain}>
+            <div className={styles.upper_part}>
+                <h2 style={{textAlign: 'center'}}>{title}</h2>
+            </div>
             <div className={styles.about_us}>
                 <div className={styles.box}>
-                    <h2>{title}</h2>
                     {/* <PortableText value={aboutUsContent} components={components} /> */}
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.

@@ -1,5 +1,7 @@
 // import { defineArrayMember } from 'sanity';
 
+import { defineArrayMember } from "sanity";
+
 const styles = [
     { title: 'Normal', value: 'normal' },
     { title: 'H1', value: 'h1' },
@@ -104,6 +106,99 @@ export const home_content = {
                 },
             ],
         },
+        {
+            name: 'newsSection',
+            type: 'array',
+            title: 'News Sections',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'tag',
+                    fields: [
+                        { type: 'string', name: 'subtitle', title: 'News Section Title' },
+                        {
+                            name: 'content',
+                            type: 'array',
+                            title: 'News Section Content',
+                            of: [
+                                {
+                                    type: 'block',
+                                    lists: [
+                                        { title: 'Bullet', value: 'bullet' },
+                                        { title: 'Numbered', value: 'number' }
+                                    ],
+                                    styles,
+                                    marks: {
+                                        annotations: [
+                                            {
+                                                name: 'internalLink',
+                                                type: 'object',
+                                                title: 'Internal link',
+                                                fields: [
+                                                    {
+                                                        name: 'href',
+                                                        type: 'url',
+                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
+                                                            Rule.uri({
+                                                                allowRelative: false,
+                                                                scheme: ['http', 'https', 'mailto', 'tel'],
+                                                            }),
+                                                    },
+                                                ]
+                                            },
+                                            {
+                                                name: 'link',
+                                                type: 'object',
+                                                title: 'Link',
+                                                fields: [
+                                                    {
+                                                        name: 'href',
+                                                        type: 'url',
+                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
+                                                            Rule.uri({
+                                                                allowRelative: false,
+                                                                scheme: ['http', 'https', 'mailto', 'tel'],
+                                                            }),
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                            ],
+                        },
+                        {
+                            name: 'newsImageOne',
+                            title: 'News Section Image One',
+                            type: 'image',
+                            options: { hotspot: true },
+                            fields: [
+
+                                {
+                                    name: 'alt',
+                                    title: 'Alt',
+                                    type: 'string'
+                                }
+                            ]
+                        },
+                        {
+                            name: 'newsImageTwo',
+                            title: 'News Section Image Two',
+                            type: 'image',
+                            options: { hotspot: true },
+                            fields: [
+
+                                {
+                                    name: 'alt',
+                                    title: 'Alt',
+                                    type: 'string'
+                                }
+                            ]
+                        },
+                    ]
+                })
+            ]
+        }
     ]
 };
 
