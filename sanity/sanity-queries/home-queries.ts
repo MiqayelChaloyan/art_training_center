@@ -8,7 +8,6 @@ export interface HomeContent {
     about_us_title: string;
     about_us_content: [{ content: [{ children: [{ text: string }] }] }];
     news_section: [{
-        articleImage: any;
         content: any; subtitle: string
     }, { content: [{ children: [{ text: string }] }] }];
 }
