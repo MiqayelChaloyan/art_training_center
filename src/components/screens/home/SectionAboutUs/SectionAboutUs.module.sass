@@ -11,9 +11,12 @@
    justify-content: space-around
    align-items: baseline
    background: #E3E1E1
+   height: 600px
    @media screen and ( max-width: 991px )
        display: block
        text-align: center
+       padding-top: 85px
+       height: 868px
    @media screen and ( max-width: 767px )
        display: block
        text-align: center
@@ -60,10 +63,6 @@
       background: #fff 
       height: 81px 
       width: 100px 
-      -moz-transform: rotate(45deg) 
-      -ms-transform: rotate(45deg) 
-      -webkit-transform: rotate(45deg) 
-      -o-transform: rotate(45deg) 
       transform: rotate(45deg) 
       display: block 
       position: absolute 
@@ -72,18 +71,33 @@
 
 .skew 
     display: block
-    height: 64px
-    width: 500px
+    height: 57px
+    width: 50%
     position: relative
-    -webkit-transform: skew(50deg)
-    -moz-transform: skew(50deg)
-    -ms-transform: skew(50deg)
-    transform: skew(50deg)
+    transform: skew(44deg)
     &:after 
-      height: 100px
-      width: 570px
+      height: 57px
+      width: 110%
       background: #E3E1E1
       margin: 0 auto
       position: absolute
       content: ''
       right: 0
+    @media screen and ( max-width: 991px )
+      height: 0
+      background: #E3E1E1
+      width: 100%
+      &:after 
+        height: 57px
+        width: 100%
+        background: #E3E1E1
+
+.title
+    text-align: center
+    position: absolute
+    margin: 0 auto
+    width: 35%
+    top: 15px
+    @media screen and ( max-width: 991px )
+       width: 100%
+

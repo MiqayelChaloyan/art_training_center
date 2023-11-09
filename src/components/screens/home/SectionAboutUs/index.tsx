@@ -12,22 +12,18 @@ type SectionAboutUsProps = {
 }
 
 const SectionAboutUs: FC<SectionAboutUsProps> = ({ data }) => {
-    const { aboutUsTitle: title, aboutUsContent } = data[0];
+    const { about_us_title, about_us_content } = data[0];
+
+    console.log(about_us_content);
+    
 
     return (
         <div id='about-us' className={styles.contain}>
             <div className={styles.skew}/>
-            <h1 style={{
-                textAlign: 'center',
-                position: 'absolute',
-                margin: '0 auto',
-                width: '35%',
-                top: '15px'
-            }}>{title}</h1>
-
+            <h1 className={styles.title}>{about_us_title}</h1>
             <div className={styles.about_us}>
                 <div className={styles.box}>
-                    <PortableText value={aboutUsContent} components={components} />
+                    <PortableText value={about_us_content} components={components} />
                 </div>
                 <div className={styles.box}>
                     <FormAppointment />

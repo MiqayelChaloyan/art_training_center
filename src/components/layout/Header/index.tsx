@@ -20,15 +20,14 @@ type IHeaderProps = {
 
 const Header = ({ typePosition }: IHeaderProps) => {
     const { pathname } = useRouter();
-    // const dispatch = useAppDispatch();
     const [inputNameValue, setInputNameValue] = useState('');
+    const [isSticky, setIsSticky] = useState(false);
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
+    const dispatch = useAppDispatch();
 
     const inputNameChange = (value: string) => {
         setInputNameValue(value);
     };
-
-    const [isSticky, setIsSticky] = useState(false);
-    const [isOpenMenu, setIsOpenMenu] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,22 +42,6 @@ const Header = ({ typePosition }: IHeaderProps) => {
     const toggleMenuClick = () => {
         setIsOpenMenu(!isOpenMenu);
     };
-
-    useEffect(() => {
-
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            setTimeout(() => {
-                scroller.scrollTo(hash, {
-                    duration: 500,
-                    smooth: 'easeInOutQuart',
-                    offset: -86
-                });
-                history.replaceState(null, '', ' ');
-            }, 100);
-        }
-
-    }, []);
 
     return (
         <header className={cn(
@@ -82,7 +65,13 @@ const Header = ({ typePosition }: IHeaderProps) => {
                 )}>
                     <div className={styles.nav}>
                         <Link href='/' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''}`}>About Us</Link>
-                        <p>Courses</p>
+                        <Button
+                            text='Courses'
+                            onClick={() =>
+                                setTimeout(() => dispatch(openModal()), 500)
+                            }
+                            className={styles.btn}
+                        />
                         <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''}`}>CO-Workers</Link>
                         <Link href='/price_list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''}`}>Price List</Link>
                     </div>
@@ -103,7 +92,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                         `${isOpenMenu ? styles.menuBtnActive : ''}`,
                     )}
                     onClick={toggleMenuClick}
-                    title='Dwin Tech Logo'
+                    title='Art Training Center Menu'
                 ><span></span></button>
             </div>
         </header>

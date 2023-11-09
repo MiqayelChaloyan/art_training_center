@@ -7,62 +7,79 @@ import InputField from '@/components/ui/InputField';
 import InputNumber from '@/components/ui/InputNumber';
 import TextareaField from '@/components/ui/TextareaField';
 
-import CONFIG from '@/constants/config';
+import Facebook from '../../icons/Facebook';
+import Instagram from '../../icons/Instagram';
+import Google from '../../icons/Google';
+
+import Link from 'next/link';
+
+import { Hosts } from '@/constants/constants';
 
 interface Props {
 	className?: string,
 }
 
+const initValues = { name: "", email: "", phone: "", subject: "" };
+const initState = { isLoading: false, error: "", values: initValues };
+
 const FormAppointment: React.FC<Props> = ({ className }) => {
-	
-	const [inputNameValue, setInputNameValue] = useState('');
-	const [inputEmailValue, setInputEmailValue] = useState('');
-	const [inputPhoneValue, setInputPhoneValue] = useState('');
-	const [textareaMessagesValue, setTextareaMessagesValue] = useState('');
+	const [state, setState] = useState(initState);
+	const { values, isLoading, error } = state;
 
-	const [formSubmitted, setFormSubmitted] = useState(false);
-
-	const inputNameChange = (value: string) => {
-		setInputNameValue(value);
-	};
-
-    const inputEmailChange = (value: string) => {
-		setInputEmailValue(value);
-	};
-	
-	const inputPhoneChange = (value: string) => {
-		setInputPhoneValue(value);
-	};
-	const textareaMessagesChange = (value: string) => {
-		setTextareaMessagesValue(value);
-	};
+	const handleChange = ({ target }: any) =>
+		setState((prev) => ({
+			...prev,
+			values: {
+				...prev.values,
+				[target.name]: target.value,
+			},
+		}));
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		console.log(initState.values)
 		const formData = {
-			name: inputNameValue,
-			email: inputEmailValue,
-			phone: `${inputPhoneValue}
-				Message - ${textareaMessagesValue}`
+			name: initState.values.name,
+			email: initState.values.email,
+			phone: `${initState.values.phone}
+				Message - ${'hello !!!!!!!!!!!!'}`
 		};
 
 		try {
-			await fetch('https://api.staticforms.xyz/submit', {
+			setState((prev) => ({
+				...prev,
+				isLoading: true,
+			}));
+			const res = await fetch('/api/contact', {
 				method: 'POST',
-				body: JSON.stringify({
-					...formData,
-					accessKey: CONFIG.accessKey,
-				}),
-				headers: { 'Content-Type': 'application/json' },
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
 			});
+
+			const { error } = await res.json()
+ 
+			if (error) {
+				console.log('Error !!')
+				return
+			}
+
 			console.log('Form submitted successfully!');
-			setInputNameValue('');
-            setInputEmailValue('');
-			setInputPhoneValue('');
-			setTextareaMessagesValue('');
-			setFormSubmitted(true);
-		} catch (error) {
+
+			setState(() => ({
+				...initState,
+				isLoading: false,
+				error: error.message,
+			}));
+
+		} catch (error: any) {
 			console.log(error);
+			setState((prev) => ({
+				...prev,
+				isLoading: false,
+				error: error.message,
+			}));
 		}
 	};
 
@@ -71,39 +88,68 @@ const FormAppointment: React.FC<Props> = ({ className }) => {
 			className={cn(className, styles.box)}
 			onSubmit={handleSubmit}
 		>
-			<h1 className={styles.title}>Contact Us</h1>
+			<div className={styles.contact_us_header}>
+				<h1 className={styles.title}>Contact Us</h1>
+				<div>
+					<Link href={Hosts.facebook} aria-label='Facebook' className={styles.icon} target="_blank">
+						<Facebook
+							width='23'
+							height='23'
+							fill='#111111'
+						/>
+					</Link>
+					<Link href={Hosts.instagram} aria-label='Instagram' className={styles.icon} target="_blank">
+						<Instagram
+							width='23'
+							height='23'
+							fill='#111111'
+						/>
+					</Link>
+					<Link href={Hosts.google} aria-label='Google' className={styles.icon} target="_blank">
+						<Google
+							width='23'
+							height='23'
+							fill='#111111'
+						/>
+					</Link>
+				</div>
+			</div>
 			<div className={styles.fields}>
 				<InputField
 					className={cn(styles.input)}
+					name='name'
 					type='name'
 					placeholder='Your Name'
 					requiredField={true}
-					value={inputNameValue}
-					onChange={inputNameChange}
+					value={values.name}
+					onChange={handleChange}
 				/>
-                <InputField
+				<InputField
 					className={cn(styles.input)}
+					name='email'
 					type='email'
 					placeholder='Your Email'
 					requiredField={true}
-					value={inputEmailValue}
-					onChange={inputEmailChange}
+					value={values.email}
+					onChange={handleChange}
 				/>
 				<InputNumber
 					className={cn(styles.input)}
+					name='phone'
 					type='phone'
 					placeholder='Phone Number'
 					maskNumber='+374 99 99 99 99'
 					requiredField={true}
-					value={inputPhoneValue}
-					onChange={inputPhoneChange}
+					value={values.phone}
+					onChange={handleChange}
 				/>
 				<TextareaField
 					className={cn(styles.textarea)}
+					name='subject'
 					placeholder='Messages'
-					requiredField={true}
-					value={textareaMessagesValue}
-					onChange={textareaMessagesChange}
+					requiredField={false}
+					value={values.subject}
+					onChange={handleChange}
 				/>
 			</div>
 			<button className={styles.submit}>Send</button>

@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from 'react';
 
 import { DefaultSeo } from 'next-seo';
 
-const seoTitle = 'Home | ART';
+const seoTitle = 'ART | HOUSE';
 const seoDescription = 'Through immersive classes, ART teaches you the skills you need in your future career as a successful and competitive professional.';
 const seoUrl = 'https://www.dwin.tech/';
 const seoOGImage = 'https://images.squarespace-cdn.com/content/v1/63ed0c8e54d11151a02d1803/52c3f2b6-fbf3-469b-880f-bb3181827cc0/Training%2BCenter%2BConference%2BRoom%2BMockup.jpg';

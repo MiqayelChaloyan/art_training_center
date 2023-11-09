@@ -23,40 +23,92 @@ export const home_content = {
     title: 'Home Content',
     fields: [
         {
-            name: 'mainTitle',
-            title: 'Main Title',
-            type: 'string',
-            validation: (Rule: any) => Rule.max(30).required(),
+            name: 'main_section',
+            type: 'array',
+            title: 'Main Sections',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'tag',
+                    fields: [
+                        { type: 'string', name: 'subtitle', title: 'Main Section Title' },
+                        {
+                            name: 'content',
+                            type: 'array',
+                            title: 'Main Section Content',
+                            of: [
+                                {
+                                    type: 'block',
+                                    lists: [
+                                        { title: 'Bullet', value: 'bullet' },
+                                        { title: 'Numbered', value: 'number' }
+                                    ],
+                                    styles,
+                                    marks: {
+                                        annotations: [
+                                            {
+                                                name: 'internalLink',
+                                                type: 'object',
+                                                title: 'Internal link',
+                                                fields: [
+                                                    {
+                                                        name: 'href',
+                                                        type: 'url',
+                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
+                                                            Rule.uri({
+                                                                allowRelative: false,
+                                                                scheme: ['http', 'https', 'mailto', 'tel'],
+                                                            }),
+                                                    },
+                                                ]
+                                            },
+                                            {
+                                                name: 'link',
+                                                type: 'object',
+                                                title: 'Link',
+                                                fields: [
+                                                    {
+                                                        name: 'href',
+                                                        type: 'url',
+                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
+                                                            Rule.uri({
+                                                                allowRelative: false,
+                                                                scheme: ['http', 'https', 'mailto', 'tel'],
+                                                            }),
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                            ],
+                        },
+                        {
+                            name: 'main_section_image',
+                            title: 'Main Section Image',
+                            type: 'image',
+                            options: { hotspot: true },
+                            fields: [
+
+                                {
+                                    name: 'alt',
+                                    title: 'Alt',
+                                    type: 'string'
+                                }
+                            ]
+                        },
+                    ]
+                })
+            ]
         },
         {
-            name: 'mainDescription',
-            title: 'Main Description',
-            type: 'string',
-            validation: (Rule: any) => Rule.max(70).required(),
-        },
-        {
-            name: 'mainImage',
-            title: 'Main Image',
-            type: 'image',
-            options: { hotspot: true },
-            fields: [
-                {
-                    name: 'alt',
-                    title: 'Alt',
-                    type: 'string',
-                    validation: (Rule: any) => Rule.required(),
-                },
-            ],
-            validation: (Rule: any) => Rule.required(),
-        },
-        {
-            name: 'aboutUsTitle',
+            name: 'about_us_title',
             title: 'About Us Section Title',
             type: 'string',
             validation: (Rule: any) => Rule.max(30).required(),
         },
         {
-            name: 'aboutUsContent',
+            name: 'about_us_content',
             type: 'array',
             title: 'About Us Section Content',
             of: [
@@ -107,7 +159,7 @@ export const home_content = {
             ],
         },
         {
-            name: 'newsSection',
+            name: 'news_section',
             type: 'array',
             title: 'News Sections',
             of: [
@@ -168,8 +220,8 @@ export const home_content = {
                             ],
                         },
                         {
-                            name: 'newsImageOne',
-                            title: 'News Section Image One',
+                            name: 'news_image_one',
+                            title: 'News Section Image 1',
                             type: 'image',
                             options: { hotspot: true },
                             fields: [
@@ -182,8 +234,8 @@ export const home_content = {
                             ]
                         },
                         {
-                            name: 'newsImageTwo',
-                            title: 'News Section Image Two',
+                            name: 'news_image_two',
+                            title: 'News Section Image 2',
                             type: 'image',
                             options: { hotspot: true },
                             fields: [

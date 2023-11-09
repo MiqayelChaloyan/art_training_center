@@ -5,11 +5,11 @@ import { HomeContent } from '../../sanity/sanity-queries/home-queries';
 // import { Articles } from '../../sanity/sanity-queries';
 
 function useConvertData(data: any) {
-    const slideImgUrl = useMemo(() => generateImageUrl(data.mainImage.asset._ref) || '', [data]);
-    const alt = data.mainImage.alt || '';
+    const slideImgUrl = useMemo(() => generateImageUrl(data.asset._ref) || '', [data]);
+    // const alt = data.mainImage.alt || '';
     return {
         slideImgUrl,
-        alt,
+        // alt,
     };
 }
 

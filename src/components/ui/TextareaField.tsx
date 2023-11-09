@@ -1,6 +1,7 @@
 import React, { FC, ChangeEvent } from 'react';
 
 interface InputProps {
+	name?: string
 	className?: string
 	placeholder?: string
 	requiredField?: boolean
@@ -8,13 +9,14 @@ interface InputProps {
 	onChange: (value: string) => void
 }
 
-const TextareaField: FC<InputProps> = ({ className, placeholder, requiredField, value, onChange }) => {
+const TextareaField: FC<InputProps> = ({ className, name, placeholder, requiredField, value, onChange }) => {
 	const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
 		onChange(event.target.value);
 	};
 
 	return (
 		<textarea
+			name={name}
 			className={className}
 			placeholder={placeholder}
 			value={value}

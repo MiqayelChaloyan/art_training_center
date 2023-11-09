@@ -3,6 +3,7 @@ import React, { FC, ChangeEvent } from 'react';
 import InputMask from 'react-input-mask';
 
 interface InputProps {
+	name?: string
 	className?: string
 	type: string
 	placeholder?: string
@@ -12,16 +13,17 @@ interface InputProps {
 	onChange: (value: string) => void
 }
 
-const InputNumber: FC<InputProps> = ({ className, type, placeholder, maskNumber, requiredField, value, onChange }) => {
+const InputNumber: FC<InputProps> = ({ className, type, name, placeholder, maskNumber, requiredField, value, onChange }) => {
 
 	return (
 		<InputMask
+			name={name}
 			className={className}
 			type={type}
 			placeholder={placeholder}
 			mask={maskNumber}
 			value={value}
-			onChange={(e: { target: { value: string; }; }) => onChange(e.target.value)}
+			onChange={(e) => onChange(e as any)}
 			required={requiredField}
 		/>
 	);

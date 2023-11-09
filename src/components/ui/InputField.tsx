@@ -1,6 +1,7 @@
 import React, { FC, ChangeEvent } from 'react';
 
 interface InputProps {
+	name?: string,
 	className?: string
 	type: string
 	placeholder?: string
@@ -9,15 +10,16 @@ interface InputProps {
 	onChange: (value: string) => void
 }
 
-const InputField: FC<InputProps> = ({ className, type, placeholder, requiredField, value, onChange }) => {
-	
+const InputField: FC<InputProps> = ({ className, type, name, placeholder, requiredField, value, onChange }) => {
+
 	return (
 		<input
+			name={name}
 			className={className}
 			type={type}
 			placeholder={placeholder}
 			value={value}
-			onChange={(e) => onChange(e.target.value)}
+			onChange={(e) => onChange(e as any)}
 			required={requiredField}
 		/>
 	);

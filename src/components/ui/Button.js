@@ -9,7 +9,7 @@ function Button({text, onClick, className}) {
 	};
 	return (
 		<button
-			className={cn('btn', className)}
+			className={className}
 			onClick={handleClick}
 		>
 			<span>{text}</span>
