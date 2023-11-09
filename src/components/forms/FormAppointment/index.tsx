@@ -17,10 +17,10 @@ import { Hosts } from '@/constants/constants';
 
 interface Props {
 	className?: string,
-}
+};
 
-const initValues = { name: "", email: "", phone: "", subject: "" };
-const initState = { isLoading: false, error: "", values: initValues };
+const initValues = { name: '', email: '', phone: '', subject: '' };
+const initState = { isLoading: false, error: '', values: initValues };
 
 const FormAppointment: React.FC<Props> = ({ className }) => {
 	const [state, setState] = useState(initState);
@@ -37,7 +37,6 @@ const FormAppointment: React.FC<Props> = ({ className }) => {
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(initState.values)
 		const formData = {
 			name: initState.values.name,
 			email: initState.values.email,
@@ -58,21 +57,17 @@ const FormAppointment: React.FC<Props> = ({ className }) => {
 				body: JSON.stringify(formData),
 			});
 
-			const { error } = await res.json()
- 
+			const { error } = await res.json();
 			if (error) {
-				console.log('Error !!')
-				return
-			}
-
+				console.log('Error !!');
+				return;
+			};
 			console.log('Form submitted successfully!');
-
 			setState(() => ({
 				...initState,
 				isLoading: false,
 				error: error.message,
 			}));
-
 		} catch (error: any) {
 			console.log(error);
 			setState((prev) => ({

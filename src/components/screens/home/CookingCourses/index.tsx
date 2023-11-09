@@ -13,27 +13,27 @@ type SectionCoursesProps = {
     data: HomeContent[];
 }
 
-const Course = (data: { newsSection: any[]; }[]) => {
-    return (
-        data[0].newsSection.map(item => (
-            <div key={item.subtitle} className={styles.course}>
-                <div className={styles.content}>
-                    <h3>{item.subtitle}</h3>
-                    <PortableText value={item.content} components={components} />
+// const Course = (data: { newsSection: any; }[]) => {
+//     return (
+//         data[0].newsSection.map(item => (
+//             <div key={item.subtitle} className={styles.course}>
+//                 <div className={styles.content}>
+//                     <h3>{item.subtitle}</h3>
+//                     <PortableText value={item.content} components={components} />
 
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <p style={{ textDecoration: 'underline' }}>View more</p>
-                        <button className={styles.button}>Contact Us</button>
-                    </div>
-                </div>
-                <div className={styles.images}>
-                    <img src={generateImageUrl(item.newsImageOne.asset._ref)} alt={item.newsImageOne.alt} className={styles.image} />
-                    <img src={generateImageUrl(item.newsImageTwo.asset._ref)} alt={item.newsImageTwo.alt} className={styles.image} />
-                </div>
-            </div>
-        ))
-    );
-};
+//                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+//                         <p style={{ textDecoration: 'underline' }}>View more</p>
+//                         <button className={styles.button}>Contact Us</button>
+//                     </div>
+//                 </div>
+//                 <div className={styles.images}>
+//                     <img src={generateImageUrl(item.newsImageOne.asset._ref)} alt={item.newsImageOne.alt} className={styles.image} />
+//                     <img src={generateImageUrl(item.newsImageTwo.asset._ref)} alt={item.newsImageTwo.alt} className={styles.image} />
+//                 </div>
+//             </div>
+//         ))
+//     );
+// };
 
 const CookingCourses: FC<SectionCoursesProps> = ({ data }) => {
     return (
@@ -49,7 +49,7 @@ const CookingCourses: FC<SectionCoursesProps> = ({ data }) => {
             }}>News</h1>
 
             <div className={styles.cooking_courses}>
-                {Course(data)}
+                {/* {Course(data)} */}
             </div>
         </div>
     );

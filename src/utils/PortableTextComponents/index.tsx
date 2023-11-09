@@ -24,12 +24,12 @@ const components = {
         bullet: ({ children }: any) => <ul className={styles.bullet}>{children}</ul>,
         number: ({ children }: any) => <ol className={styles.number}>{children}</ol>,
     },
-    types: {
-        image: ({value}: any) => {
-            const imageUrl = generateImageUrl(value.asset._ref);
-            return <img className={styles.image} src={imageUrl} alt='image' />;
-        }
-    }
+    // types: {
+    //     image: ({value}: any) => {
+    //         const imageUrl = generateImageUrl(value.asset._ref);
+    //         return <img className={styles.image} src={imageUrl} alt='image' />;
+    //     }
+    // }
 };
 
 export default components;
