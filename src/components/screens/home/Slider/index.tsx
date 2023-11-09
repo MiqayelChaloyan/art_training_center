@@ -1,16 +1,16 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-import { HomeContent } from "../../../../../sanity/sanity-queries/home-queries";
-import { generateImageUrl } from "@/utils/imageGenerate";
+import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
+import { generateImageUrl } from '@/utils/imageGenerate';
 
 import styles from './styles.module.sass';
-import Button from "@/components/ui/Button";
+import Button from '@/components/ui/Button';
 import { PortableText } from '@portabletext/react'
-import components from "@/utils/PortableTextComponents";
+import components from '@/utils/PortableTextComponents';
 
 type MainProps = {
     data: HomeContent[];
@@ -29,8 +29,8 @@ const SliderMain: FC<MainProps> = ({ data }) => {
     };
 
     if (!data[0]) {
-        return null
-    }
+        return null;
+    };
 
     const slidesItems = data[0].main_section.map((item: any): JSX.Element => (
         <div key={item._key}>

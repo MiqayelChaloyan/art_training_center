@@ -5,5 +5,5 @@ const Hosts = {
 };
 
 export {
-    Hosts
-}
+    Hosts,
+};
