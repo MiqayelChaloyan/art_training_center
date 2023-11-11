@@ -25,7 +25,7 @@ export const home_content = {
         {
             name: 'main_section',
             type: 'array',
-            title: 'Main Sections',
+            title: 'Main Sections (You can add any number of pictures)*',
             of: [
                 defineArrayMember({
                     type: 'object',
@@ -159,9 +159,30 @@ export const home_content = {
             ],
         },
         {
+            name: 'cooking_courses_video_url',
+            title: 'Cooking Courses Section Video Link',
+            type: 'string',
+            validation: (Rule: any) => Rule.required(),
+        },
+        {
+            name: 'cooking_courses_video_light',
+            title: 'Cooking Courses Section Video Light',
+            type: 'image',
+            options: { hotspot: true },
+            fields: [
+
+                {
+                    name: 'alt',
+                    title: 'Alt',
+                    type: 'string'
+                }
+            ],
+            validation: (Rule: any) => Rule.required(),
+        },
+        {
             name: 'news_section',
             type: 'array',
-            title: 'News Sections',
+            title: 'News Sections (No less than three, and no more, only you can modify them)*',
             of: [
                 defineArrayMember({
                     type: 'object',
@@ -247,6 +268,72 @@ export const home_content = {
                                 }
                             ]
                         },
+                    ]
+                })
+            ]
+        },
+        {
+            name: 'specialists_section',
+            type: 'array',
+            title: 'Specialists Sections',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'tag',
+                    fields: [
+                        { type: 'string', name: 'subtitle', title: 'Specialists Section Title' },
+                        {
+                            name: 'specialists_section_image',
+                            title: 'Specialists Section Image',
+                            type: 'image',
+                            options: { hotspot: true },
+                            fields: [
+
+                                {
+                                    name: 'alt',
+                                    title: 'Alt',
+                                    type: 'string'
+                                }
+                            ]
+                        },
+                        {
+                            name: 'specialists_section_images',
+                            type: 'array',
+                            title: 'Specialists Sections Images',
+                            of: [
+                                defineArrayMember({
+                                    type: 'object',
+                                    name: 'tag',
+                                    fields: [
+                                        {
+                                            name: 'images',
+                                            type: 'array',
+                                            title: 'Images',
+                                            of: [
+                                              {
+                                                name: 'image',
+                                                type: 'image',
+                                                title: 'Image',
+                                                options: {
+                                                  hotspot: true,
+                                                },
+                                                fields: [
+                                                  {
+                                                    name: 'alt',
+                                                    type: 'string',
+                                                    title: 'Alternative text',
+                                                  },
+                                                ],
+                                              },
+                                            ],
+                                            options: {
+                                              layout: 'grid',
+                                            },
+                                          },
+                                    ]
+                                })
+                            ]
+                        }
                     ]
                 })
             ]

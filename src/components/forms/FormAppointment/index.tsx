@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 
 import styles from './FormAppointment.module.sass';
 import cn from 'classnames';
@@ -7,22 +7,16 @@ import InputField from '@/components/ui/InputField';
 import InputNumber from '@/components/ui/InputNumber';
 import TextareaField from '@/components/ui/TextareaField';
 
-import Facebook from '../../icons/Facebook';
-import Instagram from '../../icons/Instagram';
-import Google from '../../icons/Google';
-
-import Link from 'next/link';
-
-import { Hosts } from '@/constants/constants';
-
 interface Props {
 	className?: string,
+	width?: string
+	children: React.ReactNode
 };
 
-const initValues = { name: '', email: '', phone: '', subject: '' };
+const initValues = { name: '', email: '', phone: '', message: '' };
 const initState = { isLoading: false, error: '', values: initValues };
 
-const FormAppointment: React.FC<Props> = ({ className }) => {
+const FormAppointment: React.FC<Props> = ({ className,width,  children }) => {
 	const [state, setState] = useState(initState);
 	const { values, isLoading, error } = state;
 
@@ -38,10 +32,10 @@ const FormAppointment: React.FC<Props> = ({ className }) => {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = {
-			name: initState.values.name,
-			email: initState.values.email,
-			phone: `${initState.values.phone}
-				Message - ${'hello !!!!!!!!!!!!'}`
+			name: state.values.name,
+			email: state.values.email,
+			phone: state.values.phone,
+			message: `${state.values.message}`
 		};
 
 		try {
@@ -78,36 +72,15 @@ const FormAppointment: React.FC<Props> = ({ className }) => {
 		}
 	};
 
+	useEffect(() => console.log(state.isLoading), [state.isLoading]);
+	
 	return (
 		<form
 			className={cn(className, styles.box)}
 			onSubmit={handleSubmit}
 		>
 			<div className={styles.contact_us_header}>
-				<h1 className={styles.title}>Contact Us</h1>
-				<div>
-					<Link href={Hosts.facebook} aria-label='Facebook' className={styles.icon} target="_blank">
-						<Facebook
-							width='23'
-							height='23'
-							fill='#111111'
-						/>
-					</Link>
-					<Link href={Hosts.instagram} aria-label='Instagram' className={styles.icon} target="_blank">
-						<Instagram
-							width='23'
-							height='23'
-							fill='#111111'
-						/>
-					</Link>
-					<Link href={Hosts.google} aria-label='Google' className={styles.icon} target="_blank">
-						<Google
-							width='23'
-							height='23'
-							fill='#111111'
-						/>
-					</Link>
-				</div>
+				{children}
 			</div>
 			<div className={styles.fields}>
 				<InputField
@@ -140,14 +113,16 @@ const FormAppointment: React.FC<Props> = ({ className }) => {
 				/>
 				<TextareaField
 					className={cn(styles.textarea)}
-					name='subject'
+					name='message'
 					placeholder='Messages'
 					requiredField={false}
-					value={values.subject}
+					value={values.message}
 					onChange={handleChange}
 				/>
 			</div>
-			<button className={styles.submit}>Send</button>
+			<button className={styles.submit} style={{width}}>
+				{isLoading ? 'Loading...' : 'Send'}
+			</button>
 		</form>
 	);
 };

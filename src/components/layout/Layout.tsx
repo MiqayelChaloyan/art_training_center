@@ -6,6 +6,8 @@ import Modal from '@/components/layout/Modal/';
 import Header from './Header';
 import Footer from './Footer';
 
+import CoursesModal from '../courses';
+
 interface LayoutProps {
 	children: React.ReactNode
 	headerPosition?: 'fixed' | 'sticky'
@@ -22,9 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 				<Footer />
 			</div>
 			<Modal>
-				<div>
-					<p style={{textAlign: 'center'}}>testing</p>
-				</div>
+				<CoursesModal />
 			</Modal>
 		</Meta>
 	);

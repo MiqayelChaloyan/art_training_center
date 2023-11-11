@@ -6,7 +6,6 @@ import { store } from '@/store/store';
 
 import '@/styles/globals.sass';
 
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>

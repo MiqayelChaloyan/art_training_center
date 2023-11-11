@@ -1,36 +1,49 @@
-
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styles from './SectionCourses.module.sass';
-import cn from 'classnames';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-import components from '@/utils/PortableTextComponents';
-import { PortableText } from '@portabletext/react';
+import ReactPlayer from 'react-player';
+import Play from '@/components/icons/Play';
+import { generateImageUrl } from '@/utils/imageGenerate';
 
 type SectionCoursesProps = {
     data: HomeContent[];
-}
+};
 
 const SectionCourses: FC<SectionCoursesProps> = ({ data }) => {
-    // const { aboutUsTitle: title, aboutUsContent } = data[0];
+    const [video, setVideo] = useState<any>(null);
+    const { cooking_courses_video_light, cooking_courses_video_url: url } = data[0];
+    const lightUrl = generateImageUrl(cooking_courses_video_light.asset._ref);
 
-    // console.log(aboutUsContent)
+    useEffect(() => {
+        setVideo(<ReactPlayer
+            url={url}
+            controls={true}
+            width="100%"
+            height="100%"
+            muted={true}
+            light={lightUrl}
+            playing={true}
+            playIcon={
+                <Play
+                    width='104'
+                    height='104'
+                    fill='white'
+                />}
+        />);
+    }, []);
 
     return (
-        <div id='courses' style={{ bottom: '100px', position: 'relative', background: '#E3E1E1' }}>
+        <div id='courses' className={styles.video_box}>
             <div className={styles.skew} />
+            <h1 className={styles.title}>COOKING COURSES</h1>
             <div className={styles.courses}>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book. It has survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially unchanged. It was popularised in
-                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+                <div className={styles.videoPlayer}>
+                    {video}
+                </div>
             </div>
         </div>
     );
 };
 
 export default SectionCourses;
+

@@ -16,12 +16,6 @@ export const courses_names = {
             },
             validation: (Rule: any) => Rule.required(),
         },
-        {
-            title: 'Publish Date',
-            name: 'publishDate',
-            type: 'date',
-            validation: (Rule: any) => Rule.required(),
-        },
     ],
 };
 

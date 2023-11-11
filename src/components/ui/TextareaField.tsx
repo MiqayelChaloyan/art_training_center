@@ -10,17 +10,13 @@ interface InputProps {
 }
 
 const TextareaField: FC<InputProps> = ({ className, name, placeholder, requiredField, value, onChange }) => {
-	const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-		onChange(event.target.value);
-	};
-
 	return (
 		<textarea
 			name={name}
 			className={className}
 			placeholder={placeholder}
 			value={value}
-			onChange={handleInputChange}
+			onChange={(e) => onChange(e as any)}
 			required={requiredField}
 		/>
 	);

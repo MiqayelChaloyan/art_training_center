@@ -12,11 +12,24 @@ import Button from '@/components/ui/Button';
 import { PortableText } from '@portabletext/react';
 import components from '@/utils/PortableTextComponents';
 
+import { useRouter } from 'next/router';
+
+
 type MainProps = {
     data: HomeContent[];
-}
+};
 
 const SliderMain: FC<MainProps> = ({ data }) => {
+
+    const router = useRouter();
+
+    async function navigate() {
+        // router.push({
+        //     pathname: '/',
+        //     hash: 'footer',
+        // }, undefined, { scroll: true });
+        console.log('scroll');
+    };
 
     const settings = {
         // dots: true,
@@ -42,7 +55,7 @@ const SliderMain: FC<MainProps> = ({ data }) => {
                     <Button
                         className={styles.contact_btn}
                         text='Contact Us'
-                        onClick={() => console.log('click')}
+                        onClick={navigate}
                     />
                 </div>
             </div>

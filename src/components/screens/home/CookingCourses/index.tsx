@@ -11,45 +11,41 @@ import styles from './CookingCourses.module.sass';
 
 type SectionCoursesProps = {
     data: HomeContent[];
-}
+};
 
-// const Course = (data: { newsSection: any; }[]) => {
-//     return (
-//         data[0].newsSection.map(item => (
-//             <div key={item.subtitle} className={styles.course}>
-//                 <div className={styles.content}>
-//                     <h3>{item.subtitle}</h3>
-//                     <PortableText value={item.content} components={components} />
-
-//                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-//                         <p style={{ textDecoration: 'underline' }}>View more</p>
-//                         <button className={styles.button}>Contact Us</button>
-//                     </div>
-//                 </div>
-//                 <div className={styles.images}>
-//                     <img src={generateImageUrl(item.newsImageOne.asset._ref)} alt={item.newsImageOne.alt} className={styles.image} />
-//                     <img src={generateImageUrl(item.newsImageTwo.asset._ref)} alt={item.newsImageTwo.alt} className={styles.image} />
-//                 </div>
-//             </div>
-//         ))
-//     );
-// };
+const Course = (data: any[]) => {
+    return (
+        data.map(item => (
+            <div key={item.subtitle} className={styles.course}>
+                <div className={styles.content}>
+                    <h3 style={{ fontFamily: 'sans-serif' }}>{item.subtitle}</h3>
+                    <PortableText value={item.content} components={components} />
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <p style={{ textDecoration: 'underline', fontFamily: 'sans-serif' }}>View more</p>
+                        <button className={styles.button}>Contact Us</button>
+                    </div>
+                </div>
+                <div className={styles.images}>
+                    <img src={generateImageUrl(item.news_image_one.asset._ref)} alt={item.news_image_one.alt} className={styles.image} />
+                    <img src={generateImageUrl(item.news_image_two.asset._ref)} alt={item.news_image_two.alt} className={styles.image} />
+                </div>
+            </div>
+        ))
+    );
+};
 
 const CookingCourses: FC<SectionCoursesProps> = ({ data }) => {
+
+    if (!data[0].news_section) {
+        return null;
+    };
+
     return (
         <div id='courses' className={styles.courses}>
             <div className={styles.skew} />
-
-            <h1 style={{
-                textAlign: 'center',
-                position: 'absolute',
-                margin: '0 auto',
-                width: '27.7%',
-                top: '57px'
-            }}>News</h1>
-
+            <h1 className={styles.title}>News</h1>
             <div className={styles.cooking_courses}>
-                {/* {Course(data)} */}
+                {Course(data[0].news_section)}
             </div>
         </div>
     );
