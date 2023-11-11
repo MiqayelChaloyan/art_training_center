@@ -11,12 +11,12 @@ type SectionCoursesProps = {
 
 const SectionCourses: FC<SectionCoursesProps> = ({ data }) => {
     const [video, setVideo] = useState<any>(null);
-    const { cooking_courses_video_light, cooking_courses_video_url: url } = data[0];
+    const { cooking_courses_video_light, cooking_courses_video_url: link } = data[0];
     const lightUrl = generateImageUrl(cooking_courses_video_light.asset._ref);
 
     useEffect(() => {
         setVideo(<ReactPlayer
-            url={url}
+            url={link}
             controls={true}
             width="100%"
             height="100%"

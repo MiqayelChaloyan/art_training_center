@@ -14,7 +14,7 @@ export interface HomeContent {
         }];
     }],
     cooking_courses_video_url: string;
-    cooking_courses_video_light: string;
+    cooking_courses_video_light: any;
     news_section: [{
         content: any; subtitle: string
     }, { content: [{ children: [{ text: string }] }] }];
