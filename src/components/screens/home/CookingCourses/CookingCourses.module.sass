@@ -18,12 +18,12 @@
       content: ''
       right: 0
     @media screen and ( max-width: 991px )
-      height: 0
+      height: 50px
       background: #313131
-      width: 100%
+      width: 35%
       &:after 
         height: 57px
-        width: 100%
+        width: 110%
         background: #E3E1E1
 
 .cooking_courses
@@ -34,7 +34,10 @@
     @media screen and (max-device-width: 1600px) 
       padding: 68px
     @media screen and ( max-width: 991px )
-      padding-top: 61px
+      padding-top: 0
+      padding: 44px
+    @media screen and ( max-width: 767px )
+      padding-top: 60px
 
 .button
    display: flex
@@ -49,9 +52,13 @@
    padding: 12px 30px
    background: #C62020
    margin: 10px auto
+   @media screen and ( max-width: 991px )
+     width: 60%
+     font-size: 16px
+     padding: 8px 16px
    @media screen and ( max-width: 767px )
-   font-size: 16px
-   padding: 8px 16px
+     font-size: 16px
+     padding: 8px 16px
 
 .course
    padding: 0 0 60px 67px
@@ -65,7 +72,9 @@
      display: flex
      padding: 0
    @media screen and ( max-width: 991px )
-     display: block
+     display: flex
+     top: 0
+     height: 396px
    @media screen and ( max-width: 767px )
      display: block
 
@@ -76,9 +85,11 @@
    @media screen and (max-width: 1200px )
      width: 60%
    @media screen and ( max-width: 991px )
-     width: 60%
-     text-align: center
+     width: 55%
+     text-align: left
      margin: 0 auto
+     p
+       font-size: 14px
    @media screen and ( max-width: 767px )
      width: 100%
      text-align: center
@@ -95,8 +106,8 @@
    @media screen and (max-device-width: 1600px) 
      right: 0
    @media screen and ( max-width: 991px )
-     bottom: 0
-     right: 0
+     bottom: 144px
+     left: 25px
      display: flex
      justify-content: center
    @media screen and ( max-width: 767px )
@@ -115,8 +126,8 @@
       height: 230px
       margin: 20px
    @media screen and ( max-width: 991px )
-      width: 200px
-      height: 230px
+      width: 372px
+      height: 270px
       margin: 20px
    @media screen and ( max-width: 767px )
       width: 200px
@@ -131,4 +142,5 @@
     top: 60px
     font-family: sans-serif
     @media screen and ( max-width: 991px )
-       width: 100%
+       width: 22%
+       top: 6px

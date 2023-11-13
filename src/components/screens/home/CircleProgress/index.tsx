@@ -6,7 +6,7 @@ const CircleProgress = () => {
     return (
         <div id='circleProgress' style={{
             backgroundColor: '#1A1715',
-            height: '500px',
+            height: '474px',
             bottom: '82px',
             position: 'relative'
         }}>
