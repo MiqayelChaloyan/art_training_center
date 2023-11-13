@@ -1,9 +1,9 @@
 import { SchemaTypeDefinition } from 'sanity';
 
-import courses_names from './project-schema/courses-names-schema';
 import home_content from './project-schema/home-schema';
+import courses from './project-schema/courses-schema';
 
-export const schemaTypes = [courses_names, home_content];
+export const schemaTypes = [home_content, courses];
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: schemaTypes,
 };

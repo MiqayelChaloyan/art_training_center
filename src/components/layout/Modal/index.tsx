@@ -6,6 +6,7 @@ import cn from 'classnames';
 import { useAppSelector, useAppDispatch } from '@/hooks/useStore';
 import { closeModal } from '@/store/stateModalSlice';
 
+import Cancel from '@/components/icons/Cancel';
 
 interface Props {
 	children: React.ReactElement
@@ -44,7 +45,11 @@ const SectionCareerServices: React.FC<Props> = ({ children }) => {
 							setShowModal(false);
 							setTimeout(() => dispatch(closeModal()), 500);
 						}}>
-						X
+						<Cancel
+							width='104'
+							height='104'
+							fill='white'
+						/>
 					</button>
 					{React.cloneElement(children)}
 				</div>

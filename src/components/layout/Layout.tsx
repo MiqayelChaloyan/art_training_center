@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Meta from '@/components/seo/Meta';
 import Modal from '@/components/layout/Modal/';
@@ -7,6 +7,8 @@ import Header from './Header';
 import Footer from './Footer';
 
 import CoursesModal from '../courses';
+import { getCourses } from '../../../sanity/services/courses.service';
+import { Courses } from '../../../sanity/sanity-queries/courses';
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -14,6 +16,17 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
+	const [courses, setCourses] = useState<Courses[]>([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const data = await getCourses();
+			setCourses(data);
+		};
+
+		fetchData();
+	}, []);
+
 	return (
 		<Meta>
 			<div className="wrapper">
@@ -24,7 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 				<Footer />
 			</div>
 			<Modal>
-				<CoursesModal />
+				<CoursesModal courses={courses} />
 			</Modal>
 		</Meta>
 	);

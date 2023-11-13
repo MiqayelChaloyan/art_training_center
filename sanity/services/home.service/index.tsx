@@ -6,7 +6,7 @@ export const getHomeData = async (): Promise<HomeContent[]> => {
     const query = groq`*[_type == "home_content"] ${homeContentQuery}`;
 
     try {
-        const data = client.fetch(query);
+        const data = await client.fetch(query);
         return data;
     } catch (err) {
         throw err;

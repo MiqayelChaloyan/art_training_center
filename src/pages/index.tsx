@@ -9,12 +9,13 @@ type HomePageProps = {
 }
 
 const HomePage: FC<HomePageProps> = ({ data, isError }) => {
-  return (<Home data={data} isError={isError} />);
+  return (<Home data={data} isError={isError}/>);
 };
 
 export const getServerSideProps = async () => {
   try {
     const data = await getHomeData();
+
     return {
       props: {
         data,

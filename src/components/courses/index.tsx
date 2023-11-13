@@ -1,43 +1,46 @@
 import { FC, memo } from 'react';
-// import { Courses_Names } from '../../../sanity/sanity-queries/courses-names';
-// import { getCoursesNames } from '../../../sanity/services/courses-names.service';
 
+import styles from './style.module.sass';
+import Link from 'next/link';
+import { Courses } from '../../../sanity/sanity-queries/courses';
 
+type CoursesModalProps = {
+    courses: Courses[];
+}
 
-const CoursesModal = () => {
-    // console.log(data);
+const chunkSize = 4;
 
-    // const func = async () => {
-    //     const data = await getCoursesNames();
-    //     console.log(data);
-    // }
-    // func()
+const chunkArray = (arr: any, size: number) => {
+    return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+        arr.slice(i * size, i * size + size)
+    );
+};
+
+const CoursesModal: FC<CoursesModalProps> = ({ courses }) => {
+    const data = chunkArray(courses, chunkSize);
+
+    if (!courses) {
+        return null;
+    }
+
+    const coursesList = data.map((innerArray) => (
+        <div key={innerArray[0]._id} className={styles.courses}>
+            {innerArray.map((course: Courses) => (
+                <Link href={`/courses/${course.slug}`} aria-label='/' key={course._id} className={styles.link}>
+                    <p className={styles.course}>{course.name} </p>
+                </Link>
+            ))}
+        </div>
+    ));
+
     return (
-        <div>
-            <div>
-                <p style={{ textAlign: 'center' }}>Courses</p>
+        <div className={styles.courses_container}>
+            <p className={styles.title}>Courses</p>
+            <div className={styles.list}>
+                {coursesList}
             </div>
         </div>
     );
 };
-
-// export async function getServerSideProps() {
-//     try {
-//         const data = await getCoursesNames();
-//         return {
-//             props: {
-//                 data,
-//                 isError: false,
-//             },
-//         };
-//     } catch (error) {
-//         return {
-//             props: {
-//                 data: [],
-//                 isError: true,
-//             },
-//         };
-//     }
-//   }
 
 export default memo(CoursesModal);
