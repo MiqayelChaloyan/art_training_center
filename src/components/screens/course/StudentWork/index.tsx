@@ -1,31 +1,60 @@
 
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styles from './StudentWork.module.sass';
+import { generateImageUrl } from '@/utils/imageGenerate';
+import Button from '@/components/ui/Button';
 
 type StudentWorkProps = {
     course: any;
 }
 
-const group = {
-    ['margin']: '0'
-};
+// import ArrowUp from '../../../icons/ArrowUp';
 
 const StudentWork: FC<StudentWorkProps> = ({ course }) => {
-    // const { about_us_title, about_us_content } = course as any;    
-    
+    const [initialLoadCourses, setInitialLoadCourses] = useState<number>(8);
+
+    useEffect(() => setInitialLoadCourses(8), [course]);
+
+    const images = course.student_work_section[0].images.slice(0, initialLoadCourses).map((item: any) => (
+        <div key={item._key} className={styles.img_block}>
+            <img src={generateImageUrl(item.asset._ref)} alt={item.alt} className={styles.work_img} />
+        </div>
+    ));
+
+    const handleLoad = () => setInitialLoadCourses(initialLoadCourses + 4);
+
     return (
         <div id='about-us' className={styles.contain}>
             <div className={styles.skew} />
             <h1 className={styles.title}>Student Work</h1>
-            <div className={styles.about_us}>
-                {/* <div className={styles.box}>
-                    <PortableText value={about_us_content[0] as any} components={components} />
+            <div className={styles.block}>
+                <div className={styles.images_block}>
+                    {images}
                 </div>
-                <div className={styles.box}>
-                    <FormAppointment width='50%'>
-                        <HeaderForm display='flex' color='black' justifyContent='space-around' title='Contact Us' fill='#111111' fontSize='28px' group={group}/>
-                    </FormAppointment>
-                </div> */}
+
+                {initialLoadCourses <= course.student_work_section[0].images.length && (
+                    <div className={styles.buttons}>
+                        <div className={styles.btn_group}>
+                            <Button
+                                className={styles.view_btn}
+                                text='View more'
+                                onClick={handleLoad}
+                            />
+                        </div>
+                        <div className={styles.btn_group}>
+                            <Button
+                                className={styles.contact_btn}
+                                text='Contact Us'
+                                onClick={() => console.log('click')}
+                            />
+                        </div>
+                        {/* <ArrowUp
+                            width='23'
+                            height='23'
+                            fill='red'
+                        /> */}
+                    </div>
+                )}
             </div>
         </div>
     );

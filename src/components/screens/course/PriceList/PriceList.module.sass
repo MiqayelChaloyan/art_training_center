@@ -1,31 +1,43 @@
-.contain
-    bottom: 66px
-    position: relative
-    @media screen and ( max-width: 991px )
-       bottom: 10px
-    @media screen and ( max-width: 767px )
-       bottom: 10px
+
 
 .about_us
-   display: flex
-   justify-content: space-around
-   align-items: baseline
-   background: #E3E1E1
-   height: 385px
+   display: grid
+   justify-content: center
+   align-items: center
+   background: black
+   height: 400px
+   margin-bottom: 40px
    @media screen and (max-device-width: 1600px) 
        padding: 0
+       td
+          width: 270px !important
    @media screen and (max-device-width: 1200px) 
        padding: 0
+       td
+          width: 233px !important
    @media screen and ( max-width: 991px )
        display: block
        text-align: center
        padding-top: 85px
-       height: 760px
+       height: max-content
+       td
+          padding: 9px !important
+          width: 136px !important
+          font-size: 12px !important
    @media screen and ( max-width: 767px )
        display: block
        text-align: center
-       height: 845px
-
+       height: max-content
+       td
+          padding: 9px !important
+          width: 100px !important
+          font-size: 10px !important
+   td 
+      border: 1px solid lightgray
+      padding: 20px
+      width: 365px
+      color: white
+      text-align: center
    h2
       font-family: sans-serif
       font-size: 24px
@@ -72,43 +84,14 @@
       top: -35px 
       right: -25px
 
-.skew 
-    display: block
-    height: 57px
-    width: 50%
-    position: relative
-    transform: skew(44deg)
-    &:after 
-      height: 57px
-      width: 110%
-      background: #E3E1E1
-      margin: 0 auto
-      position: absolute
-      content: ''
-      right: 0
-    @media screen and (max-device-width: 1600px) 
-      height: 50px
-      &:after 
-        height: 70px
-    @media screen and (max-device-width: 1200px) 
-      height: 50px
-      &:after 
-        height: 60px
-    @media screen and ( max-width: 991px )
-      height: 0
-      background: #E3E1E1
-      width: 100%
-      &:after 
-        height: 55px
-        width: 100%
-        background: #E3E1E1
-
 .title
     font-family: sans-serif
     text-align: center
-    position: absolute
-    margin: 0 auto
-    width: 40%
-    top: 15px
+    color: white
     @media screen and ( max-width: 991px )
        width: 100%
+
+.table
+    display: flex
+    justify-content: center
+    flex-wrap: wrap

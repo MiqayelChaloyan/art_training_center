@@ -31,6 +31,7 @@ export const CoursesQuery = `{
     about_us_content,
     course_process_video_url,
     course_process_video_light,
+    price_list,
     student_work_section,
     _type,
     _updatedAt,

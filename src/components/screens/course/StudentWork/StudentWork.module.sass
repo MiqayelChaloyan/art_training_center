@@ -1,30 +1,50 @@
 .contain
-    bottom: 66px
+    bottom: 75px
     position: relative
+    background-color: #313131
+    @media screen and (max-device-width: 1600px) 
+       bottom: 85px
+    @media screen and (max-device-width: 1200px) 
+       bottom: 77px
     @media screen and ( max-width: 991px )
-       bottom: 10px
+       bottom: 76px
     @media screen and ( max-width: 767px )
-       bottom: 10px
+       bottom: 77px
 
-.about_us
+.block
+    background-color: #E3E1E1
+    padding: 82px 0 0 147px
+    padding-bottom: 35px
+    @media screen and (max-device-width: 1600px) 
+       padding: 82px 0 0 87px
+    @media screen and ( max-width: 991px )
+       padding: 0
+       padding-top: 120px
+    @media screen and ( max-width: 767px )
+       padding: 0
+       padding-top: 90px
+  
+.images_block
    display: flex
-   justify-content: space-around
-   align-items: baseline
+   flex-wrap: wrap
+   margin: 0 auto
+   width: 85%
    background: #E3E1E1
-   height: 385px
    @media screen and (max-device-width: 1600px) 
        padding: 0
+       width: 100%
    @media screen and (max-device-width: 1200px) 
        padding: 0
    @media screen and ( max-width: 991px )
-       display: block
-       text-align: center
-       padding-top: 85px
-       height: 760px
+       display: flex
+       justify-content: center
+       flex-wrap: wrap
+       height: max-content
    @media screen and ( max-width: 767px )
-       display: block
-       text-align: center
-       height: 888px
+       display: flex
+       justify-content: center
+       flex-wrap: wrap
+       height: max-content
 
    h2
       font-family: sans-serif
@@ -86,6 +106,9 @@
       position: absolute
       content: ''
       right: 0
+    @media screen and (max-device-width: 1600px) 
+      &:after 
+        height: 98px
     @media screen and ( max-width: 991px )
       height: 0
       background: #E3E1E1
@@ -103,4 +126,77 @@
     width: 40%
     top: 15px
     @media screen and ( max-width: 991px )
+       width: 100%
+       top: 15px
+
+.view_btn
+    color: black
+    text-decoration: underline
+    @media screen and ( max-width: 767px )
+        font-size: 18px
+        padding: 8px 20px
+        width: 100%
+
+.contact_btn
+    font-family: sans-serif
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 48px
+    color: white
+    font-weight: 500
+    text-align: center
+    border-radius: 50px
+    padding: 12px 30px
+    background-color: #C62020
+    margin: 10px auto
+    font-size: 27px
+    @media screen and ( max-width: 767px )
+        font-size: 18px
+        padding: 8px 20px
+        width: 100%
+        height: 55px
+
+.buttons
+    display: flex
+    justify-content: center
+    margin: 0 auto
+    width: 30%
+    align-items: center
+    padding-bottom: 20px
+    @media screen and (max-device-width: 1600px) 
+       width: 48%
+    @media screen and (max-device-width: 1200px) 
+       width: 40%
+    @media screen and ( max-width: 991px )
+       width: 60%
+    @media screen and ( max-width: 767px )
+       display: grid
+       width: 100%
+
+.work_img
+    width: 290px
+    height: 369px
+    @media screen and (max-device-width: 1600px) 
+        width: 220px
+        height: 284px  
+    @media screen and (max-device-width: 1200px) 
+        width: 214px
+        height: 304px  
+    @media screen and ( max-width: 991px )
+        width: 175px
+        height: 250px  
+    @media screen and ( max-width: 767px )
+        width: 164px
+        height: 250px   
+
+.img_block
+    margin: 20px
+    @media screen and ( max-width: 767px )
+        margin: 5px
+
+.btn_group
+    width: 50%
+    @media screen and ( max-width: 767px )
        width: 100%

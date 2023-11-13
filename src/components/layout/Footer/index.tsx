@@ -20,7 +20,7 @@ const Footer = () => {
     return (
         <footer  id='footer' className={styles.footer}>
             <div>
-                <div style={{ backgroundColor: 'red', height: '400px', width: '80%', margin: '0 auto' }}>
+                <div style={{ backgroundColor: 'red', height: '200px', width: '80%', margin: '0 auto' }}>
                     {/* <GoogleMap /> */}
                 </div>
                 <div className={styles.box}>

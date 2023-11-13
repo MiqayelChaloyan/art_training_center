@@ -53,11 +53,6 @@ const SliderMain: FC<MainProps> = ({ course }) => {
                 <div className={styles.contact}>
                     <h1 className={styles.title}>{item.subtitle}</h1>
                     <PortableText value={item?.content} components={components} />
-                    <Button
-                        className={styles.contact_btn}
-                        text='Contact Us'
-                        onClick={() => console.log('click')}
-                    />
                 </div>
             </div>
         </div>

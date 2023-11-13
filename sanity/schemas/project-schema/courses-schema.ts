@@ -204,47 +204,79 @@ export const courses = {
                             type: 'array',
                             title: 'Images',
                             of: [
-                              {
-                                name: 'image',
-                                type: 'image',
-                                title: 'Image',
-                                options: {
-                                  hotspot: true,
+                                {
+                                    name: 'image',
+                                    type: 'image',
+                                    title: 'Image',
+                                    options: {
+                                        hotspot: true,
+                                    },
+                                    fields: [
+                                        {
+                                            name: 'alt',
+                                            type: 'string',
+                                            title: 'Alternative text',
+                                        },
+                                    ],
                                 },
-                                fields: [
-                                  {
-                                    name: 'alt',
-                                    type: 'string',
-                                    title: 'Alternative text',
-                                  },
-                                ],
-                              },
                             ],
                             options: {
-                              layout: 'grid',
+                                layout: 'grid',
                             },
-                          },
+                        },
                     ]
                 })
             ]
         },
-        // {
-        //     name: 'price_list',
-        //     type: 'array',
-        //     title: 'Price list',
-        //     of: [
-        //         defineArrayMember({
-        //             type: 'object',
-        //             name: 'tag',
-        //             fields: [
-        //                 { type: 'string', name: 'title', title: 'Course Title' },
-        //                 { type: 'string', name: 'amount', title: 'Course Amount' },
-        //                 { type: 'string', name: 'duration', title: 'Course Duration of the course' },
-
-        //             ]
-        //         })
-        //     ]
-        // },
+        {
+            name: 'price_list',
+            type: 'array',
+            title: 'Price list',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'tag',
+                    fields: [
+                        { type: 'string', name: 'title', title: 'Course Title' },
+                        {
+                            title: 'Course Amount',
+                            name: 'amount',
+                            type: 'number',
+                            initialValue: 0,
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                        {
+                            title: 'Start date',
+                            name: 'startDate',
+                            type: 'date',
+                            options: {
+                                dateFormat: 'YYYY-MM-DD',
+                                calendarTodayLabel: 'Today'
+                            },
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                        {
+                            title: 'End date',
+                            name: 'endDate',
+                            type: 'date',
+                            options: {
+                                dateFormat: 'YYYY-MM-DD',
+                                calendarTodayLabel: 'Today'
+                            },
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                        {
+                            name: 'duration',
+                            type: 'number',
+                            title: 'Duration of the course',
+                            initialValue: 0,
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                    ]
+                })
+            ],
+            validation: (Rule: any) => Rule.required(),
+        },
     ],
 };
 
