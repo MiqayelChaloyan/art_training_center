@@ -39,7 +39,7 @@ const Course = (data: any[]) => {
                     <div className={styles.content}>
                         <h3 style={{ fontFamily: 'sans-serif' }}>{item.subtitle}</h3>
                         {/* <PortableText value={item.content} components={components} /> */}
-                        <p>{handleLoad(result)}</p>
+                        <p>{result}</p>
                         <div className={styles.buttons_group}>
                             {/* <p style={{ textDecoration: 'underline', fontFamily: 'sans-serif' }}>View more</p> */}
                             <Button

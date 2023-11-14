@@ -29,7 +29,7 @@ const Home: FC<HomePageProps> = ({ data, isError }) => {
 			<CookingCourses data={data}/>
 			<CircleProgress/>
 			<Specialists data={data}/>
-			<OurRating/>
+			<OurRating data={data}/>
 		</Layout>
 	);
 };

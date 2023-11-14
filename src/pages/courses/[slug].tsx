@@ -33,7 +33,7 @@ const Course = ({ course, isError }: CourseProps) => {
                             alt: course.course_main[0].course_section_image.alt,
                         },
                     ],
-                    siteName: 'ART | HOUSE',
+                    siteName: 'ART Training Center',
                     type: 'website',
                     locale: 'en'
                 }}

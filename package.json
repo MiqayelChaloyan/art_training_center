@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.2",
     "@next/font": "^14.0.1",
     "@portabletext/react": "^3.0.7",
     "@reduxjs/toolkit": "^1.9.5",

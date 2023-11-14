@@ -19,6 +19,7 @@ export interface HomeContent {
         content: any; subtitle: string
     }, { content: [{ children: [{ text: string }] }] }];
     specialists_section: any
+    our_rating_section: any
 }
 
 export const homeContentQuery = `{
@@ -30,4 +31,5 @@ export const homeContentQuery = `{
     cooking_courses_video_light,
     news_section,
     specialists_section,
+    our_rating_section,
 }`;

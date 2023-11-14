@@ -310,29 +310,122 @@ export const home_content = {
                                             type: 'array',
                                             title: 'Images',
                                             of: [
-                                              {
-                                                name: 'image',
-                                                type: 'image',
-                                                title: 'Image',
-                                                options: {
-                                                  hotspot: true,
+                                                {
+                                                    name: 'image',
+                                                    type: 'image',
+                                                    title: 'Image',
+                                                    options: {
+                                                        hotspot: true,
+                                                    },
+                                                    fields: [
+                                                        {
+                                                            name: 'alt',
+                                                            type: 'string',
+                                                            title: 'Alternative text',
+                                                        },
+                                                    ],
                                                 },
-                                                fields: [
-                                                  {
-                                                    name: 'alt',
-                                                    type: 'string',
-                                                    title: 'Alternative text',
-                                                  },
-                                                ],
-                                              },
                                             ],
                                             options: {
-                                              layout: 'grid',
+                                                layout: 'grid',
                                             },
-                                          },
+                                        },
                                     ]
                                 })
                             ]
+                        }
+                    ]
+                })
+            ]
+        },
+        {
+            name: 'our_rating_section',
+            type: 'array',
+            title: 'Our Rating Sections (No less than three, and no more, only you can modify them)*',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'tag',
+                    fields: [
+                        {
+                            name: 'our_rating_section_image',
+                            title: 'Our Rating Section Background Image',
+                            type: 'image',
+                            options: { hotspot: true },
+                            fields: [
+
+                                {
+                                    name: 'alt',
+                                    title: 'Alt',
+                                    type: 'string'
+                                }
+                            ]
+                        },
+                        { type: 'string', name: 'user_name', title: 'User Name' },
+                        {
+                            name: 'user_image',
+                            title: 'User Image',
+                            type: 'image',
+                            options: { hotspot: true },
+                            fields: [
+
+                                {
+                                    name: 'alt',
+                                    title: 'Alt',
+                                    type: 'string'
+                                }
+                            ]
+                        },
+                        {
+                            name: 'user_feedback',
+                            type: 'array',
+                            title: 'User Feedback',
+                            of: [
+                                {
+                                    type: 'block',
+                                    lists: [
+                                        { title: 'Bullet', value: 'bullet' },
+                                        { title: 'Numbered', value: 'number' }
+                                    ],
+                                    styles,
+                                    marks: {
+                                        annotations: [
+                                            {
+                                                name: 'internalLink',
+                                                type: 'object',
+                                                title: 'Internal link',
+                                                fields: [
+                                                    {
+                                                        name: 'href',
+                                                        type: 'url',
+                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
+                                                            Rule.uri({
+                                                                allowRelative: false,
+                                                                scheme: ['http', 'https', 'mailto', 'tel'],
+                                                            }),
+                                                    },
+                                                ]
+                                            },
+                                            {
+                                                name: 'link',
+                                                type: 'object',
+                                                title: 'Link',
+                                                fields: [
+                                                    {
+                                                        name: 'href',
+                                                        type: 'url',
+                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
+                                                            Rule.uri({
+                                                                allowRelative: false,
+                                                                scheme: ['http', 'https', 'mailto', 'tel'],
+                                                            }),
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                            ],
                         }
                     ]
                 })

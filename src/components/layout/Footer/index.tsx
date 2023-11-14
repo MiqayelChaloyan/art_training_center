@@ -6,22 +6,21 @@ import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
 import Link from 'next/link';
 import logo from '../../../../public/images/Mask.png';
 import Image from 'next/image';
-import GoogleMap from '@/components/ui/Map';
+import Map from '@/components/ui/Map';
 
 
 const group = {
     ['margin']: '0 auto'
 };
 
-
-
 const Footer = () => {
 
     return (
         <footer  id='footer' className={styles.footer}>
             <div>
-                <div style={{ backgroundColor: 'red', height: '200px', width: '80%', margin: '0 auto' }}>
-                    {/* <GoogleMap /> */}
+                <div className={styles.google_map}>
+                    <Map  width={'100%'} height={'100%'}/>
+                    <p className={styles.address}>Adress: Yerevan, Armenia</p>
                 </div>
                 <div className={styles.box}>
                     <FormAppointment width='30%'>
