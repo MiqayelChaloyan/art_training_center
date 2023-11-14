@@ -15,12 +15,8 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.module.rules.push({
-      test: /\.my-file$/i,
-      loader: "raw-loader",
-    });
-
+  webpack(config) {
+    config.infrastructureLogging = { debug: /PackFileCache/ }
     return config;
   },
   compiler: {

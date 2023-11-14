@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -20,19 +20,42 @@ type MainProps = {
 };
 
 const SliderMain: FC<MainProps> = ({ data }) => {
+    // const router = useRouter();
+    const sliderRef = useRef(null);
+    // const [isFirstSlide, setIsFirstSlide] = useState<boolean>(true);
+    // const [isLastSlide, setIsLastSlide] = useState<boolean>(false);
+    // const [slideCount, setSlideCount] = useState<number>(0);
 
-    const router = useRouter();
+    // useEffect(() => {
+    //     const slider = sliderRef.current;
+    // 	const slideCount = slider && slider.innerSlider.state.slideCount;
+    // 	setSlideCount(slideCount);
+    // 	setIsFirstSlide(slider && slider.innerSlider.state.currentSlide === 0);
+    // 	setIsLastSlide(slider && slider.innerSlider.state.currentSlide === slider.innerSlider.state.slideCount - 1);
+    // }, []);
 
-    async function navigate() {
-        // router.push({
-        //     pathname: '/',
-        //     hash: 'footer',
-        // }, undefined, { scroll: true });
-        console.log('scroll');
-    };
-
-    const settings = {
-        // dots: true,
+    const settingsSlider = {
+        // slidesToShow: 1,
+        // slidesToScroll: 1,
+        // arrows: false,
+        // dots: false,
+        // infinite: false,
+        // speed: 2500,
+        // autoplay: true,
+        // autoplaySpeed: 2500,
+        // beforeChange: (_: any, nextSlide: number) => {
+        // 	setIsFirstSlide(nextSlide === 0);
+        // 	setIsLastSlide(nextSlide === settingsSlider.slidesToShow - 1);
+        // },
+        // responsive: [
+        // 	{
+        // 		breakpoint: 991,
+        // 		// settings: {
+        // 		// 	slidesToShow: 1,
+        // 		// }
+        // 	}
+        // ]
+        dots: true,
         infinite: true,
         speed: 2500,
         slidesToShow: 1,
@@ -55,7 +78,7 @@ const SliderMain: FC<MainProps> = ({ data }) => {
                     <Button
                         className={styles.contact_btn}
                         text='Contact Us'
-                        onClick={navigate}
+                        onClick={() => console.log('click')}
                     />
                 </div>
             </div>
@@ -65,7 +88,7 @@ const SliderMain: FC<MainProps> = ({ data }) => {
     return (
         <div className={styles.section}>
             <div className={styles.wrap}>
-                <Slider {...settings}>
+                <Slider {...settingsSlider} ref={sliderRef}>
                     {slidesItems}
                 </Slider>
             </div>

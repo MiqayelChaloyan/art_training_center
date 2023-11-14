@@ -3,7 +3,7 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import { generateImageUrl } from '@/utils/imageGenerate';
 import Search from '@/components/icons/Search';
 import Star from '@/components/icons/Star';
-import styles from './OUurRating.module.sass';
+import styles from './OurRating.module.sass';
 
 type OurRatingProps = {
     data: HomeContent[];
@@ -43,18 +43,18 @@ const OurRating: FC<OurRatingProps> = ({ data }) => {
                         </div>
                         <div className={styles.header_description_container}>
                             <p className={styles.user_name}>{item.user_name}</p>
-                           <div className={styles.rating}>
-                           {
-                                [true, true, true, true, false].map((star, index) => (
-                                    <Star
-                                        width='20'
-                                        height='20'
-                                        fill={star ? 'black' : 'white'}
-                                        key={index}
-                                    />
-                                ))
-                            }
-                           </div>
+                            <div className={styles.rating}>
+                                {
+                                    [true, true, true, true, false].map((star, index) => (
+                                        <Star
+                                            width='20'
+                                            height='20'
+                                            fill={star ? 'black' : 'white'}
+                                            key={index}
+                                        />
+                                    ))
+                                }
+                            </div>
                             <p className={styles.content}>{result.slice(0, 120)}...</p>
                         </div>
                     </div>
@@ -64,10 +64,12 @@ const OurRating: FC<OurRatingProps> = ({ data }) => {
     });
 
     return (
-        <div id='circleProgress' className={styles.container}>
+        <div id='feedbacks' className={styles.container}>
             <h1 className={styles.title}>OUR RATING</h1>
-            <div className={styles.row}>
-                {feedbacks}
+            <div className={styles.feedbacks}>
+                <div className={styles.row}>
+                    {feedbacks}
+                </div>
             </div>
         </div>
     );
