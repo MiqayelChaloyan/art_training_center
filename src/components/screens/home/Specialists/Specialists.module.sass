@@ -9,7 +9,7 @@
     @media screen and ( max-width: 991px )
        height: 484px
     @media screen and ( max-width: 767px )
-       height: 1275px
+       height: 1229px
 
 .contain
     width: 100%
@@ -22,6 +22,8 @@
        padding: 0 60px 60px 60px
     @media screen and ( max-width: 991px )
        padding: 34px
+    @media screen and ( max-width: 767px )
+       padding: 36px
 
 .skew 
     display: block
@@ -53,6 +55,14 @@
         height: 41px
         width: 106%
         background: #1A1715
+    @media screen and ( max-width: 767px )
+      height: 57px
+      background: #E3E1E1
+      width: 106%
+      &:after 
+        height: 41px
+        width: 106%
+        background: #E3E1E1
 
 .title
     text-align: end
@@ -71,6 +81,7 @@
        position: relative
        width: 100%
        text-align: center
+       top: 50px
 
 .subtitle  
     text-align: left
@@ -83,6 +94,7 @@
     @media screen and ( max-width: 767px )
        text-align: center
        width: 100%
+       margin-top: 15px
 
 .img 
     display: flex 

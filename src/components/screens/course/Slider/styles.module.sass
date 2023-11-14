@@ -15,6 +15,8 @@
 	width: 100%
 	object-fit: cover
 	filter: brightness(0.5)
+	@media screen and ( max-width: 767px )
+		height: 642px 
 
 .container 
 	margin: 0 auto 
@@ -24,22 +26,19 @@
 
 .title 
 	font-family: sans-serif
-	text-align: start 
+	text-align: center 
 	margin-left: 50px 
 	width: 100% 
 	font-size: 60px 
+	padding: 20px 
 	margin: 0 auto
 	color: white
-	@media screen and ( max-width: 991px )
-		font-size: 40px
-		text-align: center
 	@media screen and ( max-width: 767px )
 		font-size: 40px
-		text-align: center
 
 .description
 	font-family: sans-serif
-	text-align: start 
+	text-align: center 
 	margin: 20px auto 
 	width: 50% 
 	font-size: 25px 
@@ -47,34 +46,46 @@
 
 .slick-track
 	width: 100% 
+ 
+.contact_btn
+	font-family: sans-serif
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 15%
+	height: 70px
+	color: black
+	font-weight: 500
+	text-align: center
+	border-radius: 50px
+	padding: 12px 30px
+	background-color: white
+	margin: 10px auto
+	font-size: 27px
+	@media screen and ( max-width: 991px )
+		width: 21%
+		height: 50px
+	@media screen and ( max-width: 767px )
+		font-size: 18px
+		padding: 8px 20px
+		width: 16%
+		height: 55px
 
 .contact
 	position: absolute
 	top: 40%
 	font-family: sans-serif
-	padding-left: 180px
-	@media screen and ( max-width: 991px )
-		padding-left: 0
-		width: 100%
-	@media screen and ( max-width: 767px )
-		padding-left: 0
 	p
 		color: white
 		width: 100%
 		margin: 0 auto
-		text-align: start
+		text-align: center
 		@media screen and ( max-width: 991px )
-			width: 50%
-			text-align: center
+			width: 100% !important
 		@media screen and ( max-width: 767px )
-			font-size: 25px
-			width: 80%
-			text-align: center
+			font-size: 15px
+			width: 30%
 
 .box
 	display: flex
-	justify-content: flex-start
-	@media screen and ( max-width: 991px )
-		justify-content: center
-	@media screen and ( max-width: 767px )
-		justify-content: center
+	justify-content: center
