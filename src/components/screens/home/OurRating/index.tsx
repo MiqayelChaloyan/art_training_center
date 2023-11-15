@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import { generateImageUrl } from '@/utils/imageGenerate';
 import Search from '@/components/icons/Search';
 import Star from '@/components/icons/Star';
 import styles from './OurRating.module.sass';
+import Slider from 'react-slick';
 
 type OurRatingProps = {
     data: HomeContent[];
@@ -63,12 +64,29 @@ const OurRating: FC<OurRatingProps> = ({ data }) => {
         );
     });
 
+    const settingsSlider = {
+        arrows: false,
+        dots: true,
+        centerMode: true,
+        infinite: true,
+        speed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2500,
+    };
+
     return (
         <div id='feedbacks' className={styles.container}>
             <h1 className={styles.title}>OUR RATING</h1>
             <div className={styles.feedbacks}>
                 <div className={styles.row}>
                     {feedbacks}
+                </div>
+                <div>
+                    <Slider {...settingsSlider} className={styles.slider}>
+                        {feedbacks}
+                    </Slider>
                 </div>
             </div>
         </div>

@@ -11,7 +11,6 @@ import cn from 'classnames';
 import Logo from '@/components/icons/Logo';
 import Button from '@/components/ui/Button';
 
-import { Link as ScrollLink, scroller } from 'react-scroll';
 import InputField from '@/components/ui/InputField';
 
 type IHeaderProps = {
@@ -75,7 +74,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                         <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''}`}>CO-Workers</Link>
                         <Link href='/price_list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''}`}>Price List</Link>
                     </div>
-                    <div>
+                    {/* <div>
                         <InputField
                             className={styles.input}
                             type='name'
@@ -84,7 +83,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                             value={inputNameValue}
                             onChange={inputNameChange}
                         />
-                    </div>
+                    </div> */}
                 </div>
                 <button
                     className={cn(
