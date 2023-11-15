@@ -32,7 +32,7 @@ const StudentWork: FC<StudentWorkProps> = ({ course }) => {
                     {images}
                 </div>
 
-                {initialLoadCourses <= course.student_work_section[0].images.length && (
+                {9 <= course.student_work_section[0].images.length ? (
                     <div className={styles.buttons}>
                         <div className={styles.btn_group}>
                             <Button
@@ -53,6 +53,16 @@ const StudentWork: FC<StudentWorkProps> = ({ course }) => {
                             height='23'
                             fill='red'
                         /> */}
+                    </div>
+                ) : (
+                    <div className={styles.buttons}>
+                        <div className={styles.btn_group}>
+                            <Button
+                                className={styles.contact_btn}
+                                text='Contact Us'
+                                onClick={() => console.log('click')}
+                            />
+                        </div>
                     </div>
                 )}
             </div>
