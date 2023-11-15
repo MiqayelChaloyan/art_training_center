@@ -1,9 +1,18 @@
 import Layout from '@/components/layout/Layout';
+import MainScreen from './MainScreen';
+import { FC } from 'react';
+import { Co_workers } from '../../../../sanity/sanity-queries/co-workers';
 
-const CoWorkers = () => {
+
+type CoWorkersProps = {
+	data: Co_workers[]
+	isError: boolean
+}
+
+const CoWorkers: FC<CoWorkersProps> = ({ data, isError }) => {
 	return (
 		<Layout headerPosition='fixed'>
-			<p>Co Workers page</p>
+			<MainScreen data={data} isError={isError}/>
 		</Layout>
 	);
 };
