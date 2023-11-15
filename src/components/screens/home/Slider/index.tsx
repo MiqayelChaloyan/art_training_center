@@ -14,7 +14,6 @@ import components from '@/utils/PortableTextComponents';
 
 import { useRouter } from 'next/router';
 
-
 type MainProps = {
     data: HomeContent[];
 };
@@ -22,46 +21,14 @@ type MainProps = {
 const SliderMain: FC<MainProps> = ({ data }) => {
     // const router = useRouter();
     const sliderRef = useRef(null);
-    // const [isFirstSlide, setIsFirstSlide] = useState<boolean>(true);
-    // const [isLastSlide, setIsLastSlide] = useState<boolean>(false);
-    // const [slideCount, setSlideCount] = useState<number>(0);
-
-    // useEffect(() => {
-    //     const slider = sliderRef.current;
-    // 	const slideCount = slider && slider.innerSlider.state.slideCount;
-    // 	setSlideCount(slideCount);
-    // 	setIsFirstSlide(slider && slider.innerSlider.state.currentSlide === 0);
-    // 	setIsLastSlide(slider && slider.innerSlider.state.currentSlide === slider.innerSlider.state.slideCount - 1);
-    // }, []);
 
     const settingsSlider = {
-        // slidesToShow: 1,
-        // slidesToScroll: 1,
-        // arrows: false,
-        // dots: false,
-        // infinite: false,
-        // speed: 2500,
-        // autoplay: true,
-        // autoplaySpeed: 2500,
-        // beforeChange: (_: any, nextSlide: number) => {
-        // 	setIsFirstSlide(nextSlide === 0);
-        // 	setIsLastSlide(nextSlide === settingsSlider.slidesToShow - 1);
-        // },
-        // responsive: [
-        // 	{
-        // 		breakpoint: 991,
-        // 		// settings: {
-        // 		// 	slidesToShow: 1,
-        // 		// }
-        // 	}
-        // ]
-        dots: true,
+        // dots: true,
         infinite: true,
-        speed: 2500,
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2500,
     };
 
     if (!data[0]) {

@@ -4,15 +4,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Button from '@/components/ui/Button';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import { generateImageUrl } from '@/utils/imageGenerate';
-
-// const SliderArrow = ({className, to, onClick}: any) => (
-//     <button type="button" onClick={onClick} aria-label={to} className='slider_icon' >
-//       <p className='slider_icon'>{to}</p>
-//     </button>
-//   )
 
 const ImageComponent = ({ images }: any) => {
     const firstDivImages = images.slice(0, Math.ceil(images.length / 2));
@@ -39,7 +33,6 @@ type SectionCoursesProps = {
     data: HomeContent[];
 };
 const Specialists: FC<SectionCoursesProps> = ({ data }) => {
-
     const slidesItems = data[0].specialists_section.map((item: any) => (
         <div key={item._key} className={styles.item}>
             <div className={styles.box_img}>
@@ -60,17 +53,14 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     ));
 
     const settings = {
-        // dots: true,
+        dots: true,
         infinite: true,
-        speed: 5000,
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 5000,
-        // prevArrow: <SliderArrow to="prev" className='slider-icon'/>,
-        // nextArrow: <SliderArrow to="next" className='slider-icon'/>,
+        autoplay: true,
         arrows: true,
-        accessibility: true,
+        autoplaySpeed: 2500,
     };
 
     return (

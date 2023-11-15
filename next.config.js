@@ -15,10 +15,10 @@ const nextConfig = {
       },
     ],
   },
-  webpack(config) {
-    config.infrastructureLogging = { debug: /PackFileCache/ }
-    return config;
-  },
+  // webpack(config) {
+  //   config.infrastructureLogging = { debug: /PackFileCache/ }
+  //   return config;
+  // },
   compiler: {
     relay: {
       src: './',
