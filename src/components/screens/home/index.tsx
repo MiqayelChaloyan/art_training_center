@@ -7,7 +7,7 @@ import Head from 'next/head';
 import SectionAboutUs from './SectionAboutUs';
 import SectionCourses from './SectionCourses';
 import CookingCourses from './CookingCourses';
-import CircleProgress from './CircleProgress';
+import Progress from './Progress';
 import Specialists from './Specialists';
 import OurRating from './OurRating';
 
@@ -27,7 +27,7 @@ const Home: FC<HomePageProps> = ({ data, isError }) => {
 			<SectionAboutUs data={data}/>
 			<SectionCourses data={data}/>
 			<CookingCourses data={data}/>
-			<CircleProgress/>
+			<Progress data={data}/>
 			<Specialists data={data}/>
 			<OurRating data={data}/>
 		</Layout>

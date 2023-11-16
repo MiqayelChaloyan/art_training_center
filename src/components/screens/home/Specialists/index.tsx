@@ -55,12 +55,12 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 4500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         arrows: true,
-        autoplaySpeed: 2500,
+        autoplaySpeed: 3500,
     };
 
     return (

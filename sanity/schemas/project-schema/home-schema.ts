@@ -273,6 +273,27 @@ export const home_content = {
             ]
         },
         {
+            name: 'progress_section',
+            type: 'array',
+            title: 'Progress sections (no less than four and no more, only you can modify them)*',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'tag',
+                    fields: [
+                        { type: 'string', name: 'title', title: 'News Section Title' },
+                        {
+                            title: 'Quantity',
+                            name: 'quantity',
+                            type: 'number',
+                            initialValue: 0,
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                    ]
+                })
+            ]
+        },
+        {
             name: 'specialists_section',
             type: 'array',
             title: 'Specialists Sections',

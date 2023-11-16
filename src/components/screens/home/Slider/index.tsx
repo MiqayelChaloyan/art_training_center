@@ -23,12 +23,12 @@ const SliderMain: FC<MainProps> = ({ data }) => {
     const sliderRef = useRef(null);
 
     const settingsSlider = {
-        // dots: true,
         infinite: true,
-        speed: 2500,
+        speed: 4500,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        autoplaySpeed: 3500,
     };
 
     if (!data[0]) {
