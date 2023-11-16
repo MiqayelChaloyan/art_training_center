@@ -10,16 +10,14 @@ type MainProps = {
 }
 
 const MainScreen: FC<MainProps> = ({ data, isError }) => {
-    console.log(data);
-
     const workers = data.map((item: any) => (
         <div key={item._key} className={styles.co_worker}>
-          <div className={styles.image_container}>
-            <img src={generateImageUrl(item.co_workers_image.asset._ref)} className={styles.image} />
-          </div>
-          <p className={styles.text}>{item.name}</p>
+            <div className={styles.image_container}>
+                <img src={generateImageUrl(item.co_workers_image.asset._ref)} className={styles.image} />
+            </div>
+            <p className={styles.text}>{item.name}</p>
         </div>
-      ));
+    ));
 
     return (
         <div id='main-screen' className={styles.screen}>

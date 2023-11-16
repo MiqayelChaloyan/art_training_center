@@ -57,7 +57,6 @@ const SliderMain: FC<MainProps> = ({ data }) => {
                         className={styles.contact_btn}
                         text='Contact Us'
                         onClick={() => console.log('click')}
-                        data-scroll="#footer"
                     />
                 </div>
             </div>

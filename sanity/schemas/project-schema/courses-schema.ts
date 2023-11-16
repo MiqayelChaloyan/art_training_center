@@ -229,6 +229,21 @@ export const courses = {
             ]
         },
         {
+            name: 'svg',
+            title: 'Svg',
+            type: 'image',
+            options: { hotspot: true },
+            fields: [
+
+                {
+                    name: 'alt',
+                    title: 'Alt',
+                    type: 'string'
+                }
+            ],
+            validation: (Rule: any) => Rule.required(),
+        },
+        {
             name: 'price_list',
             type: 'array',
             title: 'Price list',

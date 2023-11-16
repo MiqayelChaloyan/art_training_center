@@ -18,6 +18,7 @@ export interface Courses {
     course_process_video_url: string;
     course_process_video_light: any;
     student_work_section: any;
+    svg: any,
     _type: string;
     _updatedAt: string;
     slug: { current: string };
@@ -33,6 +34,7 @@ export const CoursesQuery = `{
     course_process_video_light,
     price_list,
     student_work_section,
+    svg,
     _type,
     _updatedAt,
     "slug": slug.current,

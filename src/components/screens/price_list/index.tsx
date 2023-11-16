@@ -1,11 +1,30 @@
 import Layout from '@/components/layout/Layout';
+import { Courses } from '../../../../sanity/sanity-queries/courses';
+import { FC } from 'react';
+import MainScreen from './MainScreen';
 
-const PriceList = () => {
+type PriceListProps = {
+	course: Courses[]
+	isError: boolean
+}
+
+const PriceList: FC<PriceListProps> = ({ course, isError }) => {
 	return (
 		<Layout headerPosition='fixed'>
-			<p>Price List page</p>
+			<MainScreen course={course} isError={isError}/>
 		</Layout>
 	);
 };
 
 export default PriceList;
+
+
+
+
+
+
+
+
+
+
+

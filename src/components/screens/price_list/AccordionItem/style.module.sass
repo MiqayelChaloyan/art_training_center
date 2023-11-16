@@ -1,0 +1,97 @@
+.panel
+    background-color: black
+
+.svg_icon
+    width: 90px
+    height: 90px
+    @media screen and ( max-width: 991px )
+       width: 80px
+       height: 80px
+    @media screen and ( max-width: 767px )
+       width: 60px
+       height: 60px
+
+.panel__label 
+    position: relative 
+    display: block 
+    width: 100% 
+    background: none 
+    border: none 
+    text-align: left 
+    padding: 25px 60px 25px 25px 
+    font-weight: 500 
+    font-size: 30px 
+    font-family: inherit 
+    transition: color 0.2s linear 
+    cursor: pointer 
+    @media screen and ( max-width: 767px )
+       font-size: 20px 
+
+.panel__label 
+    &:focus 
+        outline: none 
+
+.panel__label:after,
+.panel__label:before 
+    position: absolute 
+    right: 25px 
+    top: 50% 
+    width: 22px 
+    height: 2px 
+    margin-top: -2px 
+    background-color: #372717 
+
+.panel__label 
+   &:before 
+       transform: rotate(-90deg) 
+       transition: transform 0.35s cubic-bezier(0.65, 0.05, 0.36, 1) 
+.panel[aria-expanded='true'] 
+
+
+
+.panel__label 
+    color: white 
+    &:before 
+        transform: rotate(0deg) 
+
+.panel__inner 
+    overflow: hidden 
+    will-change: height 
+    transition: height 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) 
+
+.panel__content 
+    margin: 5px 25px 25px 
+    font-size: 19px 
+    transition: opacity 0.3s linear 0.18s 
+    td 
+      border: 2px solid white
+      padding: 20px
+      width: 365px
+      color: white
+      text-align: center
+    @media screen and (max-device-width: 1600px) 
+       td
+          width: 270px !important
+    @media screen and (max-device-width: 1200px) 
+       td
+          width: 233px !important
+    @media screen and ( max-width: 991px )
+       td
+          padding: 9px !important
+          width: 179px !important
+          font-size: 12px !important
+    @media screen and ( max-width: 767px )
+       td
+          padding: 9px !important
+          width: 84px !important
+          font-size: 10px !important
+
+
+.panel 
+    &:not(:last-child) 
+       margin-bottom: 3px 
+
+.panel_box
+    display: flex
+    justify-content: space-between
+    align-items: center
