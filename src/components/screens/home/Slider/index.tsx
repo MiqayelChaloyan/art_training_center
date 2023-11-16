@@ -35,28 +35,36 @@ const SliderMain: FC<MainProps> = ({ data }) => {
 
     const settingsSlider = {
         infinite: true,
-        speed: 4500,
+        speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3500,
+        autoplay: false,
+        autoplaySpeed: 2500,
     };
 
     if (!data[0]) {
         return null;
     };
 
+    const scrollToElement = (id: string) => {
+        const container: HTMLElement | null = document.getElementById(id);
+        if(container) {
+            container.scrollIntoView({  behavior: 'smooth', block: 'start'});
+        }
+    };
+
     const slidesItems = data[0].main_section.map((item: any): JSX.Element => (
         <div key={item._key}>
-            <div className={styles.box}>
-                <img src={generateImageUrl(item.main_section_image.asset._ref)} alt={item.alt} className={styles.img} />
+            <div className={styles.box} style={{ backgroundImage: `url(${generateImageUrl(item.main_section_image.asset._ref)})` }}>
+            {/* <div className={styles.box} > */}
+                {/* <img src={generateImageUrl(item.main_section_image.asset._ref)} alt={item.alt} className={styles.img} /> */}
                 <div className={styles.contact}>
                     <h1 className={styles.title}>{item.subtitle}</h1>
                     <PortableText value={item?.content} components={components} />
                     <Button
                         className={styles.contact_btn}
                         text='Contact Us'
-                        onClick={() => console.log('click')}
+                        onClick={() => scrollToElement('contact')}
                     />
                 </div>
             </div>

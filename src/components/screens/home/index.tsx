@@ -5,7 +5,7 @@ import { FC, memo } from 'react';
 import Head from 'next/head';
 
 import SectionAboutUs from './SectionAboutUs';
-import SectionCourses from './SectionCourses';
+import VideoPlayer from './VideoPlayerSection';
 import CookingCourses from './CookingCourses';
 import Progress from './Progress';
 import Specialists from './Specialists';
@@ -25,7 +25,7 @@ const Home: FC<HomePageProps> = ({ data, isError }) => {
 			</Head>
 			<MainScreen data={data}/>
 			<SectionAboutUs data={data}/>
-			<SectionCourses data={data}/>
+			<VideoPlayer data={data}/>
 			<CookingCourses data={data}/>
 			<Progress data={data}/>
 			<Specialists data={data}/>

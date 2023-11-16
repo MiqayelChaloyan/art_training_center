@@ -24,10 +24,10 @@ const SectionAboutUs: FC<SectionAboutUsProps> = ({ data }) => {
             <div className={styles.skew} />
             <h1 className={styles.title}>{about_us_title}</h1>
             <div className={styles.about_us}>
-                <div className={styles.box}>
+                <div className={styles.about_box}>
                     <PortableText value={about_us_content[0] as any} components={components} />
                 </div>
-                <div className={styles.box}>
+                <div className={styles.form_box}>
                     <FormAppointment width='50%'>
                         <HeaderForm display='flex' color='black' justifyContent='space-around' title='Contact Us' fill='#111111' fontSize='28px' group={group}/>
                     </FormAppointment>

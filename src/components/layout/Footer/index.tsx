@@ -22,7 +22,7 @@ const Footer = () => {
                     <Map  width={'100%'} height={'100%'}/>
                     <p className={styles.address}>Adress: Yerevan, Armenia</p>
                 </div>
-                <div className={styles.box}>
+                <div id='contact' className={styles.box}>
                     <FormAppointment width='30%'>
                         <HeaderForm display='grid' color='white' justifyContent='center' title='CONTACT US' fontSize='40px' fill='white' group={group} />
                     </FormAppointment>
