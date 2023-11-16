@@ -13,6 +13,7 @@ import { PortableText } from '@portabletext/react';
 import components from '@/utils/PortableTextComponents';
 
 import { useRouter } from 'next/router';
+import { Link as ScrollLink, scroller } from 'react-scroll';
 
 type MainProps = {
     data: HomeContent[];
@@ -21,6 +22,16 @@ type MainProps = {
 const SliderMain: FC<MainProps> = ({ data }) => {
     // const router = useRouter();
     const sliderRef = useRef(null);
+
+    // useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		// setIsSticky(window.scrollY > 0);
+	// 	};
+	// 	window.addEventListener('scroll', handleScroll);
+	// 	return () => {
+	// 		window.removeEventListener('scroll', handleScroll);
+	// 	};
+	// }, []);
 
     const settingsSlider = {
         infinite: true,
@@ -46,6 +57,7 @@ const SliderMain: FC<MainProps> = ({ data }) => {
                         className={styles.contact_btn}
                         text='Contact Us'
                         onClick={() => console.log('click')}
+                        data-scroll="#footer"
                     />
                 </div>
             </div>
