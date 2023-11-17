@@ -11,7 +11,7 @@ type MainProps = {
 
 const MainScreen: FC<MainProps> = ({ data, isError }) => {
     const workers = data.map((item: any) => (
-        <div key={item._key} className={styles.co_worker}>
+        <div key={item._id} className={styles.co_worker}>
             <div className={styles.image_container}>
                 <img src={generateImageUrl(item.co_workers_image.asset._ref)} className={styles.image} />
             </div>

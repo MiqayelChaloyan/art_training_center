@@ -1,12 +1,14 @@
-
 import { FC } from 'react';
-import styles from './SectionAboutUs.module.sass';
+
 import FormAppointment from '@/components/forms/FormAppointment';
-import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-import cn from 'classnames';
-import components from '@/utils/PortableTextComponents';
-import { PortableText } from '@portabletext/react';
 import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
+
+import { PortableText } from '@portabletext/react';
+import components from '@/utils/PortableTextComponents';
+
+import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
+
+import styles from './SectionAboutUs.module.sass';
 
 type SectionAboutUsProps = {
     data: HomeContent[];

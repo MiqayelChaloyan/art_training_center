@@ -11,7 +11,7 @@
    justify-content: space-around
    align-items: baseline
    background: #E3E1E1
-   height: 415px
+   height: 439px
    @media screen and (max-device-width: 1600px) 
        padding: 0
    @media screen and (max-device-width: 1200px) 
@@ -24,7 +24,7 @@
    @media screen and ( max-width: 767px )
        display: block
        text-align: center
-       height: 759px
+       height: 755px
 
    h2
       font-family: sans-serif
@@ -46,11 +46,12 @@
        font-size: 16px
      @media screen and ( max-width: 767px )
        margin: 0 auto   
-       width: 80%
+       width: 82%
        text-align: center
 
-.box
-    width: 25%
+.about_box
+    width: 40%
+    padding: 10px
     @media screen and (max-device-width: 1200px) 
       width: 30%
     @media screen and (max-device-width: 1600px) 
@@ -59,23 +60,18 @@
       width: 100%
     @media screen and ( max-width: 767px )
       width: 100%
+      padding: 0
 
-.rect 
-    background-color: red 
-    height: 50px 
-    width: 255px 
-    position: relative 
-    overflow: hidden
-    &:after 
-      content: "" 
-      background: #fff 
-      height: 81px 
-      width: 100px 
-      transform: rotate(45deg) 
-      display: block 
-      position: absolute 
-      top: -35px 
-      right: -25px
+.form_box
+    width: 24%
+    @media screen and (max-device-width: 1200px) 
+      width: 30%
+    @media screen and (max-device-width: 1600px) 
+      width: 40%
+    @media screen and ( max-width: 991px )
+      width: 100%
+    @media screen and ( max-width: 767px )
+      width: 100%
 
 .skew 
     display: block
@@ -91,8 +87,17 @@
       position: absolute
       content: ''
       right: 0
+    @media screen and (max-device-width: 1400px) 
+      height: 50px
+      background: #E3E1E1
+      width: 45%
+      &:after 
+        height: 55px
+        width: 100%
+        background: #E3E1E1
+        right: 50px
     @media screen and ( max-width: 991px )
-      height: 49px
+      height: 47px
       background: #E3E1E1
       width: 45%
       &:after 
@@ -116,8 +121,9 @@
     margin: 0 auto
     width: 35%
     top: 15px
+    font-size: 46px
     @media screen and ( max-width: 991px )
-       width: 39%
+       width: 43%
        top: 9px
        font-size: 34px
     @media screen and ( max-width: 767px )

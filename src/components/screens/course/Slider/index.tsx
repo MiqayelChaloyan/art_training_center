@@ -4,17 +4,14 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { generateImageUrl } from '@/utils/imageGenerate';
 
-import styles from './styles.module.sass';
-// import Button from '@/components/ui/Button';
 import { PortableText } from '@portabletext/react';
 import components from '@/utils/PortableTextComponents';
+import { generateImageUrl } from '@/utils/imageGenerate';
 
-import { useRouter } from 'next/router';
 import { Courses } from '../../../../../sanity/sanity-queries/courses';
-import Button from '@/components/ui/Button';
 
+import styles from './styles.module.sass';
 
 type MainProps = {
     course: Courses;
@@ -22,23 +19,12 @@ type MainProps = {
 
 const SliderMain: FC<MainProps> = ({ course }) => {
 
-    const router = useRouter();
-
-    // async function navigate() {
-    //     // router.push({
-    //     //     pathname: '/',
-    //     //     hash: 'footer',
-    //     // }, undefined, { scroll: true });
-    //     console.log('scroll');
-    // };
-
     const settings = {
-        // dots: true,
         infinite: true,
-        speed: 2500,
+        speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2500,
     };
 

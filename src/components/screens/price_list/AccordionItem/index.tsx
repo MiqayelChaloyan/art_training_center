@@ -53,7 +53,7 @@ const Panel = ({ name, list, svg, activeTab, index, activateTab }: any) => {
             id={`panel-${index}`}
         >
             <div className={styles.panel_box}>
-                <div style={{display: 'flex'}}>
+                <div className={styles.column}>
                     <p className={styles.panel__label} role='tab'>
                         {name}
                     </p>
