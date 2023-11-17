@@ -65,15 +65,28 @@ const OurRating: FC<OurRatingProps> = ({ data }) => {
     });
 
     const settingsSlider = {
-        arrows: false,
-        dots: true,
-        centerMode: true,
-        infinite: true,
-        speed: 3000,
+        // arrows: false,
+        // dots: true,
+        // centerMode: true,
+        // infinite: true,
+        // speed: 3000,
+        // slidesToShow: 1,
+        // slidesToScroll: 1,
+        // autoplay: false,
+        // autoplaySpeed: 2500,
+
+        speed: 1500,
+        autoplay: true,
+        autoplaySpeed: 2500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 2500,
+          arrows: false,
+        dots: false,
+        infinite: true,
+        centerMode: true,
+        //   centerPadding: '0',
+        // // variableWidth: true,
+        //   focusOnSelect: true
     };
 
     return (

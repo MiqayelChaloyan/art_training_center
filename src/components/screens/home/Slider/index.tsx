@@ -34,12 +34,18 @@ const SliderMain: FC<MainProps> = ({ data }) => {
 	// }, []);
 
     const settingsSlider = {
-        infinite: true,
         speed: 1500,
+        autoplay: true,
+        autoplaySpeed: 2500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 2500,
+          arrows: false,
+        dots: false,
+        infinite: true,
+        centerMode: true,
+          centerPadding: '0',
+        // variableWidth: true,
+          focusOnSelect: true
     };
 
     if (!data[0]) {

@@ -53,14 +53,18 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     ));
 
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 4500,
+        speed: 1500,
+        autoplay: true,
+        autoplaySpeed: 2500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
-        arrows: true,
-        autoplaySpeed: 3500,
+          arrows: false,
+        dots: false,
+        infinite: true,
+        centerMode: true,
+          centerPadding: '0',
+        // variableWidth: true,
+          focusOnSelect: true
     };
 
     return (
