@@ -10,6 +10,8 @@ import { generateImageUrl } from '@/utils/imageGenerate';
 import styles from './CookingCourses.module.sass';
 import Button from '@/components/ui/Button';
 
+import Content from '../../../ui/ReadMore';
+
 type SectionCoursesProps = {
     data: HomeContent[];
 };
@@ -24,11 +26,17 @@ const concatenateTextWithFilter = (arg: any) => {
 };
 
 const Course = (data: any[]) => {
-    const [initialLoadText, setInitialLoadText] = useState<number>(200);
+	const [isReadMore, setIsReadMore] = useState(true);
 
-    const handleLoad = (result: string) => {
-        const res = result.slice(0, initialLoadText);
-        return res;
+	const toggleReadMore = () => {
+		setIsReadMore(!isReadMore);
+	};
+
+    const scrollToElement = (id: string) => {
+        const container: HTMLElement | null = document.getElementById(id);
+        if(container) {
+            container.scrollIntoView({  behavior: 'smooth', block: 'start'});
+        }
     };
 
     return (
@@ -38,19 +46,17 @@ const Course = (data: any[]) => {
                 <div key={item.subtitle} className={styles.course}>
                     <div className={styles.content}>
                         <h3 style={{ fontFamily: 'sans-serif' }}>{item.subtitle}</h3>
-                        {/* <PortableText value={item.content} components={components} /> */}
-                        <p>{result}</p>
+                        <Content content={result} isReadMore={isReadMore}/>
                         <div className={styles.buttons_group}>
-                            {/* <p style={{ textDecoration: 'underline', fontFamily: 'sans-serif' }}>View more</p> */}
                             <Button
                                 className={styles.view_btn}
-                                text='View more'
-                                onClick={() => setInitialLoadText(initialLoadText + 250)}
+                                text={isReadMore ? 'View more' : 'Show less'}
+                                onClick={toggleReadMore}
                             />
                             <Button
                                 className={styles.button}
                                 text='Contact Us'
-                                onClick={() => console.log('click')}
+                                onClick={() => scrollToElement('contact')}
                             />
                         </div>
                     </div>

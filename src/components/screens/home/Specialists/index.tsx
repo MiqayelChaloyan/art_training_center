@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Button from '@/components/ui/Button';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import { generateImageUrl } from '@/utils/imageGenerate';
 
@@ -28,11 +28,39 @@ const ImageComponent = ({ images }: any) => {
     );
 };
 
+function SampleNextArrow(props: any) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={styles.next}
+            onClick={onClick}
+            style={{
+                ...style, display: 'block',    cursor: 'pointer'
+
+            }}
+        />
+    );
+}
+
+function SamplePrevArrow(props: any) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={styles.back}
+            onClick={onClick}
+            style={{
+                ...style, display: 'block', cursor: 'pointer'
+            }}
+      />
+    );
+}
 
 type SectionCoursesProps = {
     data: HomeContent[];
 };
 const Specialists: FC<SectionCoursesProps> = ({ data }) => {
+    const arrowRef = useRef<any>(null);
+
     const slidesItems = data[0].specialists_section.map((item: any) => (
         <div key={item._key} className={styles.item}>
             <div className={styles.box_img}>
@@ -53,19 +81,22 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     ));
 
     const settings = {
-        speed: 1500,
+        speed: 500,
         autoplay: true,
         autoplaySpeed: 2500,
         slidesToShow: 1,
         slidesToScroll: 1,
-          arrows: false,
+        arrows: true,
         dots: false,
         infinite: true,
         centerMode: true,
-          centerPadding: '0',
-        // variableWidth: true,
-          focusOnSelect: true
+        centerPadding: '0',
+        focusOnSelect: true,
+        initialSlide: 0,
+        // nextArrow: <SampleNextArrow />,
+        // prevArrow: <SamplePrevArrow />
     };
+
 
     return (
         <div id='circleProgress' className={styles.circle_progress}>
@@ -73,7 +104,7 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
             <div className={styles.contain}>
                 <h1 className={styles.title}>Specialists</h1>
                 <div className={styles.slider}>
-                    <Slider {...settings}>
+                    <Slider {...settings} ref={arrowRef}>
                         {slidesItems}
                     </Slider>
                 </div>

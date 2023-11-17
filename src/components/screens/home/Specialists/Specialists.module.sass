@@ -209,3 +209,37 @@
        margin-top: 126px
     @media screen and ( max-width: 767px )
        margin-top: 124px
+
+.button 
+   width: 2rem 
+   height: 2rem 
+   background-color: rgba(255, 255, 255, 0.100) 
+   cursor: pointer 
+   color: #01be96 
+   border: none 
+   position: absolute 
+   top: 45% 
+   right: -1rem 
+
+.back 
+   left: -1rem 
+
+.next:before 
+   color: black !important 
+   content: '>'
+   font-size: 70px
+   position: relative
+   bottom: 359px
+   left: 98%
+
+.back:before 
+   color: black !important 
+   content: '<'
+   font-size: 70px
+   position: relative
+   top: 0
+   right: 0
+
+.back, .next
+   @media screen and ( max-width: 991px )
+      display: none

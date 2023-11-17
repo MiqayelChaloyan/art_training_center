@@ -1,8 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { FC } from 'react';
 
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import { generateImageUrl } from '@/utils/imageGenerate';
@@ -12,41 +8,15 @@ import Button from '@/components/ui/Button';
 import { PortableText } from '@portabletext/react';
 import components from '@/utils/PortableTextComponents';
 
-import { useRouter } from 'next/router';
-import { Link as ScrollLink, scroller } from 'react-scroll';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 type MainProps = {
     data: HomeContent[];
 };
 
 const SliderMain: FC<MainProps> = ({ data }) => {
-    // const router = useRouter();
-    const sliderRef = useRef(null);
-
-    // useEffect(() => {
-	// 	const handleScroll = () => {
-	// 		// setIsSticky(window.scrollY > 0);
-	// 	};
-	// 	window.addEventListener('scroll', handleScroll);
-	// 	return () => {
-	// 		window.removeEventListener('scroll', handleScroll);
-	// 	};
-	// }, []);
-
-    const settingsSlider = {
-        speed: 1500,
-        autoplay: true,
-        autoplaySpeed: 2500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-          arrows: false,
-        dots: false,
-        infinite: true,
-        centerMode: true,
-          centerPadding: '0',
-        // variableWidth: true,
-          focusOnSelect: true
-    };
+    const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
     if (!data[0]) {
         return null;
@@ -54,16 +24,14 @@ const SliderMain: FC<MainProps> = ({ data }) => {
 
     const scrollToElement = (id: string) => {
         const container: HTMLElement | null = document.getElementById(id);
-        if(container) {
-            container.scrollIntoView({  behavior: 'smooth', block: 'start'});
+        if (container) {
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
     const slidesItems = data[0].main_section.map((item: any): JSX.Element => (
-        <div key={item._key}>
+        <div key={item._key} className={styles.emplay_slide}>
             <div className={styles.box} style={{ backgroundImage: `url(${generateImageUrl(item.main_section_image.asset._ref)})` }}>
-            {/* <div className={styles.box} > */}
-                {/* <img src={generateImageUrl(item.main_section_image.asset._ref)} alt={item.alt} className={styles.img} /> */}
                 <div className={styles.contact}>
                     <h1 className={styles.title}>{item.subtitle}</h1>
                     <PortableText value={item?.content} components={components} />
@@ -80,9 +48,11 @@ const SliderMain: FC<MainProps> = ({ data }) => {
     return (
         <div className={styles.section}>
             <div className={styles.wrap}>
-                <Slider {...settingsSlider} ref={sliderRef}>
-                    {slidesItems}
-                </Slider>
+                <div className={styles.emplay} ref={emblaRef}>
+                    <div className={styles.emplay_container}>
+                        {slidesItems}
+                    </div>
+                </div>
             </div>
         </div>
 
