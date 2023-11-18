@@ -1,10 +1,9 @@
 
 import { FC } from 'react';
-import FormAppointment from '@/components/forms/FormAppointment';
-import components from '@/utils/PortableTextComponents';
-import { PortableText } from '@portabletext/react';
-import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
-import styles from './PriceList.module.sass';
+
+import Container from '@/components/components/Container';
+
+import styles from './style.module.sass';
 
 type PriceListProps = {
     course: any;
@@ -39,11 +38,13 @@ const PriceList: FC<PriceListProps> = ({ course }) => {
     });
 
     return (
-        <div id='about-us' className={styles.about_us}>
-            <h1 className={styles.title}>Price List</h1>
+        <div id='price-list' className={styles.container}>
+            <Container>
+                <h1 className={styles.title}>Price List</h1>
+            </Container>
             <div className={styles.table}>
-                {table}
-            </div>
+                    {table}
+                </div>
         </div>
     );
 };

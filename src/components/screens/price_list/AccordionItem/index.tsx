@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './style.module.sass';
-import AccordionArrowUp from '../../../icons/AccordionArrowUp';
-import AccordionArrowDown from '../../../icons/AccordionArrowDown';
+import AccordionArrow from '../../../icons/AccordionArrow';
 import { generateImageUrl } from '@/utils/imageGenerate';
 
 function daysBetweenDates(dateStr1: any, dateStr2: any) {
@@ -57,8 +56,8 @@ const Panel = ({ name, list, svg, activeTab, index, activateTab }: any) => {
                     <p className={styles.panel__label} role='tab'>
                         {name}
                     </p>
-                    <button onClick={activateTab}>
-                       { activeTab === index ? <AccordionArrowUp width={50} height={50} fill='white' /> : <AccordionArrowDown width={50} height={50} fill='white' />}
+                    <button onClick={activateTab} style={{transform:  activeTab !== index ? 'rotate(178deg)': 'rotate(0deg)'}}>
+                        <AccordionArrow width={50} height={50} fill='white' />
                     </button>
                 </div>
                 <div>

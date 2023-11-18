@@ -1,14 +1,13 @@
-import Layout from '@/components/layout/Layout';
+import { FC, memo, useEffect } from 'react';
+
 import MainScreen from '@/components/screens/course/MainScreen';
-import { FC, memo, useEffect, useState } from 'react';
-import Head from 'next/head';
-import { Courses } from '../../../../sanity/sanity-queries/courses';
+import AboutUs from './AboutUs';
+import VideoPlayer from './CourseProcess';
+import StudentWork from './StudentWork';
+
 import { useAppDispatch } from '@/hooks/useStore';
 import { closeModal } from '@/store/stateModalSlice';
 
-import SectionAboutUs from './SectionAboutUs';
-import CourseProcess from './CourseProcess';
-import StudentWork from './StudentWork';
 import PriceList from './PriceList';
 
 type CoursePageProps = {
@@ -26,8 +25,8 @@ const CoursePage: FC<CoursePageProps> = ({ course, isError }) => {
     return (
         <div>
             <MainScreen course={course} />
-            <SectionAboutUs course={course} />
-            <CourseProcess course={course} />
+            <AboutUs course={course}/>
+            <VideoPlayer course={course} />
             <StudentWork course={course} />
             <PriceList course={course} />
         </div>

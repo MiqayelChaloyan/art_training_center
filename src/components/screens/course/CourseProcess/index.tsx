@@ -1,17 +1,26 @@
-import { FC, useEffect, useState } from 'react';
-import styles from './CourseProcess.module.sass';
+import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
-import Play from '@/components/icons/Play';
-import { generateImageUrl } from '@/utils/imageGenerate';
 
-type CourseProcessProps = {
-    course: any;
+import Play from '@/components/icons/Play';
+import Container from '@/components/components/Container';
+
+import { urlFor } from '../../../../../sanity/sanity';
+import { Courses } from '../../../../../sanity/sanity-queries/courses';
+
+import styles from './style.module.sass';
+
+type Props = {
+    course: Courses[];
 };
 
-const CourseProcess: FC<CourseProcessProps> = ({ course }) => {
-    const [video, setVideo] = useState<any>(null);
-    const { course_process_video_light, course_process_video_url: link } = course;
-    const lightUrl = generateImageUrl(course_process_video_light.asset._ref);
+const VideoPlayer: FC<Props> = ({ course }) => {
+    const [video, setVideo] = useState<string | any>(null);
+    const { course_process_video_light, course_process_video_url: link } = course as any;
+
+    const urlForImage = urlFor(course_process_video_light)
+        .auto('format')
+        .fit('max')
+        .url();
 
     useEffect(() => {
         setVideo(
@@ -23,7 +32,7 @@ const CourseProcess: FC<CourseProcessProps> = ({ course }) => {
                 height='100%'
                 muted
                 loop={false}
-                light={lightUrl}
+                light={urlForImage}
                 loading='lazy'
                 playing={true}
                 config={
@@ -45,17 +54,19 @@ const CourseProcess: FC<CourseProcessProps> = ({ course }) => {
     }, []);
 
     return (
-        <div id='course-process' className={styles.container}>
+        <div id='video-player' className={styles.container}>
             <div className={styles.skew} />
-            <h1 className={styles.title}>COURSE PROCESS</h1>
-            <div className={styles.player_block}>
-                <div className={styles.player}>
-                    {video}
+            <Container>
+                <h1 className={styles.title}>COURSE PROCESS</h1>
+                <div className={styles.video_player}>
+                    <div className={styles.player}>
+                        {video}
+                    </div>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };
 
-export default CourseProcess;
+export default memo(VideoPlayer);
 

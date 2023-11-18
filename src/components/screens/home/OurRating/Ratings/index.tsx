@@ -11,6 +11,24 @@ const concatenateTextWithFilter = (arg: any) => {
     }, '');
 };
 
+const sizes = [
+    {
+        top: 70,
+        left: 10,
+        bottom: 40
+    },
+    {
+        top: 30,
+        left: 20,
+        bottom: 50
+    },
+    {
+        top: 80,
+        left: 10,
+        bottom: 5
+    }
+];
+
 const Rating = ({ data }: any) => data.map((card: any, index: number): JSX.Element => {
     const result = concatenateTextWithFilter(card?.user_feedback[0].children);
 
@@ -27,20 +45,14 @@ const Rating = ({ data }: any) => data.map((card: any, index: number): JSX.Eleme
     const urlImageAlt = card.user_image.alt;
     const name = card.user_name;
 
-    const top =  30 + (index * 25);
-    const bottom = 10 + (index * 10);
-    const left = index * 20;
-
     const options = {
         name,
         urlForImageBackground,
         urlForImage,
         urlImageAlt,
         result,
-        top,
-        bottom,
-        left,
-        rating: 5,
+        rating: card.rating + 1,
+        ...sizes[index],
     };
 
     return <RatingCard key={card._key} options={options} />;

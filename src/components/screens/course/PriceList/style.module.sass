@@ -1,12 +1,10 @@
-
-
-.about_us
+.container
    display: grid
    justify-content: center
    align-items: center
    background: black
    height: 400px
-   margin-bottom: 40px
+   margin-bottom: 20px
    @media screen and (max-device-width: 1600px) 
        padding: 0
        td
@@ -55,7 +53,6 @@
        margin: 0 auto
      @media screen and ( max-width: 767px )
        margin: 0 auto
-
 .box
     width: 25%
     @media screen and (max-device-width: 1200px) 
@@ -67,31 +64,26 @@
     @media screen and ( max-width: 767px )
       width: 100%
 
-.rect 
-    background-color: red 
-    height: 50px 
-    width: 255px 
-    position: relative 
-    overflow: hidden
-    &:after 
-      content: "" 
-      background: #fff 
-      height: 81px 
-      width: 100px 
-      transform: rotate(45deg) 
-      display: block 
-      position: absolute 
-      top: -35px 
-      right: -25px
 
 .title
     font-family: sans-serif
-    text-align: center
-    color: white
+    margin: 0 auto
+    width: 100%
+    font-size: 46px
+    color: var(--color-white)
+    padding-right: var(--container-gap)
+    padding-left: var(--container-gap)
+    @media screen and (max-device-width: 1400px) 
+       font-size: 30px
+    @media screen and (max-device-width: 1200px) 
+       font-size: 25px
     @media screen and ( max-width: 991px )
        width: 100%
+       font-size: 25px
     @media screen and ( max-width: 767px )
+       width: 85%
        font-size: 30px
+       text-align: center
        
 .table
     display: flex

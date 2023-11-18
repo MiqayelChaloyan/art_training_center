@@ -1,0 +1,164 @@
+.container
+    bottom: 66px
+    position: relative
+    background: #E3E1E1
+    @media screen and ( max-width: 991px )
+       bottom: 40px
+    @media screen and ( max-width: 767px )
+       bottom: 20px
+
+.skew 
+    display: block
+    height: 57px
+    width: 50%
+    position: relative
+    transform: skew(44deg)
+    bottom: 58px
+    &:after 
+      height: 60px
+      width: 110%
+      background: #E3E1E1
+      margin: 0 auto
+      position: absolute
+      content: ''
+      right: 0
+    @media screen and (max-device-width: 1400px) 
+      height: 50px
+      background: #E3E1E1
+      width: 38%
+      bottom: 50px
+      &:after 
+        height: 55px
+        width: 100%
+        background: #E3E1E1
+        right: 50px
+    @media screen and (max-device-width: 1200px) 
+      height: 50px
+      background: #E3E1E1
+      width: 38%
+      &:after 
+        height: 55px
+        width: 100%
+        background: #E3E1E1
+        right: 50px
+    @media screen and ( max-width: 991px )
+      height: 47px
+      background: #E3E1E1
+      width: 45%
+      bottom: 45px
+      &:after 
+        height: 55px
+        width: 100%
+        background: #E3E1E1
+        right: 50px
+    @media screen and ( max-width: 767px )
+      height: 62px
+      background: #E3E1E1
+      width: 120%
+      &:after 
+        height: 64px
+        width: 105%
+        background: #E3E1E1
+
+.title
+    font-family: sans-serif
+    position: absolute
+    margin: 0 auto
+    width: 100%
+    top: -50px
+    font-size: 46px
+    padding-right: var(--container-gap)
+    padding-left: var(--container-gap)
+    @media screen and (max-device-width: 1400px) 
+       top: -40px
+       font-size: 30px
+    @media screen and (max-device-width: 1200px) 
+       top: -40px
+       font-size: 25px
+    @media screen and ( max-width: 991px )
+       width: 28%
+       top: -40px
+       font-size: 25px
+    @media screen and ( max-width: 767px )
+       width: 85%
+       top: -30px
+       font-size: 30px
+       text-align: center
+
+.student_work
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    margin-left: 20px
+    @media screen and (max-device-width: 1400px) 
+       margin-left: 0
+    @media screen and (max-device-width: 1200px) 
+       margin-left: 0
+       justify-content: center
+
+.work_img
+    width: 274px
+    height: 358px
+    margin: 10px
+    border-radius: 40px
+    transform: scale(1)
+    transition: .3s ease-in-out
+    &:hover 
+       img 
+       transform: scale(1.1) 
+       filter: brightness(0.5)
+    @media screen and (max-device-width: 1400px) 
+       width: 255px
+       height: 326px
+    @media screen and (max-device-width: 1290px) 
+       width: 210px
+       height: 291px
+    @media screen and ( max-width: 991px )
+       width: 155px
+       height: 200px
+    @media screen and ( max-width: 767px )
+       width: 150px
+       height: 208px
+
+.contact_button
+    font-family: sans-serif
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 48px
+    color: white
+    font-weight: 500
+    text-align: center
+    border-radius: 50px
+    padding: 12px 30px
+    background-color: #C62020
+    margin: 10px auto
+    font-size: 25px
+    @media screen and ( max-width: 991px )
+        font-size: 15px
+    @media screen and ( max-width: 767px )
+        font-size: 18px
+        padding: 8px 20px
+        width: 100%
+        height: 46px
+
+.view_more_button
+    color: black
+    text-decoration: underline
+    @media screen and ( max-width: 991px )
+        font-size: 15px
+    @media screen and ( max-width: 767px )
+        font-size: 18px
+        padding: 8px 20px
+        width: 100%
+
+.block_buttons
+    display: flex
+    justify-content: space-around
+    align-items: center
+    width: 40%
+    margin: 0 auto
+    height: 100px
+    @media screen and ( max-width: 767px )
+        width: 70%

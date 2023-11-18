@@ -1,73 +1,95 @@
+import { FC, memo, useEffect, useState } from 'react';
 
-import { FC, useEffect, useState } from 'react';
-import styles from './StudentWork.module.sass';
-import { generateImageUrl } from '@/utils/imageGenerate';
+import Container from '@/components/components/Container';
 import Button from '@/components/ui/Button';
 
-type StudentWorkProps = {
-    course: any;
+import { urlFor } from '../../../../../sanity/sanity';
+import { Courses } from '../../../../../sanity/sanity-queries/courses';
+
+import styles from './style.module.sass';
+
+type Props = {
+    course: Courses;
 }
 
-// import ArrowUp from '../../../icons/ArrowUp';
-
-const StudentWork: FC<StudentWorkProps> = ({ course }) => {
+const StudentWork: FC<Props> = ({ course }) => {
     const [initialLoadCourses, setInitialLoadCourses] = useState<number>(8);
 
     useEffect(() => setInitialLoadCourses(8), [course]);
 
-    const images = course.student_work_section[0].images.slice(0, initialLoadCourses).map((item: any) => (
-        <div key={item._key} className={styles.img_block}>
-            <img src={generateImageUrl(item.asset._ref)} alt={item.alt} className={styles.work_img} />
-        </div>
-    ));
+
+    const scrollToElement = () => {
+        const container: HTMLElement | null = document.getElementById('contact');
+        if (container) {
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    const images = course.student_work_section[0].images.slice(0, initialLoadCourses).map((item: any) => {
+
+        const urlForImage = urlFor(item)
+            .auto('format')
+            .fit('max')
+            .url();
+
+        return (
+            <div key={item._key} className={styles.img_block}>
+                <img src={urlForImage} alt={item.alt} className={styles.work_img} />
+            </div>
+        );
+    });
 
     const handleLoad = () => setInitialLoadCourses(initialLoadCourses + 4);
 
+    const handleBackLoad = () => setInitialLoadCourses(initialLoadCourses - 4);
+
     return (
-        <div id='about-us' className={styles.contain}>
+        <div id='student-work' className={styles.container}>
             <div className={styles.skew} />
-            <h1 className={styles.title}>Student Work</h1>
-            <div className={styles.block}>
-                <div className={styles.images_block}>
+            <Container>
+                <h1 className={styles.title}>Student Work</h1>
+                <div className={styles.student_work}>
                     {images}
                 </div>
-
-                {9 <= course.student_work_section[0].images.length ? (
-                    <div className={styles.buttons}>
+                {course.student_work_section[0].images.length > initialLoadCourses ? (
+                    <div className={styles.block_buttons}>
                         <div className={styles.btn_group}>
                             <Button
-                                className={styles.view_btn}
+                                className={styles.view_more_button}
                                 text='View more'
                                 onClick={handleLoad}
                             />
                         </div>
                         <div className={styles.btn_group}>
                             <Button
-                                className={styles.contact_btn}
+                                className={styles.contact_button}
                                 text='Contact Us'
-                                onClick={() => console.log('click')}
+                                onClick={scrollToElement}
                             />
                         </div>
-                        {/* <ArrowUp
-                            width='23'
-                            height='23'
-                            fill='red'
-                        /> */}
+
                     </div>
                 ) : (
-                    <div className={styles.buttons}>
+                    <div className={styles.block_buttons}>
                         <div className={styles.btn_group}>
                             <Button
-                                className={styles.contact_btn}
+                                className={styles.view_more_button}
+                                text='Show less'
+                                onClick={handleBackLoad}
+                            />
+                        </div>
+                        <div className={styles.btn_group}>
+                            <Button
+                                className={styles.contact_button}
                                 text='Contact Us'
-                                onClick={() => console.log('click')}
+                                onClick={scrollToElement}
                             />
                         </div>
                     </div>
                 )}
-            </div>
+            </Container>
         </div>
     );
 };
 
-export default StudentWork;
+export default memo(StudentWork);

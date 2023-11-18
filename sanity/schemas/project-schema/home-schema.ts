@@ -1,5 +1,3 @@
-// import { defineArrayMember } from 'sanity';
-
 import { defineArrayMember } from "sanity";
 
 const styles = [
@@ -357,7 +355,7 @@ export const home_content = {
                         }
                     ]
                 })
-            ]
+            ],
         },
         {
             name: 'our_rating_section',
@@ -383,6 +381,13 @@ export const home_content = {
                             ]
                         },
                         { type: 'string', name: 'user_name', title: 'User Name' },
+                        {
+                            title: 'Rating (1-5)*',
+                            name: 'rating',
+                            type: 'number',
+                            validation: (Rule) => Rule.min(1).max(10).required(),
+                            initialValue: 5,
+                        },
                         {
                             name: 'user_image',
                             title: 'User Image',
