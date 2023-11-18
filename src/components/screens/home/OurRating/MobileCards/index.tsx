@@ -41,7 +41,7 @@ const MobileCards = (data: any) => {
             top,
             bottom,
             left,
-            rating: 5,
+            rating: card.rating + 1,
         };
 
         return <RatingCard key={card._key} options={options} />;

@@ -11,7 +11,7 @@ import cn from 'classnames';
 import Logo from '@/components/icons/Logo';
 import Button from '@/components/ui/Button';
 
-import InputField from '@/components/ui/InputField';
+// import InputField from '@/components/ui/InputField';
 
 type IHeaderProps = {
     typePosition: string
