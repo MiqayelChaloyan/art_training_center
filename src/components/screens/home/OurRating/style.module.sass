@@ -1,0 +1,59 @@
+.container
+    bottom: 0
+    position: relative
+    margin-bottom: 120px
+    @media screen and ( max-width: 991px )
+       bottom: 40px
+    @media screen and ( max-width: 767px )
+       top: 40px
+
+.title
+    font-family: sans-serif
+    position: absolute
+    margin: 0 auto
+    width: 100%
+    top: -50px
+    font-size: 46px
+    padding-right: var(--container-gap)
+    padding-left: var(--container-gap)
+    color: var(--color-white)
+    @media screen and (max-device-width: 1400px) 
+       top: -40px
+       font-size: 30px
+    @media screen and (max-device-width: 1200px) 
+       top: -40px
+       font-size: 25px
+    @media screen and ( max-width: 991px )
+       width: 28%
+       top: 45px
+       font-size: 25px
+    @media screen and ( max-width: 767px )
+       width: 85%
+       top: -48px
+       font-size: 30px
+       text-align: center
+
+.row
+    display: flex
+    justify-content: space-between
+    margin-top: 120px
+    @media screen and ( max-width: 991px )
+    @media screen and ( max-width: 767px )
+        display: none
+        margin-top: 13px
+        padding: 0
+        justify-content: center
+
+.slider
+    display: none
+    justify-content: center
+    align-items: center
+    width: 93%
+    margin: 0 auto
+    @media screen and ( max-width: 767px )
+       display: block
+
+.mobile_cards
+    @media screen and ( max-width: 767px )
+       height: 300px
+       margin-bottom: 50px

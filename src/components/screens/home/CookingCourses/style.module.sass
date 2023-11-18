@@ -1,0 +1,87 @@
+.container
+    bottom: 66px
+    position: relative
+    background: #E3E1E1
+    @media screen and ( max-width: 991px )
+       bottom: 40px
+    @media screen and ( max-width: 767px )
+       bottom: 20px
+
+
+.skew 
+    display: block
+    height: 57px
+    width: 45%
+    position: relative
+    transform: skew(44deg)
+    bottom: 58px
+    &:after 
+      height: 60px
+      width: 110%
+      background: #E3E1E1
+      margin: 0 auto
+      position: absolute
+      content: ''
+      right: 0
+    @media screen and (max-device-width: 1400px) 
+      height: 50px
+      background: #E3E1E1
+      width: 38%
+      bottom: 50px
+      &:after 
+        height: 55px
+        width: 100%
+        background: #E3E1E1
+        right: 50px
+    @media screen and (max-device-width: 1200px) 
+      height: 50px
+      background: #E3E1E1
+      width: 38%
+      &:after 
+        height: 55px
+        width: 100%
+        background: #E3E1E1
+        right: 50px
+    @media screen and ( max-width: 991px )
+      height: 47px
+      background: #E3E1E1
+      width: 45%
+      bottom: 45px
+      &:after 
+        height: 55px
+        width: 100%
+        background: #E3E1E1
+        right: 50px
+    @media screen and ( max-width: 767px )
+      height: 62px
+      background: #E3E1E1
+      width: 120%
+      &:after 
+        height: 64px
+        width: 105%
+        background: #E3E1E1
+
+.title
+    font-family: sans-serif
+    position: absolute
+    margin: 0 auto
+    width: 100%
+    top: -50px
+    font-size: 46px
+    padding-right: var(--container-gap)
+    padding-left: var(--container-gap)
+    @media screen and (max-device-width: 1400px) 
+       top: -40px
+       font-size: 30px
+    @media screen and (max-device-width: 1200px) 
+       top: -40px
+       font-size: 25px
+    @media screen and ( max-width: 991px )
+       width: 28%
+       top: -40px
+       font-size: 25px
+    @media screen and ( max-width: 767px )
+       width: 85%
+       top: -30px
+       font-size: 30px
+       text-align: center

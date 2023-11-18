@@ -1,21 +1,26 @@
 import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 
-import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-
 import Play from '@/components/icons/Play';
-import { generateImageUrl } from '@/utils/imageGenerate';
+import Container from '@/components/components/Container';
+
+import { urlFor } from '../../../../../sanity/sanity';
+import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
 import styles from './style.module.sass';
 
-type VideoPlayerProps = {
+type Props = {
     data: HomeContent[];
 };
 
-const VideoPlayer: FC<VideoPlayerProps> = ({ data }) => {
+const VideoPlayer: FC<Props> = ({ data }) => {
     const [video, setVideo] = useState<string | any>(null);
     const { cooking_courses_video_light, cooking_courses_video_url: link } = data[0];
-    const lightUrl = generateImageUrl(cooking_courses_video_light.asset._ref);
+
+    const urlForImage = urlFor(cooking_courses_video_light)
+        .auto('format')
+        .fit('max')
+        .url();
 
     useEffect(() => {
         setVideo(
@@ -27,7 +32,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ data }) => {
                 height='100%'
                 muted
                 loop={false}
-                light={lightUrl}
+                light={urlForImage}
                 loading='lazy'
                 playing={true}
                 config={
@@ -49,14 +54,16 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ data }) => {
     }, []);
 
     return (
-        <div id='player' className={styles.container}>
+        <div id='video-player' className={styles.container}>
             <div className={styles.skew} />
-            <h1 className={styles.title}>COOKING COURSES</h1>
-            <div className={styles.player_block}>
-                <div className={styles.player}>
-                    {video}
+            <Container>
+                <h1 className={styles.title}>COOKING COURSES</h1>
+                <div className={styles.video_player}>
+                    <div className={styles.player}>
+                        {video}
+                    </div>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };

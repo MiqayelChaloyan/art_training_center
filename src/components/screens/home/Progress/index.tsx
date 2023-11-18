@@ -1,13 +1,16 @@
 import { FC, useEffect, useState } from 'react';
-import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-import styles from './Progress.module.sass';
+import Container from '@/components/components/Container';
 import ProgressBar from '../../../ui/ProgressBar';
 
-type ProgressProps = {
+import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
+
+import styles from './style.module.sass';
+
+type Props = {
     data: HomeContent[];
 };
 
-const Progress: FC<ProgressProps> = ({ data }) => {
+const Progress: FC<Props> = ({ data }) => {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
@@ -22,7 +25,7 @@ const Progress: FC<ProgressProps> = ({ data }) => {
     const items = data[0].progress_section.map((item: any) => {
         return (
             <div key={item._key} className={styles.column}>
-                <ProgressBar value={progress} quantity={item.quantity}/>
+                <ProgressBar value={progress} quantity={item.quantity} />
                 <p className={styles.title}>{item.title}</p>
             </div>
         );
@@ -30,9 +33,11 @@ const Progress: FC<ProgressProps> = ({ data }) => {
 
     return (
         <div id='circle-progress' className={styles.container}>
-            <div className={styles.row}>
-                {items}
-            </div>
+            <Container>
+                <div className={styles.row}>
+                    {items}
+                </div>
+            </Container>
         </div>
     );
 };

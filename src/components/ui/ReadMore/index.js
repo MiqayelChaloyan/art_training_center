@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
+import styles from './styles.module.sass';
 
 const ReadMore = ({ children, isReadMore }) => {
 	const text = children;
 	return (
-		<p className="text">
+		<p className={styles.text}>
 			{isReadMore ? text.slice(0, 200) + '...' : text}
 		</p>
 	);

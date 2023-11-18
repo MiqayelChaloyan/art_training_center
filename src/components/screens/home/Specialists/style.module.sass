@@ -1,0 +1,116 @@
+.container
+    bottom: 66px
+    position: relative
+    background: #E3E1E1
+    @media screen and ( max-width: 991px )
+       bottom: 40px
+    @media screen and ( max-width: 767px )
+       bottom: 20px
+
+.skew 
+    display: block
+    height: 94px
+    width: 103%
+    position: relative
+    bottom: 58px
+    background: var(--color-black)
+    &:after 
+      height: 94px
+      width: 36%
+      background: #E3E1E1
+      margin: 0 auto
+      position: absolute
+      content: ''
+      right: 0
+      transform: skew(-40deg)
+    @media screen and (max-device-width: 1400px) 
+      height: 60px
+      width: 103%
+      position: relative
+      bottom: 58px
+      &:after 
+        height: 110px
+        width: 36%
+        background: #E3E1E1
+        right: 0
+    @media screen and (max-device-width: 1200px) 
+      height: 94px
+      width: 103%
+      position: relative
+      bottom: 58px
+      &:after 
+        height: 110px
+        width: 36%
+        background: #E3E1E1
+        right: 0
+    @media screen and ( max-width: 991px )
+      height: 59px
+      width: 103%
+      position: relative
+      bottom: 58px
+      &:after 
+        height: 110px
+        width: 36%
+        background: #E3E1E1
+        right: 0
+    @media screen and ( max-width: 767px )
+      height: 62px
+      background: #E3E1E1
+      width: 120%
+      &:after 
+        height: 64px
+        width: 105%
+        background: #E3E1E1
+
+.title
+    &:after 
+      font-family: sans-serif
+      width: 25%
+      top: -40px
+      font-weight: 600
+      font-size: 46px
+      padding-right: var(--container-gap)
+      padding-left: var(--container-gap)
+      height: 94px
+      margin: 0 auto
+      position: absolute
+      content: 'Specialists'
+      right: 0
+      @media screen and (max-device-width: 1400px) 
+         width: 25%
+         top: -40px
+         font-size: 25px
+         padding-right: var(--container-gap)
+         padding-left: var(--container-gap)
+      @media screen and (max-device-width: 1200px) 
+         width: 25%
+         top: -40px
+         font-size: 25px
+         padding-right: var(--container-gap)
+         padding-left: var(--container-gap)
+      @media screen and ( max-width: 991px )
+         width: 25%
+         top: -40px
+         font-size: 25px
+         padding-right: var(--container-gap)
+         padding-left: var(--container-gap)
+      @media screen and ( max-width: 767px )
+         width: 100%
+         text-align: center
+         top: -15px
+         font-size: 25px
+         padding-right: var(--container-gap)
+         padding-left: var(--container-gap)
+
+.specialists
+   height: 600px
+   @media screen and (max-device-width: 1600px) 
+       padding: 0
+   @media screen and (max-device-width: 1200px) 
+       padding: 0
+   @media screen and ( max-width: 991px )
+       padding-top: 0
+       height: 513px
+   @media screen and ( max-width: 767px )
+       display: block
+       height: 620px

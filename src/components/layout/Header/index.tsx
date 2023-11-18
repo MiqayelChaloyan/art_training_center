@@ -19,14 +19,14 @@ type IHeaderProps = {
 
 const Header = ({ typePosition }: IHeaderProps) => {
     const { pathname } = useRouter();
-    const [inputNameValue, setInputNameValue] = useState('');
+    // const [inputNameValue, setInputNameValue] = useState('');
     const [isSticky, setIsSticky] = useState(false);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const dispatch = useAppDispatch();
 
-    const inputNameChange = (value: string) => {
-        setInputNameValue(value);
-    };
+    // const inputNameChange = (value: string) => {
+    //     setInputNameValue(value);
+    // };
 
     useEffect(() => {
         const handleScroll = () => {

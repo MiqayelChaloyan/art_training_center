@@ -16,7 +16,7 @@ interface Props {
 const initValues = { name: '', email: '', phone: '', message: '' };
 const initState = { isLoading: false, error: '', values: initValues };
 
-const FormAppointment: React.FC<Props> = ({ className,width,  children }) => {
+const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 	const [state, setState] = useState(initState);
 	const { values, isLoading, error } = state;
 
@@ -73,7 +73,7 @@ const FormAppointment: React.FC<Props> = ({ className,width,  children }) => {
 	};
 
 	useEffect(() => console.log(state.isLoading), [state.isLoading]);
-	
+
 	return (
 		<form
 			className={cn(className, styles.box)}
@@ -120,8 +120,14 @@ const FormAppointment: React.FC<Props> = ({ className,width,  children }) => {
 					onChange={handleChange}
 				/>
 			</div>
-			<button className={styles.submit} style={{width}}>
-				{isLoading ? 'Loading...' : 'Send'}
+			<button className={styles.submit} style={{ width }}>
+				{isLoading ?
+					'Loading...'
+					:
+					<span>
+						Send
+					</span>
+				}
 			</button>
 		</form>
 	);
