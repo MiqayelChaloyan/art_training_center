@@ -53,6 +53,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
         );
     }, []);
 
+
     return (
         <div id='video-player' className={styles.container}>
             <div className={styles.skew} />
