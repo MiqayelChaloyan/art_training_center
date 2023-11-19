@@ -4,10 +4,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-import styles from './style.module.sass';
 import Container from '@/components/components/Container';
 import Item from './Item';
+
+import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
+
+import styles from './style.module.sass';
 
 type SectionCoursesProps = {
     data: HomeContent[];

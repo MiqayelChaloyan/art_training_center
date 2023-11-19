@@ -2,7 +2,7 @@ import { transporter } from '../../constants/nodemailer';
 
 export default async (req, res) => {
     const { name, email, phone , message} = req.body;
-    console.log(req.body);
+    
     try {
       await transporter.sendMail({
         from: email,

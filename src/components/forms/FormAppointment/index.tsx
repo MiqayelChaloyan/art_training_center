@@ -1,11 +1,12 @@
 import React, { useState, FormEvent, useEffect } from 'react';
 
-import styles from './FormAppointment.module.sass';
 import cn from 'classnames';
 
 import InputField from '@/components/ui/InputField';
 import InputNumber from '@/components/ui/InputNumber';
 import TextareaField from '@/components/ui/TextareaField';
+
+import styles from './FormAppointment.module.sass';
 
 interface Props {
 	className?: string,

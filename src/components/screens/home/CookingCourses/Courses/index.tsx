@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react';
+import { FC, memo } from 'react';
 
 import Course from '../Course';
 
@@ -18,11 +18,6 @@ const concatenateTextWithFilter = (arg: any) => {
 };
 
 const Courses: FC<Props> = ({ data }) => {
-    const [isReadMore, setIsReadMore] = useState<boolean>(true);
-
-    const toggleReadMore = () => {
-        setIsReadMore(!isReadMore);
-    };
 
     const scrollToElement = () => {
         const container: HTMLElement | null = document.getElementById('contact');
@@ -32,7 +27,7 @@ const Courses: FC<Props> = ({ data }) => {
     };
 
     return (
-        data.map((item: any, index: number): JSX.Element => {
+        data.map((item: any): JSX.Element => {
             const urlForImageOne = urlFor(item.news_image_one)
                 .auto('format')
                 .fit('max')
@@ -51,14 +46,12 @@ const Courses: FC<Props> = ({ data }) => {
                 urlForImageTwo,
                 result,
                 scrollToElement,
-                toggleReadMore,
                 altOne: item.news_image_one.alt,
                 altTwo: item.news_image_two.alt,
-                isReadMore
             };
 
             return (
-                <Course  {...course} key={item.subtitle} />
+                <Course  {...course} key={item._key} />
             );
         }
         ));

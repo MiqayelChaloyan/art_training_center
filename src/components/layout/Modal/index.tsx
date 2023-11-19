@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import styles from './Modal.module.sass';
 import cn from 'classnames';
 
 import { useAppSelector, useAppDispatch } from '@/hooks/useStore';
@@ -8,12 +7,13 @@ import { closeModal } from '@/store/stateModalSlice';
 
 import Cancel from '@/components/icons/Cancel';
 
+import styles from './Modal.module.sass';
+
 interface Props {
 	children: React.ReactElement
 }
 
 const SectionCareerServices: React.FC<Props> = ({ children }) => {
-
 	const isOpen = useAppSelector((state) => state.stateModal.isOpen);
 	const dispatch = useAppDispatch();
 

@@ -1,8 +1,9 @@
-import CoWorkers from '@/components/screens/co_workers';
-import { getCoWorkers } from '../../../sanity/services/co-workers.service';
-import { Co_workers } from '../../../sanity/sanity-queries/co-workers';
 import { FC, memo } from 'react';
 
+import CoWorkers from '@/components/screens/co_workers';
+
+import { getCoWorkers } from '../../../sanity/services/co-workers.service';
+import { Co_workers } from '../../../sanity/sanity-queries/co-workers';
 
 type CoWorkersProps = {
 	data: Co_workers[]

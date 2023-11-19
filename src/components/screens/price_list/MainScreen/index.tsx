@@ -1,7 +1,9 @@
 import { FC } from 'react';
-import styles from './MainScreen.module.sass';
-import { Courses } from '../../../../../sanity/sanity-queries/courses';
+
 import Accordion from '../Accordion';
+import { Courses } from '../../../../../sanity/sanity-queries/courses';
+
+import styles from './MainScreen.module.sass';
 
 type MainProps = {
     course: Courses[];

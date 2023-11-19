@@ -1,6 +1,9 @@
 import { FC } from 'react';
-import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
+
 import MainSlider from '../MainSlider';
+
+import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
+
 import styles from './style.module.sass';
 
 type MainProps = {

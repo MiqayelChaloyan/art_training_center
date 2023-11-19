@@ -1,10 +1,11 @@
 import { FC, memo } from 'react';
 
+import Container from '@/components/components/Container';
+
 import { Co_workers } from '../../../../../sanity/sanity-queries/co-workers';
 import { urlFor } from '../../../../../sanity/sanity';
 
 import styles from './style.module.sass';
-import Container from '@/components/components/Container';
 
 type MainProps = {
     data: Co_workers[];

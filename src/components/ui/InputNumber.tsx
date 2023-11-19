@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC } from 'react';
 
 import InputMask from 'react-input-mask';
 

@@ -16,12 +16,7 @@ type Props = {
 
 const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToElement }) => (
     <div className={styles.emplay_slide}>
-        <div className={styles.box}>
-            <img
-                className={styles.back_image}
-                src={url}
-                alt={alt}
-            />
+        <div className={styles.box} style={{backgroundImage: `url(${url})`}}>
             <div className={styles.contact}>
                 <h1 className={styles.title}>{subtitle}</h1>
                 <PortableText value={content} components={components} />

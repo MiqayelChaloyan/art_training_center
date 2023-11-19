@@ -1,11 +1,12 @@
-import React, { memo, useEffect, useState } from 'react';
-import { GetServerSidePropsContext } from 'next';
-import Layout from '@/components/layout/Layout';
+import React, { memo } from 'react';
 import { NextSeo } from 'next-seo';
+import { GetServerSidePropsContext } from 'next';
+
+import Layout from '@/components/layout/Layout';
 import CoursePage from '@/components/screens/course';
+
 import { getCourseBySlug } from '../../../sanity/services/courses.service';
-import { Courses } from '../../../sanity/sanity-queries/courses';
-import { generateImageUrl } from '@/utils/imageGenerate';
+import { urlFor } from '../../../sanity/sanity';
 
 type CourseProps = {
     course: any,
@@ -13,7 +14,10 @@ type CourseProps = {
 }
 
 const Course = ({ course, isError }: CourseProps) => {
-    const image = generateImageUrl(course.course_main[0].course_section_image.asset._ref);
+    const urlForSeo = urlFor(course.course_main[0].course_section_image)
+    .auto('format')
+    .fit('max')
+    .url();
 
     return (
         <Layout  headerPosition='fixed'>
@@ -27,7 +31,7 @@ const Course = ({ course, isError }: CourseProps) => {
                     description: course.about_us_content[0].children[0].text,
                     images: [
                         {
-                            url: image || '',
+                            url: urlForSeo || '',
                             width: 500,
                             height: 500,
                             alt: course.course_main[0].course_section_image.alt,
@@ -62,6 +66,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             },
         };
     }
-}
+};
 
 export default memo(Course);

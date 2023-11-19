@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import styles from './style.module.sass';
+
 import AccordionArrow from '../../../icons/AccordionArrow';
-import { generateImageUrl } from '@/utils/imageGenerate';
+import { urlFor } from '../../../../../sanity/sanity';
+
+import styles from './style.module.sass';
 
 function daysBetweenDates(dateStr1: any, dateStr2: any) {
     const startDate = new Date(dateStr1);
@@ -44,6 +46,11 @@ const Panel = ({ name, list, svg, activeTab, index, activateTab }: any) => {
         );
     });
 
+    const urlForSvg = urlFor(svg)
+        .auto('format')
+        .fit('max')
+        .url();
+
     return (
         <div
             className={styles.panel}
@@ -56,12 +63,12 @@ const Panel = ({ name, list, svg, activeTab, index, activateTab }: any) => {
                     <p className={styles.panel__label} role='tab'>
                         {name}
                     </p>
-                    <button onClick={activateTab} style={{transform:  activeTab !== index ? 'rotate(178deg)': 'rotate(0deg)'}}>
+                    <button onClick={activateTab} style={{ transform: activeTab !== index ? 'rotate(178deg)' : 'rotate(0deg)' }}>
                         <AccordionArrow width={50} height={50} fill='white' />
                     </button>
                 </div>
                 <div>
-                    <img src={generateImageUrl(svg.asset._ref)} className={styles.svg_icon} />
+                    <img src={urlForSvg} className={styles.svg_icon} />
                 </div>
             </div>
             <div className={styles.panel__inner} style={innerStyle} aria-hidden={!activeTab === index}>

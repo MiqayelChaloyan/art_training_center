@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 function Button({text, onClick, className}) {
 	
 	const handleClick = () => {

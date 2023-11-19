@@ -47,7 +47,7 @@ const MenuSettings = () => {
 			</Link>
             <Link
 				className={styles.btn_contact_us}
-				href='tel:+37477156622'
+				href='tel:+37477111111'
 				title ='Contact us'
 			>
                 <Contact width={20} height={20} fill='white'/>

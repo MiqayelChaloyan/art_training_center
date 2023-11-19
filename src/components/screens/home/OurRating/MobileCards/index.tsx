@@ -1,5 +1,5 @@
-import { urlFor } from '../../../../../../sanity/sanity';
 import RatingCard from '../RatingCard';
+import { urlFor } from '../../../../../../sanity/sanity';
 
 const concatenateTextWithFilter = (arg: any) => {
     return arg.reduce((text: string, item: any) => {

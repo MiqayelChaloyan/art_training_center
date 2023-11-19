@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { useAppDispatch } from '@/hooks/useStore';
 import { openModal } from '@/store/stateModalSlice';
 
-import styles from './Header.module.sass';
 import cn from 'classnames';
 
 import Logo from '@/components/icons/Logo';
 import Button from '@/components/ui/Button';
+
+import styles from './Header.module.sass';
 
 // import InputField from '@/components/ui/InputField';
 

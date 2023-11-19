@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 					<Header typePosition={`${headerPosition === 'fixed' ? 'fixed' : 'sticky'}`} />
 					<main className="wrapper-main">{children}</main>
 				</div>
-				<Footer />
+				<Footer courses={courses}/>
 			</div>
 			<Modal>
 				<CoursesModal courses={courses} />

@@ -1,5 +1,6 @@
 import Search from '@/components/icons/Search';
 import Star from '@/components/icons/Star';
+
 import styles from './style.module.sass';
 
 const RatingCard = ({ options }: any) => {

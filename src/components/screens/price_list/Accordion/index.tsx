@@ -3,7 +3,7 @@ import Panel from '../AccordionItem';
 import styles from './style.module.sass';
 
 const Accordion = ({ course }: any) => {
-    const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState<number | null>(null);
 
     const activateTab = (index: number) => {
         setActiveTab((prev) => (prev === index ? -1 : index));

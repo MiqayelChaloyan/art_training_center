@@ -1,8 +1,9 @@
 import { FC, memo } from 'react';
+import Link from 'next/link';
+
+import { Courses } from '../../../sanity/sanity-queries/courses';
 
 import styles from './style.module.sass';
-import Link from 'next/link';
-import { Courses } from '../../../sanity/sanity-queries/courses';
 
 type CoursesModalProps = {
     courses: Courses[];

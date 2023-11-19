@@ -1,25 +1,57 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import styles from './Footer.module.sass';
+import Link from 'next/link';
+import Image from 'next/image';
+
 import FormAppointment from '@/components/forms/FormAppointment';
 import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
-import Link from 'next/link';
-import logo from '../../../../public/images/Mask.png';
-import Image from 'next/image';
 import Map from '@/components/ui/Map';
 
+import logo from '../../../../public/images/Mask.png';
+import { Courses } from '../../../../sanity/sanity-queries/courses';
+
+import styles from './Footer.module.sass';
 
 const group = {
     ['margin']: '0 auto'
 };
 
-const Footer = () => {
+type Props = {
+    courses: Courses[]
+}
+
+const Footer: FC<Props> = ({ courses }) => {
+
+    if (!courses.length) {
+        return null;
+    };
+
+    const matrix = courses.reduce((acc: any, item: any, index: number) => {
+        const rowIndex = Math.floor(index / 4);
+        if (!acc[rowIndex]) {
+            acc[rowIndex] = [];
+        }
+        acc[rowIndex].push(item);
+        return acc;
+    }, []);
+
+    const links = matrix.slice(0, 4).map((row: any, rowIndex: number) => (
+        <div key={rowIndex} className={styles.row}>
+            {row.map((course: any) => (
+                <div className={styles.contain} key={course.slug}>
+                    <Link href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.icon}>
+                        <p className={styles.copyright}>{course.name}</p>
+                    </Link>
+                </div>
+            ))}
+        </div>
+    ));
 
     return (
-        <footer  id='footer' className={styles.footer}>
+        <footer id='footer' className={styles.footer}>
             <div>
                 <div className={styles.google_map}>
-                    <Map  width='100%' height='100%'/>
+                    <Map width='100%' height='100%' />
                     <p className={styles.address}>Adress: Yerevan, Armenia</p>
                 </div>
                 <div id='contact' className={styles.box}>
@@ -28,86 +60,7 @@ const Footer = () => {
                     </FormAppointment>
                 </div>
                 <div className={styles.links}>
-                    <div className={styles.contain}>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>About Us</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Courses</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>About Us</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Courses</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>About Us</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Courses</p>
-                        </Link>
-                    </div>
-                    <div className={styles.contain}>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>CO-Workers</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Courses</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>CO-Workers</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Courses</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>CO-Workers</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Courses</p>
-                        </Link>
-                    </div>
-                    <div className={styles.contain}>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Price list</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>About Us</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Price list</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>About Us</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Price list</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>About Us</p>
-                        </Link>
-                    </div>
-                    <div className={styles.contain}>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>CO-Workers</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Price list</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>CO-Workers</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Price list</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>CO-Workers</p>
-                        </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Price list</p>
-                        </Link>
-                    </div>
+                    {links}
                     <div className={styles.contain}>
                         <Image
                             src={logo}
@@ -115,17 +68,17 @@ const Footer = () => {
                             priority
                             width={0}
                             height={0}
-                            style={{ width: '30%', height: 'auto', objectFit: 'scale-down', margin: '0 auto' }}
+                            style={{
+                                width: '30%', height: 'auto', objectFit: 'scale-down', margin: '0 auto', marginRight: 0
+                            }}
                         />
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>tell. +374 77 11 11 11</p>
+                        <Link href='tel:+37477111111' aria-label='/tel:+37477111111' className={styles.icon}>
+                            <p className={styles.info_web}>tell. +374 77 11 11 11</p>
                         </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Email art.house@bk.ru</p>
+                        <Link href='mailto:art.house@bk.ru' aria-label='/mailto:art.house@bk.ru' className={styles.icon}>
+                            <p className={styles.info_web}>Email art.house@bk.ru</p>
                         </Link>
-                        <Link href={'/'} aria-label='/' className={styles.icon}>
-                            <p className={styles.copyright}>Armenia, Yereva, Abovyan 33</p>
-                        </Link>
+                        <p className={styles.info_web}>Armenia, Yereva, Abovyan 33</p>
                     </div>
                 </div>
             </div>

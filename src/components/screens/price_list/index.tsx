@@ -1,7 +1,7 @@
-import Layout from '@/components/layout/Layout';
-import { Courses } from '../../../../sanity/sanity-queries/courses';
 import { FC } from 'react';
+import Layout from '@/components/layout/Layout';
 import MainScreen from './MainScreen';
+import { Courses } from '../../../../sanity/sanity-queries/courses';
 
 type PriceListProps = {
 	course: Courses[]

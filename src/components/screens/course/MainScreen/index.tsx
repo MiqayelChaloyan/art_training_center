@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import MainSlider from '../MainSlider';
 import { Courses } from '../../../../../sanity/sanity-queries/courses';
 

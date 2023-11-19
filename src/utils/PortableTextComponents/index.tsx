@@ -1,4 +1,3 @@
-import { generateImageUrl } from '@/utils/imageGenerate';
 import styles from './styles.module.sass';
 
 const components = {
@@ -24,12 +23,6 @@ const components = {
         bullet: ({ children }: any) => <ul className={styles.bullet}>{children}</ul>,
         number: ({ children }: any) => <ol className={styles.number}>{children}</ol>,
     },
-    // types: {
-    //     image: ({value}: any) => {
-    //         const imageUrl = generateImageUrl(value.asset._ref);
-    //         return <img className={styles.image} src={imageUrl} alt='image' />;
-    //     }
-    // }
 };
 
 export default components;

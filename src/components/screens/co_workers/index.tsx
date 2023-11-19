@@ -1,8 +1,9 @@
+import { FC } from 'react';
+
 import Layout from '@/components/layout/Layout';
 import MainScreen from './MainScreen';
-import { FC } from 'react';
-import { Co_workers } from '../../../../sanity/sanity-queries/co-workers';
 
+import { Co_workers } from '../../../../sanity/sanity-queries/co-workers';
 
 type CoWorkersProps = {
 	data: Co_workers[]

@@ -51,15 +51,8 @@ const StudentWork: FC<Props> = ({ course }) => {
                 <div className={styles.student_work}>
                     {images}
                 </div>
-                {course.student_work_section[0].images.length > initialLoadCourses ? (
+                {course.student_work_section[0].images.length < 8 ? (
                     <div className={styles.block_buttons}>
-                        <div className={styles.btn_group}>
-                            <Button
-                                className={styles.view_more_button}
-                                text='View more'
-                                onClick={handleLoad}
-                            />
-                        </div>
                         <div className={styles.btn_group}>
                             <Button
                                 className={styles.contact_button}
@@ -74,8 +67,8 @@ const StudentWork: FC<Props> = ({ course }) => {
                         <div className={styles.btn_group}>
                             <Button
                                 className={styles.view_more_button}
-                                text='Show less'
-                                onClick={handleBackLoad}
+                                text={course.student_work_section[0].images.length > initialLoadCourses ? 'View more' : 'Show less'}
+                                onClick={course.student_work_section[0].images.length > initialLoadCourses ? handleLoad : handleBackLoad}
                             />
                         </div>
                         <div className={styles.btn_group}>
@@ -85,6 +78,7 @@ const StudentWork: FC<Props> = ({ course }) => {
                                 onClick={scrollToElement}
                             />
                         </div>
+
                     </div>
                 )}
             </Container>
