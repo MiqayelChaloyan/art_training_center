@@ -13,18 +13,18 @@ const concatenateTextWithFilter = (arg: any) => {
 
 const sizes = [
     {
-        top: 70,
-        left: 10,
+        top: 60,
+        left: 20,
         bottom: 20
     },
     {
         top: 30,
-        left: 20,
+        left: 25,
         bottom: 50
     },
     {
         top: 80,
-        left: 10,
+        left: 20,
         bottom: 5
     }
 ];
@@ -42,12 +42,14 @@ const Rating = ({ data }: any) => data.map((card: any, index: number): JSX.Eleme
     .fit('max')
     .url();
 
+    const urlImageBackgroundAlt = card.our_rating_section_image.alt;
     const urlImageAlt = card.user_image.alt;
     const name = card.user_name;
 
     const options = {
         name,
         urlForImageBackground,
+        urlImageBackgroundAlt,
         urlForImage,
         urlImageAlt,
         result,

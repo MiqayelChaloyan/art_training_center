@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import components from '@/utils/PortableTextComponents';
 
 import styles from './styles.module.sass';
+import Image from 'next/image';
 
 type Props = {
     url: string;
@@ -16,7 +17,17 @@ type Props = {
 
 const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToElement }) => (
     <div className={styles.emplay_slide}>
-        <div className={styles.box} style={{backgroundImage: `url(${url})`}}>
+        <div className={styles.box}>
+            <Image
+                src={url}
+                alt={alt}
+                priority
+                className={styles.image}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ objectFit: 'cover' }}
+                />
             <div className={styles.contact}>
                 <h1 className={styles.title}>{subtitle}</h1>
                 <PortableText value={content} components={components} />

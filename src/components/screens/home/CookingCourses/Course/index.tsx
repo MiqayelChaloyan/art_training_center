@@ -1,4 +1,5 @@
 import { memo, useState } from 'react';
+import Image from 'next/image';
 
 import Button from '@/components/ui/Button';
 import Content from '../../../../ui/ReadMore';
@@ -31,8 +32,26 @@ const Course = (course: any) => {
                 </div>
             </div>
             <div className={styles.images}>
-                <img src={course.urlForImageOne} alt={course.altOne} className={styles.image} />
-                <img src={course.urlForImageTwo} alt={course.altTwo} className={styles.image} />
+                <Image
+                    src={course.urlForImageOne}
+                    alt={course.altOne}
+                    priority
+                    className={styles.image}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ objectFit: 'cover' }}
+                />
+                <Image
+                    src={course.urlForImageTwo}
+                    alt={course.altTwo}
+                    priority
+                    className={styles.image}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ objectFit: 'cover' }}
+                />
             </div>
         </div>
     );

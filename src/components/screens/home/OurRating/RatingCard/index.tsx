@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import Search from '@/components/icons/Search';
 import Star from '@/components/icons/Star';
 
@@ -5,7 +7,17 @@ import styles from './style.module.sass';
 
 const RatingCard = ({ options }: any) => {
     return (
-        <div className={styles.column} style={{ backgroundImage: `url(${options.urlForImageBackground})` }}>
+        <div className={styles.column}>
+            <Image
+                src={options.urlForImageBackground}
+                alt={options.urlImageBackgroundAlt}
+                priority
+                className={styles.background_image}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ objectFit: 'cover' }}
+            />
             <div className={styles.fix} style={{ marginTop: `${options.top}px` }}>
                 <div className={styles.card_header} style={{ marginBottom: `${options.bottom}px` }}>
                     <div className={styles.card_header_text}>
@@ -20,7 +32,18 @@ const RatingCard = ({ options }: any) => {
                     </div>
                 </div>
                 <div className={styles.card} style={{ marginLeft: `${options.left}px` }}>
-                    <div className={styles.card_background} style={{ backgroundImage: `url(${options.urlForImage})` }} />
+                    <div className={styles.card_image}>
+                        <Image
+                            src={options.urlForImage}
+                            alt={options.urlImageAlt}
+                            priority
+                            className={styles.image_center}
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                            style={{ objectFit: 'cover' }}
+                        />
+                    </div>
                     <div className={styles.card_content}>
                         <p className={styles.name}>{options.name}</p>
                         <div className={styles.rating}>
@@ -35,7 +58,7 @@ const RatingCard = ({ options }: any) => {
                                 ))
                             }
                         </div>
-                        <p className={styles.content}>{options.result.slice(0, 110)}...</p>
+                        <p className={styles.content}>{options.result.slice(0, 100)}...</p>
                     </div>
                 </div>
             </div>

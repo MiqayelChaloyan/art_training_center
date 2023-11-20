@@ -35,6 +35,7 @@ const MainSlider: FC<Props> = ({ course }) => {
                 url={urlForImage}
                 subtitle={item.subtitle}
                 content={item.content}
+                alt={item.course_section_image.alt}
             />
         );
     });
