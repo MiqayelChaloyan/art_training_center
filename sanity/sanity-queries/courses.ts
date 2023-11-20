@@ -37,5 +37,5 @@ export const CoursesQuery = `{
     svg,
     _type,
     _updatedAt,
-    "slug": slug.current,
+    "slug": slug.current
 }`;

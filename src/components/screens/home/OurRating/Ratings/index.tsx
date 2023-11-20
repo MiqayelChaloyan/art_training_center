@@ -15,7 +15,7 @@ const sizes = [
     {
         top: 70,
         left: 10,
-        bottom: 40
+        bottom: 20
     },
     {
         top: 30,

@@ -25,7 +25,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
     useEffect(() => {
         setVideo(
             <ReactPlayer
-                className='react-player'
+                style={{filter: 'brightness(0.5)'}}
                 url={link}
                 controls
                 width='100%'

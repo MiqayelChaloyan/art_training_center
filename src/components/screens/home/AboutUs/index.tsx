@@ -32,7 +32,7 @@ const AboutUs: FC<Props> = ({ data }) => {
                         <PortableText value={about_us_content[0] as any} components={components} />
                     </div>
                     <div className={styles.form_box}>
-                        <FormAppointment width='50%'>
+                        <FormAppointment width='30%'>
                             <HeaderForm
                                 display='flex'
                                 color='black'

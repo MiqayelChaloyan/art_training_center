@@ -1,6 +1,5 @@
 import PriceList from '@/components/screens/price_list';
 import { FC } from 'react';
-import { Co_workers } from '../../../sanity/sanity-queries/co-workers';
 import { getCourses } from '../../../sanity/services/courses.service';
 import { Courses } from '../../../sanity/sanity-queries/courses';
 

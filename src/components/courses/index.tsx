@@ -22,7 +22,7 @@ const CoursesModal: FC<CoursesModalProps> = ({ courses }) => {
 
     if (!courses) {
         return null;
-    }
+    };
 
     const coursesList = data.map((innerArray) => (
         <div key={innerArray[0]._id} className={styles.courses}>

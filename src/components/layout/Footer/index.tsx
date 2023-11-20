@@ -55,7 +55,7 @@ const Footer: FC<Props> = ({ courses }) => {
                     <p className={styles.address}>Adress: Yerevan, Armenia</p>
                 </div>
                 <div id='contact' className={styles.box}>
-                    <FormAppointment width='30%'>
+                    <FormAppointment width='25%'>
                         <HeaderForm display='grid' color='white' justifyContent='center' title='CONTACT US' fontSize='40px' fill='white' group={group} />
                     </FormAppointment>
                 </div>
