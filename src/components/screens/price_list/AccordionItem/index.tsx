@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import Image from 'next/image';
 
 import AccordionArrow from '../../../icons/AccordionArrow';
 import { urlFor } from '../../../../../sanity/sanity';
@@ -79,16 +78,7 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
                     </button>
                 </div>
                 <div>
-                    <Image
-                        src={urlForSvg}
-                        alt={alt || 'Svg'}
-                        priority
-                        className={styles.svg_icon}
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ objectFit: 'cover' }}
-                    />
+                    <img src={urlForSvg} alt={alt} className={styles.svg_icon}/>
                 </div>
             </div>
             <div className={styles.panel__inner} style={innerStyle} aria-hidden={!activeTab === index}>
