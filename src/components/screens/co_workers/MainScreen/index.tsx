@@ -1,4 +1,5 @@
 import { FC, memo } from 'react';
+import Image from 'next/image';
 
 import Container from '@/components/components/Container';
 
@@ -18,11 +19,20 @@ const MainScreen: FC<MainProps> = ({ data, isError }) => {
             .auto('format')
             .fit('max')
             .url();
-
+            
         return (
             <div key={item._id} className={styles.co_worker}>
                 <div className={styles.image_container}>
-                    <img src={urlForImage} className={styles.image} />
+                    <Image
+                        src={urlForImage}
+                        alt={item.co_workers_image.alt || 'co-worker-company'}
+                        priority
+                        className={styles.image}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ objectFit: 'cover' }}
+                    />
                 </div>
                 <p className={styles.text}>{item.name}</p>
             </div>

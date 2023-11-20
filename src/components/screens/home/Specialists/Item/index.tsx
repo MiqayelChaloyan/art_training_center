@@ -75,14 +75,14 @@ const Item = ({ item }: any) => {
         const data = await getCourseById(item.categories._ref);
         return router.push(`/courses/${data.slug}`);
     };
-
+    
     return (
         <div key={item._key} className={styles.item}>
             <div className={styles.box_img}>
                 <Image
                     key={item._key}
                     src={urlForImage}
-                    alt={item.alt}
+                    alt={item.specialists_section_image.alt}
                     priority
                     className={styles.img}
                     width={0}
@@ -95,7 +95,7 @@ const Item = ({ item }: any) => {
                 <h2 className={styles.subtitle}>{item.subtitle}</h2>
                 <Button
                     className={styles.contact_btn}
-                    text='Make Up'
+                    text={item.course}
                     onClick={goCoursePage}
                 />
                 <div className={styles.box_images}>

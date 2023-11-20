@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import Image from 'next/image';
 
 import AccordionArrow from '../../../icons/AccordionArrow';
 import { urlFor } from '../../../../../sanity/sanity';
@@ -14,7 +15,17 @@ function daysBetweenDates(dateStr1: any, dateStr2: any) {
     return daysDifference;
 };
 
-const Panel = ({ name, list, svg, activeTab, index, activateTab }: any) => {
+type Props = {
+    name: string;
+    list: any;
+    svg: string;
+    alt: string | undefined;
+    activeTab: boolean;
+    index: boolean;
+    activateTab: () => void;
+}
+
+const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab }) => {
     const [height, setHeight] = useState(0);
 
     const innerStyle = {
@@ -68,7 +79,16 @@ const Panel = ({ name, list, svg, activeTab, index, activateTab }: any) => {
                     </button>
                 </div>
                 <div>
-                    <img src={urlForSvg} className={styles.svg_icon} />
+                    <Image
+                        src={urlForSvg}
+                        alt={alt || 'Svg'}
+                        priority
+                        className={styles.svg_icon}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ objectFit: 'cover' }}
+                    />
                 </div>
             </div>
             <div className={styles.panel__inner} style={innerStyle} aria-hidden={!activeTab === index}>

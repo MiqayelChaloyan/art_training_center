@@ -21,7 +21,7 @@ const group = {
 
 const AboutUs: FC<Props> = ({ data }) => {
     const { about_us_title, about_us_content } = data[0];
-
+    
     return (
         <div id='about-us' className={styles.container}>
             <div className={styles.skew} />

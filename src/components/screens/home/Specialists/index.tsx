@@ -45,7 +45,7 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     const slidesItems = data[0].specialists_section.map((item: any, index: number) => (
         <Item key={item._key} item={item} index={index} />
     ));
-
+    
     const settings = {
         speed: 500,
         autoplay: false,

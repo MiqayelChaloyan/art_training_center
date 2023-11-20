@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import Image from 'next/image';
 
 import Button from '@/components/ui/Button';
@@ -6,7 +6,16 @@ import Content from '../../../../ui/ReadMore';
 
 import styles from './style.module.sass';
 
-const Course = (course: any) => {
+type Props = {
+    altTwo: string;
+    altOne: string;
+    urlForImageOne: string;
+    scrollToElement: any;
+    result: any;
+    subtitle: string;
+}
+
+const Course: FC<Props> = (course) => {
     const [isReadMore, setIsReadMore] = useState<boolean>(true);
 
     const toggleReadMore = () => {
@@ -43,7 +52,7 @@ const Course = (course: any) => {
                     style={{ objectFit: 'cover' }}
                 />
                 <Image
-                    src={course.urlForImageTwo}
+                    src={course.urlForImageOne}
                     alt={course.altTwo}
                     priority
                     className={styles.image}

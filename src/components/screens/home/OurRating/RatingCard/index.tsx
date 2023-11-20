@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Image from 'next/image';
 
 import Search from '@/components/icons/Search';
@@ -18,8 +19,8 @@ const RatingCard = ({ options }: any) => {
                 sizes="100vw"
                 style={{ objectFit: 'cover' }}
             />
-            <div className={styles.fix} style={{ marginTop: `${options.top}px` }}>
-                <div className={styles.card_header} style={{ marginBottom: `${options.bottom}px` }}>
+            <div className={styles.fix} style={{ marginTop: `${options.top ? options.top : 20}px` }}>
+                <div className={styles.card_header} style={{ marginBottom: `${options.bottom ? options.bottom : 20}px` }}>
                     <div className={styles.card_header_text}>
                         <p>Art House ուսումնական կենտրոն</p>
                     </div>
@@ -31,7 +32,7 @@ const RatingCard = ({ options }: any) => {
                         />
                     </div>
                 </div>
-                <div className={styles.card} style={{ marginLeft: `${options.left}px` }}>
+                <div className={styles.card} style={{ marginLeft: `${options.left ? options.left : 10}px` }}>
                     <div className={styles.card_image}>
                         <Image
                             src={options.urlForImage}
@@ -66,4 +67,4 @@ const RatingCard = ({ options }: any) => {
     );
 };
 
-export default RatingCard;
+export default memo(RatingCard);

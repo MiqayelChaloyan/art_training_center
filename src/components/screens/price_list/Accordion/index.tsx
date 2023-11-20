@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import Panel from '../AccordionItem';
 import styles from './style.module.sass';
+import { Courses } from '../../../../../sanity/sanity-queries/courses';
 
-const Accordion = ({ course }: any) => {
+type Props = {
+    course: Courses[];
+}
+
+const Accordion: FC<Props> = ({ course }) => {
     const [activeTab, setActiveTab] = useState<number | null>(null);
 
     const activateTab = (index: number) => {
@@ -19,6 +24,7 @@ const Accordion = ({ course }: any) => {
                     {...panel}
                     name={panel.name}
                     svg={panel.svg}
+                    alt={panel.svg.alt}
                     list={panel.price_list}
                     activateTab={() => activateTab(index)}
                 />

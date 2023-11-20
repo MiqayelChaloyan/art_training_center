@@ -301,6 +301,7 @@ export const home_content = {
                     name: 'tag',
                     fields: [
                         { type: 'string', name: 'subtitle', title: 'Specialists Section Title' },
+                        { type: 'string', name: 'course', title: 'Course Name' },
                         {
                             name: 'specialists_section_image',
                             title: 'Specialists Section Image',

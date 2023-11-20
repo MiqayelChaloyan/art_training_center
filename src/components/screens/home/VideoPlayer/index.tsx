@@ -15,6 +15,8 @@ type Props = {
 
 const VideoPlayer: FC<Props> = ({ data }) => {
     const [video, setVideo] = useState<string | any>(null);
+    const [filter, setFilter] = useState<boolean>(true);
+
     const { cooking_courses_video_light, cooking_courses_video_url: link } = data[0];
 
     const urlForImage = urlFor(cooking_courses_video_light)
@@ -25,7 +27,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
     useEffect(() => {
         setVideo(
             <ReactPlayer
-                style={{filter: 'brightness(0.5)'}}
+                style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)' }}
                 className='react-player'
                 url={link}
                 controls
@@ -34,15 +36,9 @@ const VideoPlayer: FC<Props> = ({ data }) => {
                 muted
                 loop={false}
                 light={urlForImage}
-                loading='lazy'
+                loading="lazy"
                 playing={true}
-                config={
-                    {
-                        youtube: {
-                            playerVars: { showinfo: 1 }
-                        },
-                    }
-                }
+                config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
                 playIcon={
                     <Play
                         width='104'
@@ -50,10 +46,10 @@ const VideoPlayer: FC<Props> = ({ data }) => {
                         fill='white'
                     />
                 }
+                onPlay={() => setFilter(false)}
             />
         );
-    }, []);
-
+    }, [filter]);
 
     return (
         <div id='video-player' className={styles.container}>

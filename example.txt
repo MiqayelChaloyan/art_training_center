@@ -1,9 +1,0 @@
-import { urlFor } from '../../../../../sanity/sanity'
-
-const urlForImage = urlFor(data[0].cooking_courses_video_light)
-		.auto('format')
-		.fit('max')
-		.width(720)
-		.toString()
-
-console.log(urlForImage)

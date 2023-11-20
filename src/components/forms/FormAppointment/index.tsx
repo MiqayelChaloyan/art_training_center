@@ -64,7 +64,6 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 				error: error.message,
 			}));
 		} catch (error: any) {
-			console.log(error);
 			setState((prev) => ({
 				...prev,
 				isLoading: false,
@@ -72,8 +71,6 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 			}));
 		}
 	};
-
-	useEffect(() => console.log(state.isLoading), [state.isLoading]);
 
 	return (
 		<form

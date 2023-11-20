@@ -1,5 +1,6 @@
 import RatingCard from '../RatingCard';
 import { urlFor } from '../../../../../../sanity/sanity';
+import { FC } from 'react';
 
 const concatenateTextWithFilter = (arg: any) => {
     return arg.reduce((text: string, item: any) => {
@@ -11,7 +12,7 @@ const concatenateTextWithFilter = (arg: any) => {
 };
 
 const MobileCards = (data: any) => {
-    const feedbacks = data.map((card: any, index: number) => {
+    const feedbacks = data.map((card: any): JSX.Element => {
         const result = concatenateTextWithFilter(card?.user_feedback[0].children);
 
         const urlForImageBackground = urlFor(card.our_rating_section_image)
@@ -24,23 +25,17 @@ const MobileCards = (data: any) => {
             .fit('max')
             .url();
 
+        const urlImageBackgroundAlt = card.our_rating_section_image.alt;
         const urlImageAlt = card.user_image.alt;
         const name = card.user_name;
-
-
-        const top = 30 + (index * 25);
-        const bottom = 10 + (index * 10);
-        const left = index * 20;
 
         const options = {
             name,
             urlForImageBackground,
+            urlImageBackgroundAlt,
             urlForImage,
             urlImageAlt,
             result,
-            top,
-            bottom,
-            left,
             rating: card.rating + 1,
         };
 
