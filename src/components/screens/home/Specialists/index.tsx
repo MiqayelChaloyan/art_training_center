@@ -20,7 +20,7 @@ function SampleNextArrow(props: any) {
     return (
         <div
         className={`${className} ${styles.arrow_next}`}
-        style={{ ...style, display: "block", width: 50,  height: 50 }}
+        style={{ ...style, display: 'block', width: 50,  height: 50 }}
             onClick={onClick}
         />
     );
@@ -31,7 +31,7 @@ function SamplePrevArrow(props: any) {
     return (
         <div
             className={`${className} ${styles.arrow_prev}`}
-            style={{ ...style, display: "block", width: 50,  height: 50}}
+            style={{ ...style, display: 'block', width: 50,  height: 50}}
             onClick={onClick}
         />
     );
