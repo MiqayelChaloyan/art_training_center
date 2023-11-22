@@ -31,7 +31,7 @@ const AboutUs: FC<Props> = ({ data }) => {
                     <div className={styles.about_box}>
                         <PortableText value={about_us_content[0] as any} components={components} />
                     </div>
-                    <div className={styles.form_box}>
+                    {/* <div className={styles.form_box}>
                         <FormAppointment width='30%'>
                             <HeaderForm
                                 display='flex'
@@ -43,7 +43,7 @@ const AboutUs: FC<Props> = ({ data }) => {
                                 group={group}
                             />
                         </FormAppointment>
-                    </div>
+                    </div> */}
                 </div>
             </Container>
         </div>
