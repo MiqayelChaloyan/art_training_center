@@ -15,29 +15,27 @@ type SectionCoursesProps = {
     data: HomeContent[];
 };
 
-// function SampleNextArrow(props) {
-//     const { className, style, onClick } = props;
-//     return (
-//       <div
-//         className={className}
-//         style={{ ...style, display: "block", background: "red" }}
-//         onClick={onClick}
-//       >
-//         <p>jjjjjjjjjj</p>
-//       </div>
-//     );
-//   }
-  
-//   function SamplePrevArrow(props) {
-//     const { className, style, onClick } = props;
-//     return (
-//       <div
-//         className={className}
-//         style={{ ...style, display: "block", background: "green" }}
-//         onClick={onClick}
-//       />
-//     );
-//   }
+function SampleNextArrow(props: any) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+        className={`${className} ${styles.arrow_next}`}
+        style={{ ...style, display: "block", width: 50,  height: 50 }}
+            onClick={onClick}
+        />
+    );
+}
+
+function SamplePrevArrow(props: any) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={`${className} ${styles.arrow_prev}`}
+            style={{ ...style, display: "block", width: 50,  height: 50}}
+            onClick={onClick}
+        />
+    );
+}
 
 
 const Specialists: FC<SectionCoursesProps> = ({ data }) => {
@@ -45,7 +43,7 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     const slidesItems = data[0].specialists_section.map((item: any, index: number) => (
         <Item key={item._key} item={item} index={index} />
     ));
-    
+
     const settings = {
         speed: 500,
         autoplay: false,
@@ -59,8 +57,8 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
         centerPadding: '0',
         focusOnSelect: true,
         initialSlide: 0,
-    //     nextArrow: <SampleNextArrow />,
-    //   prevArrow: <SamplePrevArrow />
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
     };
 
     return (

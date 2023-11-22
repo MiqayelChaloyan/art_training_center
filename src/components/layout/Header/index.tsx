@@ -3,12 +3,12 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import { useAppDispatch } from '@/hooks/useStore';
-import { openModal } from '@/store/stateModalSlice';
+// import { openModal } from '@/store/stateModalSlice';
 
 import cn from 'classnames';
 
 import Logo from '@/components/icons/Logo';
-import Button from '@/components/ui/Button';
+// import Button from '@/components/ui/Button';
 
 import styles from './Header.module.sass';
 
@@ -23,7 +23,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
     // const [inputNameValue, setInputNameValue] = useState('');
     const [isSticky, setIsSticky] = useState(false);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
-    const dispatch = useAppDispatch();
+    // const dispatch = useAppDispatch();
 
     // const inputNameChange = (value: string) => {
     //     setInputNameValue(value);
@@ -65,13 +65,13 @@ const Header = ({ typePosition }: IHeaderProps) => {
                 )}>
                     <div className={styles.nav}>
                         <Link href='/' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''}`}>About Us</Link>
-                        <Button
+                        {/* <Button
                             text='Courses'
                             onClick={() =>
                                 setTimeout(() => dispatch(openModal()), 500)
                             }
                             className={styles.btn}
-                        />
+                        /> */}
                         <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''}`}>CO-Workers</Link>
                         <Link href='/price_list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''}`}>Price List</Link>
                     </div>

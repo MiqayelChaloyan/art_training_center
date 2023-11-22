@@ -50,14 +50,20 @@ const Footer: FC<Props> = ({ courses }) => {
     return (
         <footer id='footer' className={styles.footer}>
             <div>
+                {/* <div className={styles.google_map}>
+                    <Map width='100%' height='100%' />
+                    <p className={styles.address}>Adress: Yerevan, Armenia</p>
+                </div> */}
+                <div id='contact' className={styles.box}>
+                    <div className={styles.contact}>
+                    <FormAppointment width='30%'>
+                        <HeaderForm display='grid' color='white' justifyContent='center' title='CONTACT US' fontSize='40px' fill='white' group={group} />
+                    </FormAppointment>
+                    </div>
+                </div>
                 <div className={styles.google_map}>
                     <Map width='100%' height='100%' />
                     <p className={styles.address}>Adress: Yerevan, Armenia</p>
-                </div>
-                <div id='contact' className={styles.box}>
-                    <FormAppointment width='25%'>
-                        <HeaderForm display='grid' color='white' justifyContent='center' title='CONTACT US' fontSize='40px' fill='white' group={group} />
-                    </FormAppointment>
                 </div>
                 <div className={styles.links}>
                     {links}
