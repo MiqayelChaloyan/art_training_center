@@ -31,7 +31,7 @@ const co_workers = {
             ],
             validation: (Rule: any) => Rule.required(),
         },
-    ]
+    ],
 };
 
 export default co_workers;
