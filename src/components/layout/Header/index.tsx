@@ -43,7 +43,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
             arr.push(str);
         }
         return arr;
-    }
+    };
 
     const otherLocales = ensureStringInArray(locales, 'en');
     // const otherLocales: string[] = (locales ?? []).filter((locale: string) => locale !== activeLocale);
