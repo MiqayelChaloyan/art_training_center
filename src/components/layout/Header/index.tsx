@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { useTranslation } from 'react-i18next';
 
@@ -46,9 +47,8 @@ const Header = ({ typePosition }: IHeaderProps) => {
     };
 
     const otherLocales = ensureStringInArray(locales, 'en');
-    // const otherLocales: string[] = (locales ?? []).filter((locale: string) => locale !== activeLocale);
 
-    const changeLocale = (locale: string) => document.cookie = `NEXT_LOCALE=${locale}`;
+    const changeLocale = (locale: string) => document.cookie = `language=${locale}`;
 
     useEffect(() => {
         const handleScroll = () => {

@@ -1,4 +1,6 @@
-import React, { useState, FormEvent, useEffect } from 'react';
+import React, { useState, FormEvent } from 'react';
+
+import { useTranslation } from 'react-i18next';
 
 import cn from 'classnames';
 
@@ -20,6 +22,7 @@ const initState = { isLoading: false, error: '', values: initValues };
 const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 	const [state, setState] = useState(initState);
 	const { values, isLoading, error } = state;
+    const { t } = useTranslation();
 
 	const handleChange = ({ target }: any) =>
 		setState((prev) => ({
@@ -85,7 +88,7 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 					className={cn(styles.input)}
 					name='name'
 					type='name'
-					placeholder='Your Name'
+					placeholder={t('contact-us.name')}
 					requiredField={true}
 					value={values.name}
 					onChange={handleChange}
@@ -94,7 +97,7 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 					className={cn(styles.input)}
 					name='email'
 					type='email'
-					placeholder='Your Email'
+					placeholder={t('contact-us.email')}
 					requiredField={true}
 					value={values.email}
 					onChange={handleChange}
@@ -103,7 +106,7 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 					className={cn(styles.input)}
 					name='phone'
 					type='phone'
-					placeholder='Phone Number'
+					placeholder={t('contact-us.phone-number')}
 					maskNumber='+374 99 99 99 99'
 					requiredField={true}
 					value={values.phone}
@@ -112,7 +115,7 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 				<TextareaField
 					className={cn(styles.textarea)}
 					name='message'
-					placeholder='Messages'
+					placeholder={t('contact-us.message')}
 					requiredField={false}
 					value={values.message}
 					onChange={handleChange}
@@ -120,10 +123,10 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 			</div>
 			<button className={styles.submit} style={{ width }}>
 				{isLoading ?
-					'Loading...'
+					`${t('contact-us.loading')}...`
 					:
 					<span>
-						Send
+						{t('contact-us.send')}
 					</span>
 				}
 			</button>

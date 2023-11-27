@@ -1,5 +1,7 @@
 import { FC, memo, useEffect, useState } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import Container from '@/components/components/Container';
 import Button from '@/components/ui/Button';
 
@@ -14,6 +16,7 @@ type Props = {
 
 const StudentWork: FC<Props> = ({ course }) => {
     const [initialLoadCourses, setInitialLoadCourses] = useState<number>(8);
+    const { t } = useTranslation();
 
     useEffect(() => setInitialLoadCourses(8), [course]);
 
@@ -23,9 +26,9 @@ const StudentWork: FC<Props> = ({ course }) => {
         if (container) {
             container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    };
+    };    
 
-    const images = course.student_work_section[0].images.slice(0, initialLoadCourses).map((item: any) => {
+    const images = course.student_works[0].images.slice(0, initialLoadCourses).map((item: any) => {
 
         const urlForImage = urlFor(item)
             .auto('format')
@@ -47,11 +50,11 @@ const StudentWork: FC<Props> = ({ course }) => {
         <div id='student-work' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>Student Work</h1>
+                <h1 className={styles.title}>{t('pages.student_work')}</h1>
                 <div className={styles.student_work}>
                     {images}
                 </div>
-                {course.student_work_section[0].images.length < 8 ? (
+                {course.student_works[0].images.length < 8 ? (
                     <div className={styles.block_buttons}>
                         <div className={styles.btn_group}>
                             <Button
@@ -67,8 +70,8 @@ const StudentWork: FC<Props> = ({ course }) => {
                         <div className={styles.btn_group}>
                             <Button
                                 className={styles.view_more_button}
-                                text={course.student_work_section[0].images.length > initialLoadCourses ? 'View more' : 'Show less'}
-                                onClick={course.student_work_section[0].images.length > initialLoadCourses ? handleLoad : handleBackLoad}
+                                text={course.student_works[0].images.length > initialLoadCourses ? 'View more' : 'Show less'}
+                                onClick={course.student_works[0].images.length > initialLoadCourses ? handleLoad : handleBackLoad}
                             />
                         </div>
                         <div className={styles.btn_group}>

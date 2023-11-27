@@ -1,8 +1,28 @@
 {
-    "navigation": {
-      "about": "About us",
-      "courses": "Courses",
-      "co-workers": "Co-Workers",
-      "price-list": "Price List"
-    }
+  "navigation": {
+    "about": "About us",
+    "courses": "Courses",
+    "co-workers": "Co-Workers",
+    "price-list": "Price List"
+  },
+  "pages": {
+    "co-worker": "CO-WORKERS",
+    "courses": "Courses",
+    "about_courses": "About courses",
+    "courses_process": "COURSE PROCESS",
+    "student_work": "Student Work"
+  },
+  "adress": {
+    "adress": "Adress: Yerevan, Armenia",
+    "street": "Armenia, Yereva, Abovyan 33"
+  },
+  "contact-us": {
+    "title": "CONTACT US",
+    "name": "Name",
+    "email": "Email",
+    "phone-number": "Phone Number",
+    "message": "Message",
+    "send": "Send",
+    "loading": "Loading"
+  }
 }

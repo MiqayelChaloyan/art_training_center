@@ -1,6 +1,8 @@
 import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 
+import { useTranslation } from 'react-i18next';
+
 import Play from '@/components/icons/Play';
 import Container from '@/components/components/Container';
 
@@ -10,16 +12,15 @@ import { Courses } from '../../../../../sanity/sanity-queries/courses';
 import styles from './style.module.sass';
 
 type Props = {
-    course: Courses[];
+    course: Courses;
 };
 
 const VideoPlayer: FC<Props> = ({ course }) => {
     const [video, setVideo] = useState<string | any>(null);
     const [filter, setFilter] = useState<boolean>(true);
-
-    const { course_process_video_light, course_process_video_url: link } = course as any;
-
-    const urlForImage = urlFor(course_process_video_light)
+    const { t } = useTranslation();
+    
+    const urlForImage = urlFor(course.course_process[0].video_light)
         .auto('format')
         .fit('max')
         .url();
@@ -28,7 +29,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
         setVideo(
             <ReactPlayer
                 style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)' }}
-                url={link}
+                url={course.course_process[0].video_url}
                 controls
                 width='100%'
                 height='100%'
@@ -54,7 +55,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
         <div id='video-player' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>COURSE PROCESS</h1>
+                <h1 className={styles.title}>{t('pages.courses_process')}</h1>
                 <div className={styles.video_player}>
                     <div className={styles.player}>
                         {video}

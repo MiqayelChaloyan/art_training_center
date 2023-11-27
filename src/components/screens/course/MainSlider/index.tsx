@@ -15,7 +15,7 @@ type Props = {
     course: Courses;
 };
 
-const MainSlider: FC<Props> = ({ course }) => {
+const MainSlider: FC<Props> = ({ course }) => {    
     const items = course.course_main;
     const [emblaRef] = useEmblaCarousel({ loop: true, align: 'center', duration: 50 }, [Autoplay()]);
 
@@ -24,18 +24,18 @@ const MainSlider: FC<Props> = ({ course }) => {
     };
 
     const slidesItems = items.map((item: any): JSX.Element => {
-        const urlForImage = urlFor(item.course_section_image)
+        const urlForImage = urlFor(item.image)
             .auto('format')
             .fit('max')
             .url();
 
         return (
             <SlideItem
-                key={item._key}
+                key={item._id}
                 url={urlForImage}
-                subtitle={item.subtitle}
+                title={item.title}
                 content={item.content}
-                alt={item.course_section_image.alt}
+                alt={item.image.alt}
             />
         );
     });

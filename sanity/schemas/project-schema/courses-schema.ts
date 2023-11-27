@@ -1,29 +1,32 @@
 import { defineArrayMember } from "sanity";
 
-const styles = [
-    { title: 'Normal', value: 'normal' },
-    { title: 'H1', value: 'h1' },
-    { title: 'H2', value: 'h2' },
-    { title: 'H3', value: 'h3' },
-    { title: 'H4', value: 'h4' },
-    { title: 'Quote', value: 'blockquote' },
-    { title: 'Bullet', value: 'bullet' },
-    { title: 'Normal', value: 'normal' },
-    { title: 'Italic', value: 'italic' },
-    { title: 'Code', value: 'code' },
-    { title: 'Bullet List', value: 'bullet' },
-    { title: 'Numbered List', value: 'number' },
-];
-
 export const courses = {
     name: 'courses',
     type: 'document',
     title: 'Courses',
     fields: [
         {
-            name: 'name',
-            type: 'string',
-            validation: (Rule: any) => Rule.max(50),
+            title: 'Course Name (Դասընթացի անվանումը)',
+            name: 'course_name',
+            type: 'object',
+            validation: (Rule: any) => Rule.required(),
+            fields: [
+                {
+                    title: 'Armenian',
+                    name: 'am',
+                    type: 'string'
+                },
+                {
+                    title: 'English',
+                    name: 'en',
+                    type: 'string'
+                },
+                {
+                    title: 'Russian',
+                    name: 'ru',
+                    type: 'string'
+                }
+            ]
         },
         {
             name: 'slug',
@@ -36,71 +39,65 @@ export const courses = {
         {
             name: 'course_main',
             type: 'array',
-            title: 'Main Sections (You can add any number of pictures)*',
+            title: 'Course Main',
+            description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
             of: [
-                defineArrayMember({
+                {
+                    name: 'object',
                     type: 'object',
-                    name: 'tag',
                     fields: [
-                        { type: 'string', name: 'subtitle', title: 'Course Section Title' },
                         {
-                            name: 'content',
-                            type: 'array',
-                            title: 'Course Section Content',
-                            of: [
+                            title: 'Title',
+                            name: 'title',
+                            type: 'object',
+                            validation: (Rule: any) => Rule.required(),
+                            fields: [
                                 {
-                                    type: 'block',
-                                    lists: [
-                                        { title: 'Bullet', value: 'bullet' },
-                                        { title: 'Numbered', value: 'number' }
-                                    ],
-                                    styles,
-                                    marks: {
-                                        annotations: [
-                                            {
-                                                name: 'internalLink',
-                                                type: 'object',
-                                                title: 'Internal link',
-                                                fields: [
-                                                    {
-                                                        name: 'href',
-                                                        type: 'url',
-                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
-                                                            Rule.uri({
-                                                                allowRelative: false,
-                                                                scheme: ['http', 'https', 'mailto', 'tel'],
-                                                            }),
-                                                    },
-                                                ]
-                                            },
-                                            {
-                                                name: 'link',
-                                                type: 'object',
-                                                title: 'Link',
-                                                fields: [
-                                                    {
-                                                        name: 'href',
-                                                        type: 'url',
-                                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
-                                                            Rule.uri({
-                                                                allowRelative: false,
-                                                                scheme: ['http', 'https', 'mailto', 'tel'],
-                                                            }),
-                                                    },
-                                                ]
-                                            }
-                                        ]
-                                    }
+                                    title: 'Armenian',
+                                    name: 'am',
+                                    type: 'string'
                                 },
-                            ],
+                                {
+                                    title: 'English',
+                                    name: 'en',
+                                    type: 'string'
+                                },
+                                {
+                                    title: 'Russian',
+                                    name: 'ru',
+                                    type: 'string'
+                                }
+                            ]
                         },
                         {
-                            name: 'course_section_image',
-                            title: 'Course Section Image',
+                            title: 'Content',
+                            name: 'content',
+                            type: 'object',
+                            validation: (Rule: any) => Rule.required(),
+                            fields: [
+                                {
+                                    title: 'Armenian',
+                                    name: 'am',
+                                    type: 'string'
+                                },
+                                {
+                                    title: 'English',
+                                    name: 'en',
+                                    type: 'string'
+                                },
+                                {
+                                    title: 'Russian',
+                                    name: 'ru',
+                                    type: 'string'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Course Image',
+                            name: 'image',
                             type: 'image',
                             options: { hotspot: true },
                             fields: [
-
                                 {
                                     name: 'alt',
                                     title: 'Alt',
@@ -109,91 +106,71 @@ export const courses = {
                             ]
                         },
                     ]
-                })
+                }
+            ],
+        },
+        {
+            title: 'About Us Content',
+            name: 'about_us_content',
+            type: 'object',
+            validation: (Rule: any) => Rule.required(),
+            fields: [
+                {
+                    title: 'Armenian',
+                    name: 'am',
+                    type: 'string'
+                },
+                {
+                    title: 'English',
+                    name: 'en',
+                    type: 'string'
+                },
+                {
+                    title: 'Russian',
+                    name: 'ru',
+                    type: 'string'
+                }
             ]
         },
         {
-            name: 'about_us_title',
-            title: 'About Us Section Title',
-            type: 'string',
-            validation: (Rule: any) => Rule.max(30).required(),
-        },
-        {
-            name: 'about_us_content',
+            name: 'course_process',
             type: 'array',
-            title: 'About Us Section Content',
+            title: 'Course Process Section',
+            // description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
             of: [
                 {
-                    type: 'block',
-                    lists: [
-                        { title: 'Bullet', value: 'bullet' },
-                        { title: 'Numbered', value: 'number' }
-                    ],
-                    styles,
-                    marks: {
-                        annotations: [
-                            {
-                                name: 'internalLink',
-                                type: 'object',
-                                title: 'Internal link',
-                                fields: [
-                                    {
-                                        name: 'href',
-                                        type: 'url',
-                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
-                                            Rule.uri({
-                                                allowRelative: false,
-                                                scheme: ['http', 'https', 'mailto', 'tel'],
-                                            }),
-                                    },
-                                ]
-                            },
-                            {
-                                name: 'link',
-                                type: 'object',
-                                title: 'Link',
-                                fields: [
-                                    {
-                                        name: 'href',
-                                        type: 'url',
-                                        validation: (Rule: { uri: (arg0: { allowRelative: boolean; scheme: string[]; }) => any; }) =>
-                                            Rule.uri({
-                                                allowRelative: false,
-                                                scheme: ['http', 'https', 'mailto', 'tel'],
-                                            }),
-                                    },
-                                ]
-                            }
-                        ]
-                    }
-                },
-            ],
-        },
-        {
-            name: 'course_process_video_url',
-            title: 'Course Process Section Video Link',
-            type: 'string',
-            validation: (Rule: any) => Rule.required(),
-        },
-        {
-            name: 'course_process_video_light',
-            title: 'Course Process Section Video Light',
-            type: 'image',
-            options: { hotspot: true },
-            fields: [
-
-                {
-                    name: 'alt',
-                    title: 'Alt',
-                    type: 'string'
+                    name: 'object',
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'video_url',
+                            title: 'Video Link',
+                            type: 'string',
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                        {
+                            name: 'video_light',
+                            title: 'Video Light',
+                            type: 'image',
+                            options: { hotspot: true },
+                            fields: [
+                                {
+                                    name: 'alt',
+                                    title: 'Alt',
+                                    type: 'string'
+                                }
+                            ],
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                    ]
                 }
-            ],
-            validation: (Rule: any) => Rule.required(),
+            ]
         },
         {
-            name: 'student_work_section',
+            name: 'student_works',
             type: 'array',
-            title: 'Student work Images',
+            title: 'Student work Section',
+            description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
             of: [
                 defineArrayMember({
                     type: 'object',
@@ -247,12 +224,35 @@ export const courses = {
             name: 'price_list',
             type: 'array',
             title: 'Price list',
+            // description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
             of: [
-                defineArrayMember({
+                {
+                    name: 'object',
                     type: 'object',
-                    name: 'tag',
                     fields: [
-                        { type: 'string', name: 'title', title: 'Course Title' },
+                        {
+                            title: 'Course Title',
+                            name: 'course_title',
+                            type: 'object',
+                            validation: (Rule: any) => Rule.required(),
+                            fields: [
+                                {
+                                    title: 'Armenian',
+                                    name: 'am',
+                                    type: 'string'
+                                },
+                                {
+                                    title: 'English',
+                                    name: 'en',
+                                    type: 'string'
+                                },
+                                {
+                                    title: 'Russian',
+                                    name: 'ru',
+                                    type: 'string'
+                                }
+                            ]
+                        },
                         {
                             title: 'Course Amount',
                             name: 'amount',
@@ -288,14 +288,10 @@ export const courses = {
                             validation: (Rule: any) => Rule.required(),
                         },
                     ]
-                })
-            ],
-            validation: (Rule: any) => Rule.required(),
+                }
+            ]
         },
     ],
 };
 
 export default courses;
-
-
-

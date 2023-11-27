@@ -21,7 +21,7 @@ const CoursePage: FC<CoursePageProps> = ({ course, isError }) => {
     useEffect(() => {
         setTimeout(() => dispatch(closeModal()), 1);
     }, [course]);
-
+    
     return (
         <div>
             <MainScreen course={course} />

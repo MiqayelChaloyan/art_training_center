@@ -27,7 +27,7 @@ const PriceList: FC<PriceListProps> = ({ course }) => {
             <table key={item._key}>
                 <thead>
                     <tr>
-                        <td>{item.title}</td>
+                        <td>{item.course_title}</td>
                         <td>{item.amount} AMD</td>
                         <td>{result} days</td>
                         <td>{item.duration} hour</td>

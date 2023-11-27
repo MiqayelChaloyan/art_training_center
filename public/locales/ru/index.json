@@ -1,8 +1,28 @@
 {
-    "navigation": {
-      "about": "О нас",
-      "courses": "Курсы",
-      "co-workers": "Коллеги",
-      "price-list": "Прайс-лист"
-    }
+  "navigation": {
+    "about": "О нас",
+    "courses": "Курсы",
+    "co-workers": "Коллеги",
+    "price-list": "Прайс-лист"
+  },
+  "pages": {
+    "co-worker": "СОТРУДНИКИ",
+    "courses": "Курсы",
+    "about_courses": "О курсах",
+    "courses_process": "ПРОЦЕСС КУРСА",
+    "student_work": "Студенческие работы"
+  },
+  "adress": {
+    "adress": "Адрес: Ереван, Армения",
+    "street": "Армения, Ереван, Абовяна 33"
+  },
+  "contact-us": {
+    "title": "СВЯЗАТЬСЯ С НАМИ",
+    "name": "Имя",
+    "email": "Электронная почта",
+    "phone-number": "Номер телефона",
+    "message": "Сообщение",
+    "send": "Отправлять",
+    "loading": "Загрузка"
+  }
 }
