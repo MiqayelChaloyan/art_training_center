@@ -59,7 +59,7 @@ const StudentWork: FC<Props> = ({ course }) => {
                         <div className={styles.btn_group}>
                             <Button
                                 className={styles.contact_button}
-                                text='Contact Us'
+                                text={t('button.contact-us')}
                                 onClick={scrollToElement}
                             />
                         </div>
@@ -70,14 +70,14 @@ const StudentWork: FC<Props> = ({ course }) => {
                         <div className={styles.btn_group}>
                             <Button
                                 className={styles.view_more_button}
-                                text={course.student_works[0].images.length > initialLoadCourses ? 'View more' : 'Show less'}
+                                text={course.student_works[0].images.length > initialLoadCourses ? t('button.view-more') : t('button.show-less')}
                                 onClick={course.student_works[0].images.length > initialLoadCourses ? handleLoad : handleBackLoad}
                             />
                         </div>
                         <div className={styles.btn_group}>
                             <Button
                                 className={styles.contact_button}
-                                text='Contact Us'
+                                text={t('button.contact-us')}
                                 onClick={scrollToElement}
                             />
                         </div>

@@ -42,7 +42,7 @@ const Footer: FC<Props> = ({ courses }) => {
         <div key={rowIndex} className={styles.row}>
             {row.map((course: any) => (
                 <div className={styles.contain} key={course.slug}>
-                    <Link href={`${i18n.language}/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.icon}>
+                    <Link href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.icon}>
                         <p className={styles.copyright}>{course.course_name}</p>
                     </Link>
                 </div>

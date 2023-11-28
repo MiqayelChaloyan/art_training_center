@@ -31,6 +31,7 @@ export const courses = {
         {
             name: 'slug',
             type: 'slug',
+            description: "Պիտի եզակի լինի",
             options: {
                 source: 'name',
             },
@@ -136,7 +137,7 @@ export const courses = {
             name: 'course_process',
             type: 'array',
             title: 'Course Process Section',
-            // description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
+            description: 'Ոչ պակաս, քան մեկ, և ոչ ավելի, միայն դուք կարող եք դա փոփոխել',
             of: [
                 {
                     name: 'object',

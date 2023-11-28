@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -35,10 +36,10 @@ function SamplePrevArrow(props: any) {
             onClick={onClick}
         />
     );
-}
-
+};
 
 const Specialists: FC<SectionCoursesProps> = ({ data }) => {
+    const { t } = useTranslation();
 
     const slidesItems = data[0].specialists_section.map((item: any, index: number) => (
         <Item key={item._key} item={item} index={index} />
@@ -65,7 +66,9 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
         <div id='specialists' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <div className={styles.title} />
+                <div className={styles.title}>
+                    {t('pages.specialists')}
+                </div>
                 <div className={styles.specialists}>
                     <Slider {...settings}>
                         {slidesItems}

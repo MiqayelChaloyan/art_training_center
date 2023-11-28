@@ -12,6 +12,7 @@ export const getHomeData = async (language: string): Promise<HomeContent> => {
         },
         "about_us_content": about_us_content[$language],
         "cooking_courses": cooking_courses[] {
+            "video_section_title": video_section_title[$language],
             "video_url": video_url,
             "video_light": video_light,
         },

@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -17,6 +18,7 @@ type Props = {
 };
 
 const OurRating: FC<Props> = ({ data }) => {
+    const { t } = useTranslation();
 
     const settingsSlider = {
         speed: 1500,
@@ -34,7 +36,7 @@ const OurRating: FC<Props> = ({ data }) => {
         <div id='our-rating' className={styles.container}>
             <Container>
                 <div className={styles.feedbacks}>
-                    <h1 className={styles.title}>OUR RATING</h1>
+                    <h1 className={styles.title}>{t('pages.rating')}</h1>
                     <div className={styles.row}>
                         <Rating data={data[0].our_rating_section} />
                     </div>

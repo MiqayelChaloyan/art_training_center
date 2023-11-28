@@ -1,4 +1,7 @@
 import { FC, memo, useState } from 'react';
+
+import { useTranslation } from 'react-i18next';
+
 import Image from 'next/image';
 
 import Button from '@/components/ui/Button';
@@ -10,6 +13,7 @@ type Props = {
     altTwo: string;
     altOne: string;
     urlForImageOne: string;
+    urlForImageTwo: string;
     scrollToElement: any;
     content: any;
     subtitle: string;
@@ -17,6 +21,7 @@ type Props = {
 
 const Course: FC<Props> = (course) => {
     const [isReadMore, setIsReadMore] = useState<boolean>(true);
+    const { t } = useTranslation();
 
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);
@@ -30,12 +35,12 @@ const Course: FC<Props> = (course) => {
                 <div className={styles.buttons_group}>
                     <Button
                         className={styles.view_btn}
-                        text={isReadMore ? 'View more' : 'Show less'}
+                        text={isReadMore ? t('button.view-more') : t('button.show-less')}
                         onClick={toggleReadMore}
                     />
                     <Button
                         className={styles.button}
-                        text='Contact Us'
+                        text={t('button.contact-us')}
                         onClick={course.scrollToElement}
                     />
                 </div>
@@ -52,7 +57,7 @@ const Course: FC<Props> = (course) => {
                     style={{ objectFit: 'cover' }}
                 />
                 <Image
-                    src={course.urlForImageOne}
+                    src={course.urlForImageTwo}
                     alt={course.altTwo}
                     priority
                     className={styles.image}

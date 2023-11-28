@@ -1,5 +1,7 @@
 import { FC, memo } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import Container from '@/components/components/Container';
 import Courses from './Courses';
 
@@ -12,6 +14,7 @@ type Props = {
 };
 
 const CookingCourses: FC<Props> = ({ data }) => {
+    const { t } = useTranslation();
 
     if (!data[0].news_section) {
         return null;
@@ -21,7 +24,7 @@ const CookingCourses: FC<Props> = ({ data }) => {
         <div id='cooking-courses' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>News</h1>
+                <h1 className={styles.title}>{t('pages.news')}</h1>
                 <div className={styles.cooking_courses}>
                     <Courses data={data[0].news_section} />
                 </div>

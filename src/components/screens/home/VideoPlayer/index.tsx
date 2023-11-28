@@ -53,7 +53,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
         <div id='video-player' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>COOKING COURSES</h1>
+                <h1 className={styles.title}>{data[0].cooking_courses[0].video_section_title}</h1>
                 <div className={styles.video_player}>
                     <div className={styles.player}>
                         {video}

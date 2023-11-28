@@ -8,6 +8,7 @@ export const home_content = {
         {
             name: 'slug',
             type: 'slug',
+            description: "Պիտի եզակի լինի",
             options: {
                 source: 'name',
             },
@@ -113,12 +114,35 @@ export const home_content = {
             name: 'cooking_courses',
             type: 'array',
             title: 'Cooking Courses Section',
-            // description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
+            description: 'Ոչ պակաս, քան մեկ, և ոչ ավելի, միայն դուք կարող եք դա փոփոխել',
             of: [
                 {
                     name: 'object',
                     type: 'object',
                     fields: [
+                        {
+                            title: 'Video Section Title',
+                            name: 'video_section_title',
+                            type: 'object',
+                            validation: (Rule: any) => Rule.required(),
+                            fields: [
+                                {
+                                    title: 'Armenian',
+                                    name: 'am',
+                                    type: 'string'
+                                },
+                                {
+                                    title: 'English',
+                                    name: 'en',
+                                    type: 'string'
+                                },
+                                {
+                                    title: 'Russian',
+                                    name: 'ru',
+                                    type: 'string'
+                                }
+                            ]
+                        },
                         {
                             name: 'video_url',
                             title: 'Video Link',

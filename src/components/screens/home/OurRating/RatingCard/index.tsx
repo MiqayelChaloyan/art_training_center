@@ -1,4 +1,6 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import Image from 'next/image';
 
 import Search from '@/components/icons/Search';
@@ -7,7 +9,7 @@ import Star from '@/components/icons/Star';
 import styles from './style.module.sass';
 
 const RatingCard = ({ options }: any) => {
-    console.log(options.result);
+    const { t } = useTranslation();
     
     return (
         <div className={styles.column}>
@@ -24,7 +26,7 @@ const RatingCard = ({ options }: any) => {
             <div className={styles.fix} style={{ marginTop: `${options.top ? options.top : 20}px` }}>
                 <div className={styles.card_header} style={{ marginBottom: `${options.bottom ? options.bottom : 20}px` }}>
                     <div className={styles.card_header_text}>
-                        <p>Art House ուսումնական կենտրոն</p>
+                        <p>{t('texts.rating-title')}</p>
                     </div>
                     <div className={styles.card_header_icon}>
                         <Search
