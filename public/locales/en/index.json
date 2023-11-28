@@ -10,7 +10,8 @@
     "courses": "Courses",
     "about_courses": "About courses",
     "courses_process": "COURSE PROCESS",
-    "student_work": "Student Work"
+    "student_work": "Student Work",
+    "price_list": "Price List"
   },
   "adress": {
     "adress": "Adress: Yerevan, Armenia",
@@ -24,5 +25,9 @@
     "message": "Message",
     "send": "Send",
     "loading": "Loading"
+  },
+  "price-list": {
+    "days": "days",
+    "hour": "hour"
   }
 }

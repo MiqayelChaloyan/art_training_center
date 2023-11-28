@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { PortableText } from '@portabletext/react';
 
 import Button from '@/components/ui/Button';
-import components from '@/utils/PortableTextComponents';
+// import components from '@/utils/PortableTextComponents';
 
 import styles from './styles.module.sass';
 import Image from 'next/image';
@@ -30,7 +30,8 @@ const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToEleme
                 />
             <div className={styles.contact}>
                 <h1 className={styles.title}>{subtitle}</h1>
-                <PortableText value={content} components={components} />
+                {/* <PortableText value={content} components={components} /> */}
+                <p>{content}</p>
                 <Button
                     className={styles.contact_btn}
                     text='Contact Us'

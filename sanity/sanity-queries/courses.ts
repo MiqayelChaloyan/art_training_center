@@ -1,4 +1,5 @@
 export interface Courses {
+    student_works: any;
     course_main: any;
     _id: string;
     course_name: any;

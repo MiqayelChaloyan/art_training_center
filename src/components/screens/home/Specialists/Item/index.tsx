@@ -1,4 +1,6 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
@@ -65,6 +67,7 @@ const Images = ({ images }: any) => {
 
 const Item = ({ item }: any) => {
     const router = useRouter();
+    const { i18n } = useTranslation();
 
     const urlForImage = urlFor(item.specialists_section_image)
         .auto('format')
@@ -72,8 +75,8 @@ const Item = ({ item }: any) => {
         .url();
 
     const goCoursePage = async () => {
-        const data = await getCourseById(item.categories._ref);
-        return router.push(`/courses/${data.slug}`);
+        const data = await getCourseById(item.categories._ref, i18n.language);        
+        return router.push(`${i18n.language}/courses/${data.slug}`);
     };
     
     return (
@@ -92,10 +95,10 @@ const Item = ({ item }: any) => {
                 />
             </div>
             <div className={styles.box}>
-                <h2 className={styles.subtitle}>{item.subtitle}</h2>
+                <h2 className={styles.subtitle}>{item.title}</h2>
                 <Button
                     className={styles.contact_btn}
-                    text={item.course}
+                    text={item.course_name}
                     onClick={goCoursePage}
                 />
                 <div className={styles.box_images}>

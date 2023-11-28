@@ -10,16 +10,14 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import styles from './style.module.sass';
 
 type Props = {
-    data: HomeContent[];
+    data: any;
 };
 
 const VideoPlayer: FC<Props> = ({ data }) => {
     const [video, setVideo] = useState<string | any>(null);
     const [filter, setFilter] = useState<boolean>(true);
 
-    const { cooking_courses_video_light, cooking_courses_video_url: link } = data[0];
-
-    const urlForImage = urlFor(cooking_courses_video_light)
+    const urlForImage = urlFor(data[0].cooking_courses[0].video_light)
         .auto('format')
         .fit('max')
         .url();
@@ -29,7 +27,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
             <ReactPlayer
                 style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)' }}
                 className='react-player'
-                url={link}
+                url={data[0].cooking_courses[0].video_url}
                 controls
                 width='100%'
                 height='100%'

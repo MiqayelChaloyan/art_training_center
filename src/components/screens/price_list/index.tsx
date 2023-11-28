@@ -11,7 +11,7 @@ type PriceListProps = {
 const PriceList: FC<PriceListProps> = ({ course, isError }) => {	
 	return (
 		<Layout headerPosition='fixed'>
-			{/* <MainScreen course={course} isError={isError}/> */}
+			<MainScreen course={course} isError={isError}/>
 		</Layout>
 	);
 };

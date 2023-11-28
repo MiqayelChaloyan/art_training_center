@@ -48,7 +48,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
 
     const otherLocales = ensureStringInArray(locales, 'en');
 
-    const changeLocale = (locale: string) => document.cookie = `language=${locale}`;
+    // const changeLocale = (locale: string) => document.cookie = `NEXT_LOCALE=${locale}`;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -106,7 +106,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                     key={localeIndex}
                                     href={{ pathname, query }}
                                     locale={locale}
-                                    onClick={() => changeLocale(locale)}
+                                    // onClick={() => changeLocale(locale)}
                                     style={{ color: activeLocale === locale ? 'red' : 'white', padding: 4 }}
                                     className={styles.language}
                                 >

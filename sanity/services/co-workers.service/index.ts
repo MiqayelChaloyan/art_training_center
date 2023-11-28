@@ -13,7 +13,7 @@ export const getCoWorkers = async (language: string): Promise<Co_workers[]> => {
     }`;
 
     try {
-        const data = await client.fetch(query, { language });
+        const data = await client.fetch(query, { language: language || 'am'  });
         return data;
     } catch (err) {
         throw err;

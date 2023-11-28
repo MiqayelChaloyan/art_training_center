@@ -2,14 +2,14 @@ import { memo } from 'react';
 import RatingCard from '../RatingCard';
 import { urlFor } from '../../../../../../sanity/sanity';
 
-const concatenateTextWithFilter = (arg: any) => {
-    return arg.reduce((text: string, item: any) => {
-        if (item.text) {
-            text += item.text;
-        }
-        return text;
-    }, '');
-};
+// const concatenateTextWithFilter = (arg: any) => {
+//     return arg.reduce((text: string, item: any) => {
+//         if (item.text) {
+//             text += item.text;
+//         }
+//         return text;
+//     }, '');
+// };
 
 const sizes = [
     {
@@ -30,7 +30,7 @@ const sizes = [
 ];
 
 const Rating = ({ data }: any) => data.map((card: any, index: number): JSX.Element => {
-    const result = concatenateTextWithFilter(card?.user_feedback[0].children);
+    // const result = concatenateTextWithFilter(card?.user_feedback[0].children);
 
     const urlForImageBackground = urlFor(card.our_rating_section_image)
     .auto('format')
@@ -52,7 +52,7 @@ const Rating = ({ data }: any) => data.map((card: any, index: number): JSX.Eleme
         urlImageBackgroundAlt,
         urlForImage,
         urlImageAlt,
-        result,
+        result: card?.user_feedback,
         rating: card.rating + 1,
         ...sizes[index],
     };

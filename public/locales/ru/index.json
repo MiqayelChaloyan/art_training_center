@@ -10,7 +10,8 @@
     "courses": "Курсы",
     "about_courses": "О курсах",
     "courses_process": "ПРОЦЕСС КУРСА",
-    "student_work": "Студенческие работы"
+    "student_work": "Студенческие работы",
+    "price_list": "Прайс-лист"
   },
   "adress": {
     "adress": "Адрес: Ереван, Армения",
@@ -24,5 +25,9 @@
     "message": "Сообщение",
     "send": "Отправлять",
     "loading": "Загрузка"
+  },
+  "price-list": {
+    "days": "дни",
+    "hour": "час"
   }
 }

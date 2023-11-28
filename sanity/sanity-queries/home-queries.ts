@@ -23,15 +23,15 @@ export interface HomeContent {
     our_rating_section: any
 }
 
-export const homeContentQuery = `{
-    _id,
-    main_section,
-    about_us_title,
-    about_us_content,
-    cooking_courses_video_url,
-    cooking_courses_video_light,
-    news_section,
-    progress_section,
-    specialists_section,
-    our_rating_section,
-}`;
+// export const homeContentQuery = `{
+//     _id,
+//     main_section,
+//     about_us_title,
+//     about_us_content,
+//     cooking_courses_video_url,
+//     cooking_courses_video_light,
+//     news_section,
+//     progress_section,
+//     specialists_section,
+//     our_rating_section,
+// }`;

@@ -11,7 +11,7 @@ type Props = {
     altOne: string;
     urlForImageOne: string;
     scrollToElement: any;
-    result: any;
+    content: any;
     subtitle: string;
 }
 
@@ -20,13 +20,13 @@ const Course: FC<Props> = (course) => {
 
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);
-    };
+    };    
 
     return (
         <div className={styles.course}>
             <div className={styles.content}>
                 <h3 className={styles.subtitle}>{course.subtitle}</h3>
-                <Content content={course.result} isReadMore={isReadMore} />
+                <Content content={course.content} isReadMore={isReadMore} />
                 <div className={styles.buttons_group}>
                     <Button
                         className={styles.view_btn}

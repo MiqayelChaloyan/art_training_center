@@ -30,7 +30,7 @@ const MainSlider: FC<Props> = ({ data }) => {
     };
 
     const slidesItems = items.map((item: any): JSX.Element => {
-        const urlForImage = urlFor(item.main_section_image)
+        const urlForImage = urlFor(item.image)
             .auto('format')
             .fit('max')
             .url();
@@ -39,8 +39,8 @@ const MainSlider: FC<Props> = ({ data }) => {
             <SlideItem
                 key={item._key}
                 url={urlForImage}
-                alt={item.main_section_image.alt}
-                subtitle={item.subtitle}
+                alt={item.image.alt}
+                subtitle={item.title}
                 content={item.content}
                 scrollToElement={scrollToElement}
             />

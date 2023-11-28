@@ -3,6 +3,8 @@ import { client } from '../../schemas/client';
 import { Courses } from '../../sanity-queries/courses';
 
 export const getCourses = async (language: string): Promise<Courses[]> => {
+    console.log(language, 'language');
+
     const query = groq`*[_type == "courses"] {
         "course_name": course_name[$language],
         "course_main": course_main[] {
@@ -29,7 +31,7 @@ export const getCourses = async (language: string): Promise<Courses[]> => {
     }`;
     
     try {
-        const data = await client.fetch(query, { language });
+        const data = await client.fetch(query, { language: language || 'am'  });
         return data;
     } catch (err) {
         throw err;
@@ -60,13 +62,10 @@ export const getCourseBySlug = async (slug: string, language: string): Promise<C
         },
         "_id": _id,
         "slug": slug.current,
-    }`;
-
-    console.log(language, slug);
-    
+    }`;    
 
     try {
-        const data = await client.fetch(query, { slug, language });
+        const data = await client.fetch(query, { slug, language: language || 'am'  });
         return data;
 
     } catch (err) {
@@ -74,37 +73,38 @@ export const getCourseBySlug = async (slug: string, language: string): Promise<C
     }
 };
 
-// export const getCourseById = async (_id: string): Promise<Courses> => {
-//     const query = groq`*[_type == "courses"]  && _id == $_id][0] {
-//         "course_name": course_name[$language],
-//         "course_main": course_main[] {
-//             "title": title[$language],
-//             "content": content[$language],
-//             "image": image
-//         },
-//         "about_us_content": about_us_content[$language],
-//         "course_process": course_process[] {
-//             "video_url": video_url,
-//             "video_light": video_light,
-//         },
-//         "student_works": student_works,
-//         "svg": svg,
-//         "price_list": price_list[] {
-//             "course_title": course_title[$language],
-//             "amount": amount,
-//             "startDate": startDate,
-//             "endDate": endDate,
-//             "duration": duration
-//         },
-//         "_id": _id,
-//         "slug": slug.current,
-//     }`;
+export const getCourseById = async (_id: string, language: string): Promise<Courses> => {
+    console.log(language, _id);
 
-//     try {
-//         const data = await client.fetch(query, { _id });
-//         return data;
+    const query = groq`*[_type == "courses" && _id == $_id][0] {
+        "course_name": course_name[$language],
+        "course_main": course_main[] {
+            "title": title[$language],
+            "content": content[$language],
+            "image": image
+        },
+        "about_us_content": about_us_content[$language],
+        "course_process": course_process[] {
+            "video_url": video_url,
+            "video_light": video_light,
+        },
+        "student_works": student_works,
+        "svg": svg,
+        "price_list": price_list[] {
+            "course_title": course_title[$language],
+            "amount": amount,
+            "startDate": startDate,
+            "endDate": endDate,
+            "duration": duration
+        },
+        "_id": _id,
+        "slug": slug.current,
+    }`;
 
-//     } catch (err) {
-//         throw err;
-//     }
-// };
+    try {
+        const data = await client.fetch(query, { _id, language: language || 'am'  });        
+        return data;
+    } catch (err) {
+        throw err;
+    }
+};

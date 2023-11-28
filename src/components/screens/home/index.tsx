@@ -16,7 +16,7 @@ type Props = {
 	isError: boolean,
 };
 
-const Home: FC<Props> = ({ data, isError }) => {
+const Home: FC<Props> = ({ data, isError }) => {	
 	return (
 		<Layout headerPosition='fixed'>
 			<Head>

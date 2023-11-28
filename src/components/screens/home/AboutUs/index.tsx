@@ -12,7 +12,7 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import styles from './style.module.sass';
 
 type Props = {
-    data: HomeContent[];
+    data: any;
 };
 
 const group = {
@@ -26,10 +26,11 @@ const AboutUs: FC<Props> = ({ data }) => {
         <div id='about-us' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>{about_us_title}</h1>
+                <h1 className={styles.title}>About Us</h1>
                 <div className={styles.about_us}>
                     <div className={styles.about_box}>
-                        <PortableText value={about_us_content[0] as any} components={components} />
+                        {/* <PortableText value={about_us_content[0] as any} components={components} /> */}
+                        <p>{about_us_content}</p>
                     </div>
                     {/* <div className={styles.form_box}>
                         <FormAppointment width='30%'>

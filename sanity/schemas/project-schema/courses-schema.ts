@@ -110,7 +110,7 @@ export const courses = {
             ],
         },
         {
-            title: 'About Us Content',
+            title: 'About Courses Content',
             name: 'about_us_content',
             type: 'object',
             validation: (Rule: any) => Rule.required(),
