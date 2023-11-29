@@ -20,7 +20,7 @@ const MainSlider: FC<Props> = ({ data }) => {
 
     if (!items) {
         return null;
-    };
+    };    
 
     const scrollToElement = () => {
         const container: HTMLElement | null = document.getElementById('contact');
@@ -30,17 +30,17 @@ const MainSlider: FC<Props> = ({ data }) => {
     };
 
     const slidesItems = items.map((item: any): JSX.Element => {
-        const urlForImage = urlFor(item.main_section_image)
+        const urlForImage = urlFor(item.image)
             .auto('format')
             .fit('max')
             .url();
 
         return (
             <SlideItem
-                key={item._key}
+                key={item.slug}
                 url={urlForImage}
-                alt={item.main_section_image.alt}
-                subtitle={item.subtitle}
+                alt={item.image.alt}
+                subtitle={item.title}
                 content={item.content}
                 scrollToElement={scrollToElement}
             />

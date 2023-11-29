@@ -27,6 +27,10 @@ const nextConfig = {
       eagerEsModules: false,
     },
   },
+  i18n: {
+    defaultLocale: 'am',
+    locales: ['am', 'ru', 'en'],
+  },
 }
 
 module.exports = nextConfig

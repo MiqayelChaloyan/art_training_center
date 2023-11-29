@@ -1,37 +1,12 @@
 export interface HomeContent {
-    _id: string;
-    main_section: [{
-        main_section_image(main_section_image: any): { slideImgUrl: any; };
-        articleImage: any;
-        content: any; subtitle: string
-    }, { content: [{ children: [{ text: string }] }] }];
-    about_us_title: string;
-    about_us_content:  [{
-        content: [{
-            children: [{
-                text: string;
-            }];
-        }];
-    }],
-    cooking_courses_video_url: string;
-    cooking_courses_video_light: any;
-    news_section: [{
-        content: any; subtitle: string
-    }, { content: [{ children: [{ text: string }] }] }];
-    progress_section: any;
+    _id: string
+    slug: string
+    main_section: any
+    about_us_content: any
+    cooking_courses: any
+    news_section: any
+    progress_section: any
     specialists_section: any
     our_rating_section: any
+    video_section_title: any
 }
-
-export const homeContentQuery = `{
-    _id,
-    main_section,
-    about_us_title,
-    about_us_content,
-    cooking_courses_video_url,
-    cooking_courses_video_light,
-    news_section,
-    progress_section,
-    specialists_section,
-    our_rating_section,
-}`;

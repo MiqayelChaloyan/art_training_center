@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "about": "About us",
+    "courses": "Courses",
+    "co-workers": "Co-Workers",
+    "price-list": "Price List"
+  },
+  "pages": {
+    "co-worker": "CO-WORKERS",
+    "courses": "Courses",
+    "about_courses": "About courses",
+    "courses_process": "COURSE PROCESS",
+    "student_work": "Student Work",
+    "price_list": "Price List",
+    "about": "About us",
+    "news": "News",
+    "specialists": "Specialists",
+    "rating": "OUR RATING"
+  },
+  "adress": {
+    "adress": "Adress: Yerevan, Armenia",
+    "street": "Armenia, Yereva, Abovyan 33"
+  },
+  "button": {
+    "contact-us": "Contact Us",
+    "view-more": "View more",
+    "show-less": "Show less"
+  },
+  "contact-us": {
+    "title": "CONTACT US",
+    "name": "Name",
+    "email": "Email",
+    "phone-number": "Phone Number",
+    "message": "Message",
+    "send": "Send",
+    "loading": "Loading"
+  },
+  "price-list": {
+    "days": "days",
+    "hour": "hour"
+  },
+  "texts": {
+    "rating-title": "Art House Learning Center"
+  }
+}

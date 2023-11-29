@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "about": "Մեր մասին",
+    "courses": "Դասընթացներ",
+    "co-workers": "Գործընկերներ",
+    "price-list": "Գնացուցակ"
+  },
+  "pages": {
+    "co-worker": "ԳՈՐԾԸՆԿԵՐՆԵՐ",
+    "courses": "Դասընթացներ",
+    "about_courses": "Դասընթացների մասին",
+    "courses_process": "ԴԱՍԸՆԹԱՑԻ ԸՆԹԱՑՔԻ ՄԱՍԻՆ",
+    "student_work": "Ուսանողների աշխատանքները",
+    "price_list": "Գնացուցակ",
+    "about": "Մեր մասին",
+    "news": "Նորություններ",
+    "specialists": "Մասնագետներ",
+    "rating": "ՄԵՐ ՎԱՐԿԱԿԻՇԸ"
+  },
+  "adress": {
+    "adress": "Հասցե: Երևան, Հայաստան",
+    "street": "Հայաստան, Երևան, Աբովյան 33"
+  },
+  "button": {
+    "contact-us": "Կապ մեզ հետ",
+    "view-more": "Դիտել ավելին",
+    "show-less": "Ցույց տալ ավելի քիչ"
+  },
+  "contact-us": {
+    "title": "ԿԱՊՎԵԼ ՄԵԶ ՀԵՏ",
+    "name": "Անուն",
+    "email": "Փոստի հասցե",
+    "phone-number": "Հեռախոսահամար",
+    "message": "Հաղորդագրություն",
+    "send": "Ուղարկել",
+    "loading": "Բեռնվում է"
+  },
+  "price-list": {
+    "days": "օր",
+    "hour": "ժամ"
+  },
+  "texts": {
+    "rating-title": "Art House ուսումնական կենտրոն"
+  }
+}

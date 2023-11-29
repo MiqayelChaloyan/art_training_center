@@ -1,19 +1,16 @@
 import { memo } from 'react';
 import Image from 'next/image';
 
-import { PortableText } from '@portabletext/react';
-import components from '@/utils/PortableTextComponents';
-
 import styles from './styles.module.sass';
 
 type Props = {
     url: string;
-    subtitle: string;
+    title: string;
     content: any;
     alt: string;
 };
 
-const SlideItem: React.FC<Props> = ({ url, subtitle, content, alt }) => (
+const SlideItem: React.FC<Props> = ({ url, title, content, alt }) => (
     <div className={styles.emplay_slide}>
         <div className={styles.box}>
             <Image
@@ -27,8 +24,8 @@ const SlideItem: React.FC<Props> = ({ url, subtitle, content, alt }) => (
                 style={{ objectFit: 'cover' }}
             />
             <div className={styles.contact}>
-                <h1 className={styles.title}>{subtitle}</h1>
-                <PortableText value={content} components={components} />
+                <h1 className={styles.title}>{title}</h1>
+                <p>{content}</p>
             </div>
         </div>
     </div>

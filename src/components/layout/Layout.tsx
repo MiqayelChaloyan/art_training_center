@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Meta from '@/components/seo/Meta';
 import Modal from '@/components/layout/Modal/';
@@ -18,15 +19,16 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 	const [courses, setCourses] = useState<Courses[]>([]);
+    const { i18n } = useTranslation();	
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const data = await getCourses();
+			const data = await getCourses(i18n.language);
 			setCourses(data);
 		};
 
 		fetchData();
-	}, []);
+	}, [i18n.language]);
 
 	return (
 		<Meta>

@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+
 import { NextSeo } from 'next-seo';
 import { GetServerSidePropsContext } from 'next';
 
@@ -11,30 +12,35 @@ import { urlFor } from '../../../sanity/sanity';
 type CourseProps = {
     course: any,
     isError: boolean,
-}
+};
 
 const Course = ({ course, isError }: CourseProps) => {
-    const urlForSeo = urlFor(course.course_main[0].course_section_image)
-    .auto('format')
-    .fit('max')
-    .url();
+    
+    if (isError) {
+        return <div>Error loading data</div>;
+    };
+    
+    const urlForSeo = urlFor(course[0].course_main[0].image)
+        .auto('format')
+        .fit('max')
+        .url();        
 
     return (
-        <Layout  headerPosition='fixed'>
+        <Layout headerPosition='fixed'>
             <NextSeo
-                title={course.subtitle}
-                description={course.about_us_content[0].children[0].text}
+                title={course[0].course_name}
+                description={course[0].about_us_content}
                 canonical='https://art-training-center.vercel.app/'
                 openGraph={{
-                    url: `https://art-training-center.vercel.app/course/${course.slug}`,
-                    title: course.subtitle,
-                    description: course.about_us_content[0].children[0].text,
+                    url: `https://art-training-center.vercel.app/course/${course[0].slug}`,
+                    title: course[0].course_name,
+                    description: course[0].about_us_content,
                     images: [
                         {
                             url: urlForSeo || '',
                             width: 500,
                             height: 500,
-                            alt: course.course_main[0].course_section_image.alt,
+                            alt: course[0].course_main[0].image.alt,
                         },
                     ],
                     siteName: 'ART Training Center',
@@ -42,15 +48,16 @@ const Course = ({ course, isError }: CourseProps) => {
                     locale: 'en'
                 }}
             />
-            <CoursePage course={course} isError={isError}/>
+            <CoursePage course={course[0]} isError={isError} />
         </Layout>
     );
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+    const { locale, query: { slug } } = context;
+
     try {
-        const { slug } = context.query;
-        const course = await getCourseBySlug(slug as string);
+        const course = await getCourseBySlug(slug as string, locale as string);
 
         return {
             props: {

@@ -1,11 +1,20 @@
 import { memo } from 'react';
-import { PortableText } from '@portabletext/react';
+
+import { useTranslation } from 'react-i18next';
+
+import Image from 'next/image';
 
 import Button from '@/components/ui/Button';
-import components from '@/utils/PortableTextComponents';
 
 import styles from './styles.module.sass';
-import Image from 'next/image';
+
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
 
 type Props = {
     url: string;
@@ -15,30 +24,35 @@ type Props = {
     scrollToElement: (value: number) => void;
 };
 
-const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToElement }) => (
-    <div className={styles.emplay_slide}>
-        <div className={styles.box}>
-            <Image
-                src={url}
-                alt={alt}
-                priority
-                className={styles.image}
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ objectFit: 'cover' }}
+const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToElement }) => {
+    const { t } = useTranslation();
+    const description = content.length <= 312 ? content : content.slice(0, 313) + '...';
+    
+    return (
+        <div className={styles.emplay_slide}>
+            <div className={styles.box}>
+                <Image
+                    src={url}
+                    alt={alt}
+                    priority
+                    className={styles.image}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ objectFit: 'cover' }}
                 />
-            <div className={styles.contact}>
-                <h1 className={styles.title}>{subtitle}</h1>
-                <PortableText value={content} components={components} />
-                <Button
-                    className={styles.contact_btn}
-                    text='Contact Us'
-                    onClick={scrollToElement}
-                />
+                <div className={styles.contact}>
+                    <h1 className={`${styles.title} ${inter.variable}`}>{subtitle}</h1>
+                    <p className={inter.variable}>{description}</p>
+                    <Button
+                        className={`${styles.contact_btn} ${inter.variable}`}
+                        text={t('button.contact-us')}
+                        onClick={scrollToElement}
+                    />
+                </div>
             </div>
         </div>
-    </div>
-);
+    )
+};
 
 export default memo(SlideItem);

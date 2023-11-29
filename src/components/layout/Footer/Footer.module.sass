@@ -12,6 +12,7 @@
 .info_web
   text-align: right
   color: white
+  padding-left: 10px
 
 .contact
     width: 50%
@@ -63,6 +64,8 @@
    @media screen and ( max-width: 991px )
       display: flex
       flex-wrap: wrap
+   @media screen and ( max-width: 767px )
+      display: grid
 
 .contain
    @media screen and ( max-width: 991px )
@@ -96,3 +99,16 @@
        text-align: right
        width: 98%
        font-size: 20px
+
+.icon
+   display: flex
+   justify-content: right
+   align-items: center
+   @media screen and ( max-width: 767px )
+      justify-content: center
+
+
+.link
+   display: flex
+   justify-content: center
+   align-items: center

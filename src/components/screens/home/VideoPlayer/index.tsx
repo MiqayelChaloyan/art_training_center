@@ -9,6 +9,14 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
 import styles from './style.module.sass';
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
+
 type Props = {
     data: HomeContent[];
 };
@@ -17,9 +25,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
     const [video, setVideo] = useState<string | any>(null);
     const [filter, setFilter] = useState<boolean>(true);
 
-    const { cooking_courses_video_light, cooking_courses_video_url: link } = data[0];
-
-    const urlForImage = urlFor(cooking_courses_video_light)
+    const urlForImage = urlFor(data[0].cooking_courses[0].video_light)
         .auto('format')
         .fit('max')
         .url();
@@ -29,7 +35,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
             <ReactPlayer
                 style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)' }}
                 className='react-player'
-                url={link}
+                url={data[0].cooking_courses[0].video_url}
                 controls
                 width='100%'
                 height='100%'
@@ -55,7 +61,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
         <div id='video-player' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>COOKING COURSES</h1>
+                <h1 className={`${styles.title} ${inter.variable}`}>{data[0].cooking_courses[0].video_section_title}</h1>
                 <div className={styles.video_player}>
                     <div className={styles.player}>
                         {video}

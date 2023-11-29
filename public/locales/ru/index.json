@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "about": "О нас",
+    "courses": "Курсы",
+    "co-workers": "Коллеги",
+    "price-list": "Прайс-лист"
+  },
+  "pages": {
+    "co-worker": "СОТРУДНИКИ",
+    "courses": "Курсы",
+    "about_courses": "О курсах",
+    "courses_process": "ПРОЦЕСС КУРСА",
+    "student_work": "Студенческие работы",
+    "price_list": "Прайс-лист",
+    "about": "О нас",
+    "news": "Новости",
+    "specialists": "Специалисты",
+    "rating": "НАШ РЕЙТИНГ"
+  },
+  "adress": {
+    "adress": "Адрес: Ереван, Армения",
+    "street": "Армения, Ереван, Абовяна 33"
+  },
+  "button": {
+    "contact-us": "Связаться с нами",
+    "view-more": "Посмотреть больше",
+    "show-less": "Показывай меньше"
+  },
+  "contact-us": {
+    "title": "СВЯЗАТЬСЯ С НАМИ",
+    "name": "Имя",
+    "email": "Электронная почта",
+    "phone-number": "Номер телефона",
+    "message": "Сообщение",
+    "send": "Отправлять",
+    "loading": "Загрузка"
+  },
+  "price-list": {
+    "days": "дни",
+    "hour": "час"
+  },
+  "texts": {
+    "rating-title": "Учебный центр Art House"
+  }
+}

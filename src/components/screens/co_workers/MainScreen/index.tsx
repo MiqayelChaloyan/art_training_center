@@ -1,5 +1,8 @@
 import { FC, memo } from 'react';
+
 import Image from 'next/image';
+
+import { useTranslation } from 'react-i18next';
 
 import Container from '@/components/components/Container';
 
@@ -14,18 +17,20 @@ type MainProps = {
 }
 
 const MainScreen: FC<MainProps> = ({ data, isError }) => {
+    const { t } = useTranslation();
+
     const workers = data.map((item: any) => {
-        const urlForImage = urlFor(item.co_workers_image)
+        const urlForImage = urlFor(item.logo)
             .auto('format')
             .fit('max')
             .url();
-            
+
         return (
             <div key={item._id} className={styles.co_worker}>
                 <div className={styles.image_container}>
                     <Image
                         src={urlForImage}
-                        alt={item.co_workers_image.alt || 'co-worker-company'}
+                        alt={item.logo.alt || 'co-worker-company-logo'}
                         priority
                         className={styles.image}
                         width={0}
@@ -34,7 +39,9 @@ const MainScreen: FC<MainProps> = ({ data, isError }) => {
                         style={{ objectFit: 'cover' }}
                     />
                 </div>
-                <p className={styles.text}>{item.name}</p>
+                <p className={styles.text}>{item.company_name}</p>
+                <p className={styles.text}>{item.cooperation}</p>
+                <p className={styles.text}>{item.implemented_projects}</p>
             </div>
         );
     });
@@ -43,7 +50,7 @@ const MainScreen: FC<MainProps> = ({ data, isError }) => {
         <div id='main-screen' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>CO-WORKERS</h1>
+                <h1 className={styles.title}>{t('pages.co-worker')}</h1>
                 <div className={styles.workers}>
                     {workers}
                 </div>

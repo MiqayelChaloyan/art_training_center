@@ -11,12 +11,19 @@ type CoWorkersProps = {
 }
 
 const COWorkersPage: FC<CoWorkersProps> = ({ data, isError }) => {
+
+    if (isError) {
+        return <div>Error loading data</div>;
+    }
+
 	return (<CoWorkers data={data} isError={isError}/>);
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
+    const { locale } = context;
+    
     try {
-        const data = await getCoWorkers();
+        const data = await getCoWorkers(locale);
         return {
             props: {
                 data,

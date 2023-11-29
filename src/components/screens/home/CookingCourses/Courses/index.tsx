@@ -8,14 +8,14 @@ type Props = {
     data: any;
 };
 
-const concatenateTextWithFilter = (arg: any) => {
-    return arg.reduce((text: string, item: any) => {
-        if (item.text) {
-            text += item.text;
-        }
-        return text;
-    }, '');
-};
+// const concatenateTextWithFilter = (arg: any) => {
+//     return arg.reduce((text: string, item: any) => {
+//         if (item.text) {
+//             text += item.text;
+//         }
+//         return text;
+//     }, '');
+// };
 
 const Courses: FC<Props> = ({ data }) => {
 
@@ -38,20 +38,20 @@ const Courses: FC<Props> = ({ data }) => {
                 .fit('max')
                 .url();
 
-            const result = concatenateTextWithFilter(item.content[0].children);
+            // const result = concatenateTextWithFilter(item.content);
 
             const course = {
                 subtitle: item.subtitle,
                 urlForImageOne,
                 urlForImageTwo,
-                result,
+                content: item.content,
                 scrollToElement,
                 altOne: item.news_image_one.alt,
                 altTwo: item.news_image_two.alt,
-            };
+            };            
 
             return (
-                <Course  {...course} key={item._key} />
+                <Course  {...course} key={item.slug} />
             );
         }
         ));

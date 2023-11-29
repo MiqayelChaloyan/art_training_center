@@ -7,7 +7,7 @@ import styles from './style.module.sass';
 
 type MainProps = {
 	course: Courses;
-}
+};
 
 const MainScreen: FC<MainProps> = ({ course }) => {
 	return (

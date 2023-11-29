@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import AccordionArrow from '../../../icons/AccordionArrow';
 import { urlFor } from '../../../../../sanity/sanity';
 
@@ -26,6 +28,7 @@ type Props = {
 
 const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab }) => {
     const [height, setHeight] = useState(0);
+    const { t } = useTranslation();
 
     const innerStyle = {
         height: `${activeTab === index ? height : 0}px`,
@@ -40,16 +43,17 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
         handlePanelMount();
     }, []);
 
-    const table = list && list.map((item: any) => {
+    const table = list && list.map((item: any, index: string) => {
         const result = daysBetweenDates(item.startDate, item.endDate);
+        
         return (
-            <table key={item._key}>
+            <table key={index}>
                 <thead>
                     <tr>
-                        <td>{item.title}</td>
+                        <td>{item.course_title}</td>
                         <td>{item.amount} AMD</td>
-                        <td>{result} days</td>
-                        <td>{item.duration} hour</td>
+                        <td>{`${result} ${t('price-list.days')}`}</td>
+                        <td>{`${item.duration} ${t('price-list.hour')}`}</td>
                     </tr>
                 </thead>
             </table>
