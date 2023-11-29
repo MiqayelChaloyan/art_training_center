@@ -6,15 +6,15 @@ import Image from 'next/image';
 import Search from '@/components/icons/Search';
 import Star from '@/components/icons/Star';
 
-import styles from './style.module.sass';
-
 import { Inter } from 'next/font/google';
+
+import styles from './style.module.sass';
 
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',
-})
+});
 
 const RatingCard = ({ options }: any) => {
     const { t } = useTranslation();

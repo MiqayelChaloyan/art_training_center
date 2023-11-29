@@ -13,15 +13,15 @@ import cn from 'classnames';
 import Logo from '@/components/icons/Logo';
 import Button from '@/components/ui/Button';
 
-import styles from './Header.module.sass';
+import { Inter } from 'next/font/google';
 
-import { Inter } from 'next/font/google'
+import styles from './Header.module.sass';
 
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',
-})
+});
 
 const localeStrings: {
     am: string;

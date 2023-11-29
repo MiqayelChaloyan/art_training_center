@@ -8,15 +8,6 @@ type Props = {
     data: any;
 };
 
-// const concatenateTextWithFilter = (arg: any) => {
-//     return arg.reduce((text: string, item: any) => {
-//         if (item.text) {
-//             text += item.text;
-//         }
-//         return text;
-//     }, '');
-// };
-
 const Courses: FC<Props> = ({ data }) => {
 
     const scrollToElement = () => {
@@ -37,8 +28,6 @@ const Courses: FC<Props> = ({ data }) => {
                 .auto('format')
                 .fit('max')
                 .url();
-
-            // const result = concatenateTextWithFilter(item.content);
 
             const course = {
                 subtitle: item.subtitle,

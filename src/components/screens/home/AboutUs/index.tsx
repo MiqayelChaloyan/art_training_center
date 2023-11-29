@@ -6,23 +6,19 @@ import Container from '@/components/components/Container';
 
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
-import styles from './style.module.sass';
-
 import { Inter } from 'next/font/google';
+
+import styles from './style.module.sass';
 
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',
-})
+});
 
 type Props = {
     data: HomeContent[];
 };
-
-// const group = {
-//     ['margin']: '0',
-// };
 
 const AboutUs: FC<Props> = ({ data }) => {
     const { t } = useTranslation();

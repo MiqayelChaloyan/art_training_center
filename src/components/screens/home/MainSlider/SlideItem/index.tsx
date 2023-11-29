@@ -6,15 +6,16 @@ import Image from 'next/image';
 
 import Button from '@/components/ui/Button';
 
+import { Inter } from 'next/font/google';
+
 import styles from './styles.module.sass';
 
-import { Inter } from 'next/font/google';
 
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',
-})
+});
 
 type Props = {
     url: string;
@@ -52,7 +53,7 @@ const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToEleme
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default memo(SlideItem);

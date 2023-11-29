@@ -15,7 +15,7 @@ import MenuSettings from './MenuSettings';
 interface LayoutProps {
 	children: React.ReactNode
 	headerPosition?: 'fixed' | 'sticky'
-}
+};
 
 const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 	const [courses, setCourses] = useState<Courses[]>([]);

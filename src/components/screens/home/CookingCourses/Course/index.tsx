@@ -7,15 +7,15 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import Content from '../../../../ui/ReadMore';
 
-import styles from './style.module.sass';
-
 import { Inter } from 'next/font/google';
+
+import styles from './style.module.sass';
 
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',
-})
+});
 
 type Props = {
     altTwo: string;

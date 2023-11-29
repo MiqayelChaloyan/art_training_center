@@ -7,15 +7,15 @@ import Container from '@/components/components/Container';
 import { urlFor } from '../../../../../sanity/sanity';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
-import styles from './style.module.sass';
-
 import { Inter } from 'next/font/google';
+
+import styles from './style.module.sass';
 
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',
-})
+});
 
 type Props = {
     data: HomeContent[];
