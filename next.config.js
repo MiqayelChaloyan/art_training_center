@@ -25,6 +25,7 @@ const nextConfig = {
       artifactDirectory: './__generated__',
       language: 'typescript',
       eagerEsModules: false,
+      styledComponents: true,
     },
   },
   i18n: {
