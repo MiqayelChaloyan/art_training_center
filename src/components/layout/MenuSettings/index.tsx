@@ -1,8 +1,12 @@
 import React from 'react';
+
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { useAppDispatch } from '@/hooks/useStore';
 import { openModal } from '@/store/stateModalSlice';
+
+import useWindowSize from '@/hooks/useWindowSize';
 
 import Home from '@/components/icons/Home';
 import Courses from '@/components/icons/Courses';
@@ -11,8 +15,6 @@ import CoWorkers from '@/components/icons/CoWorkers';
 import Contact from '@/components/icons/Contact';
 
 import styles from './style.module.sass';
-import { useRouter } from 'next/router';
-import useWindowSize from '@/hooks/useWindowSize';
 
 const MenuSettings = () => {
 	const dispatch = useAppDispatch();
