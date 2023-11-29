@@ -83,6 +83,15 @@ export const home_content = {
                                 }
                             ]
                         },
+                        {
+                            name: 'slug',
+                            type: 'slug',
+                            description: "Պիտի եզակի լինի",
+                            options: {
+                                source: 'name',
+                            },
+                            validation: (Rule: any) => Rule.required(),
+                        },
                     ]
                 }
             ],
@@ -224,6 +233,15 @@ export const home_content = {
                             ]
                         },
                         {
+                            name: 'slug',
+                            type: 'slug',
+                            description: "Պիտի եզակի լինի",
+                            options: {
+                                source: 'name',
+                            },
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                        {
                             name: 'news_image_one',
                             title: 'News Section Image 1',
                             type: 'image',
@@ -287,6 +305,15 @@ export const home_content = {
                                     type: 'string'
                                 }
                             ]
+                        },
+                        {
+                            name: 'slug',
+                            type: 'slug',
+                            description: "Պիտի եզակի լինի",
+                            options: {
+                                source: 'name',
+                            },
+                            validation: (Rule: any) => Rule.required(),
                         },
                         {
                             title: 'Quantity',
@@ -353,6 +380,15 @@ export const home_content = {
                                     type: 'string'
                                 }
                             ]
+                        },
+                        {
+                            name: 'slug',
+                            type: 'slug',
+                            description: "Պիտի եզակի լինի",
+                            options: {
+                                source: 'name',
+                            },
+                            validation: (Rule: any) => Rule.required(),
                         },
                         {
                             name: 'specialists_section_image',
@@ -486,6 +522,15 @@ export const home_content = {
                                     type: 'string'
                                 }
                             ]
+                        },
+                        {
+                            name: 'slug',
+                            type: 'slug',
+                            description: "Պիտի եզակի լինի",
+                            options: {
+                                source: 'name',
+                            },
+                            validation: (Rule: any) => Rule.required(),
                         },
                         {
                             name: 'our_rating_section_image',

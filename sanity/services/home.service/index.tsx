@@ -8,7 +8,8 @@ export const getHomeData = async (language: string): Promise<HomeContent> => {
         "main_section": main_section[] {
             "title": title[$language],
             "content": content[$language],
-            "image": image
+            "image": image,
+            "slug": slug.current
         },
         "about_us_content": about_us_content[$language],
         "cooking_courses": cooking_courses[] {
@@ -21,9 +22,11 @@ export const getHomeData = async (language: string): Promise<HomeContent> => {
             "content": content[$language],
             "news_image_one": news_image_one,
             "news_image_two": news_image_two,
+            "slug": slug.current
         },
         "progress_section": progress_section[] {
             "title": title[$language],
+            "slug": slug.current,
             "quantity": quantity
         },
         "specialists_section": specialists_section[] {
@@ -31,7 +34,8 @@ export const getHomeData = async (language: string): Promise<HomeContent> => {
             "course_name": course_name[$language],
             "specialists_section_image": specialists_section_image,
             "categories": categories,
-            "specialists_section_images": specialists_section_images
+            "specialists_section_images": specialists_section_images,
+            "slug": slug.current
         },
         "our_rating_section": our_rating_section[] {
             "user_name": user_name[$language],
@@ -39,6 +43,7 @@ export const getHomeData = async (language: string): Promise<HomeContent> => {
             "user_feedback": user_feedback[$language],
             "our_rating_section_image": our_rating_section_image,
             "rating": rating,
+            "slug": slug.current
         },
         "_id": _id,
     }`;

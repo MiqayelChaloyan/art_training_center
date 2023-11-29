@@ -8,6 +8,14 @@ import Star from '@/components/icons/Star';
 
 import styles from './style.module.sass';
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
+
 const RatingCard = ({ options }: any) => {
     const { t } = useTranslation();
     
@@ -26,7 +34,7 @@ const RatingCard = ({ options }: any) => {
             <div className={styles.fix} style={{ marginTop: `${options.top ? options.top : 20}px` }}>
                 <div className={styles.card_header} style={{ marginBottom: `${options.bottom ? options.bottom : 20}px` }}>
                     <div className={styles.card_header_text}>
-                        <p>{t('texts.rating-title')}</p>
+                        <p className={inter.variable}>{t('texts.rating-title')}</p>
                     </div>
                     <div className={styles.card_header_icon}>
                         <Search
@@ -50,7 +58,7 @@ const RatingCard = ({ options }: any) => {
                         />
                     </div>
                     <div className={styles.card_content}>
-                        <p className={styles.name}>{options.name}</p>
+                        <p className={`${styles.name} ${inter.variable}`}>{options.name}</p>
                         <div className={styles.rating}>
                             {
                                 Array.from(Array(options.rating).keys()).map((star, index) => (
@@ -63,7 +71,7 @@ const RatingCard = ({ options }: any) => {
                                 ))
                             }
                         </div>
-                        <p className={styles.content}>{options.result.slice(0, 100)}...</p>
+                        <p className={`${styles.content} ${inter.variable}`}>{options.result.slice(0, 100)}...</p>
                     </div>
                 </div>
             </div>

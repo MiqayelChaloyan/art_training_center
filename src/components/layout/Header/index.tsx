@@ -15,6 +15,13 @@ import Button from '@/components/ui/Button';
 
 import styles from './Header.module.sass';
 
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
 
 const localeStrings: {
     am: string;
@@ -85,16 +92,16 @@ const Header = ({ typePosition }: IHeaderProps) => {
                     `${isSticky && isOpenMenu ? styles.contentSticky : ''}`,
                 )}>
                     <div className={styles.nav}>
-                        <Link href='/' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''}`}>{t('navigation.about')}</Link>
+                        <Link href='/' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.about')}</Link>
                         <Button
                             text={t('navigation.courses')}
                             onClick={() =>
                                 setTimeout(() => dispatch(openModal()), 500)
                             }
-                            className={styles.btn}
+                            className={`${styles.btn} ${inter.variable}`}
                         />
-                        <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''}`}>{t('navigation.co-workers')}</Link>
-                        <Link href='/price_list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''}`}>{t('navigation.price-list')}</Link>
+                        <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.co-workers')}</Link>
+                        <Link href='/price_list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.price-list')}</Link>
                     </div>
 
                     <div>

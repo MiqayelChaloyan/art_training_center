@@ -48,10 +48,10 @@ const Courses: FC<Props> = ({ data }) => {
                 scrollToElement,
                 altOne: item.news_image_one.alt,
                 altTwo: item.news_image_two.alt,
-            };
+            };            
 
             return (
-                <Course  {...course} key={item._key} />
+                <Course  {...course} key={item.slug} />
             );
         }
         ));

@@ -75,10 +75,10 @@ const Item = ({ item }: any) => {
         .url();
 
     const goCoursePage = async () => {
-        const data = await getCourseById(item.categories._ref, i18n.language);        
+        const data = await getCourseById(item.categories._ref, i18n.language);
         return router.push(`${i18n.language}/courses/${data.slug}`);
     };
-    
+
     return (
         <div key={item._key} className={styles.item}>
             <div className={styles.box_img}>
@@ -95,7 +95,10 @@ const Item = ({ item }: any) => {
                 />
             </div>
             <div className={styles.box}>
-                <h2 className={styles.subtitle}>{item.title}</h2>
+                <div className={styles.header}>
+                    <div className={styles.point} />
+                    <h2 className={styles.subtitle}>{item.title}</h2>
+                </div>
                 <Button
                     className={styles.contact_btn}
                     text={item.course_name}

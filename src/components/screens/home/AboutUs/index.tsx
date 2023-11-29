@@ -8,26 +8,35 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
 import styles from './style.module.sass';
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
+
 type Props = {
     data: HomeContent[];
 };
 
-const group = {
-    ['margin']: '0',
-};
+// const group = {
+//     ['margin']: '0',
+// };
 
 const AboutUs: FC<Props> = ({ data }) => {
     const { t } = useTranslation();
     const { about_us_content } = data[0];
+    const content = about_us_content.length <= 1000 ? about_us_content : about_us_content.slice(0, 1000) + '...';
     
     return (
         <div id='about-us' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={styles.title}>{t('pages.about')}</h1>
+                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.about')}</h1>
                 <div className={styles.about_us}>
                     <div className={styles.about_box}>
-                        <p>{about_us_content}</p>
+                        <p className={inter.variable}>{content}</p>
                     </div>
                 </div>
             </Container>

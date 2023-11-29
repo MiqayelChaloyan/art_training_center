@@ -9,6 +9,9 @@ import FormAppointment from '@/components/forms/FormAppointment';
 import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
 import Map from '@/components/ui/Map';
 
+import Email from '@/components/icons/Email';
+import Phone from '@/components/icons/Phone';
+
 import logo from '../../../../public/images/Mask.png';
 import { Courses } from '../../../../sanity/sanity-queries/courses';
 
@@ -22,7 +25,7 @@ type Props = {
     courses: Courses[]
 }
 
-const Footer: FC<Props> = ({ courses }) => {    
+const Footer: FC<Props> = ({ courses }) => {
     const { t, i18n } = useTranslation();
 
     if (!courses.length) {
@@ -42,7 +45,7 @@ const Footer: FC<Props> = ({ courses }) => {
         <div key={rowIndex} className={styles.row}>
             {row.map((course: any) => (
                 <div className={styles.contain} key={course.slug}>
-                    <Link href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.icon}>
+                    <Link href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.link}>
                         <p className={styles.copyright}>{course.course_name}</p>
                     </Link>
                 </div>
@@ -55,9 +58,9 @@ const Footer: FC<Props> = ({ courses }) => {
             <div>
                 <div id='contact' className={styles.box}>
                     <div className={styles.contact}>
-                    <FormAppointment width='30%'>
-                        <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize='40px' fill='white' group={group} />
-                    </FormAppointment>
+                        <FormAppointment width='30%'>
+                            <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize='40px' fill='white' group={group} />
+                        </FormAppointment>
                     </div>
                 </div>
                 <div className={styles.google_map}>
@@ -74,13 +77,23 @@ const Footer: FC<Props> = ({ courses }) => {
                             width={0}
                             height={0}
                             style={{
-                                width: '30%', height: 'auto', objectFit: 'scale-down', margin: '0 auto', marginRight: 0
+                                width: '24%', height: 'auto', objectFit: 'scale-down', margin: '0 auto', marginRight: 0
                             }}
                         />
                         <Link href='tel:+37477111111' aria-label='/tel:+37477111111' className={styles.icon}>
+                            <Phone
+                                width='20'
+                                height='20'
+                                fill='white'
+                            />
                             <p className={styles.info_web}>tell. +374 77 11 11 11</p>
                         </Link>
                         <Link href='mailto:art.house@bk.ru' aria-label='/mailto:art.house@bk.ru' className={styles.icon}>
+                            <Email
+                                width='20'
+                                height='20'
+                                fill='white'
+                            />
                             <p className={styles.info_web}>Email art.house@bk.ru</p>
                         </Link>
                         <p className={styles.info_web}>{t('adress.street')}</p>

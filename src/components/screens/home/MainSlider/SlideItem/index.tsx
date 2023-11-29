@@ -8,6 +8,14 @@ import Button from '@/components/ui/Button';
 
 import styles from './styles.module.sass';
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
+
 type Props = {
     url: string;
     subtitle: string;
@@ -18,7 +26,8 @@ type Props = {
 
 const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToElement }) => {
     const { t } = useTranslation();
-
+    const description = content.length <= 312 ? content : content.slice(0, 313) + '...';
+    
     return (
         <div className={styles.emplay_slide}>
             <div className={styles.box}>
@@ -33,10 +42,10 @@ const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToEleme
                     style={{ objectFit: 'cover' }}
                 />
                 <div className={styles.contact}>
-                    <h1 className={styles.title}>{subtitle}</h1>
-                    <p>{content}</p>
+                    <h1 className={`${styles.title} ${inter.variable}`}>{subtitle}</h1>
+                    <p className={inter.variable}>{description}</p>
                     <Button
-                        className={styles.contact_btn}
+                        className={`${styles.contact_btn} ${inter.variable}`}
                         text={t('button.contact-us')}
                         onClick={scrollToElement}
                     />

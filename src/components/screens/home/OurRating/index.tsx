@@ -13,6 +13,14 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
 import styles from './style.module.sass';
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
+
 type Props = {
     data: HomeContent[];
 };
@@ -36,7 +44,7 @@ const OurRating: FC<Props> = ({ data }) => {
         <div id='our-rating' className={styles.container}>
             <Container>
                 <div className={styles.feedbacks}>
-                    <h1 className={styles.title}>{t('pages.rating')}</h1>
+                    <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.rating')}</h1>
                     <div className={styles.row}>
                         <Rating data={data[0].our_rating_section} />
                     </div>

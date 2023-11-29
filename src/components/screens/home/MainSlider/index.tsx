@@ -20,7 +20,7 @@ const MainSlider: FC<Props> = ({ data }) => {
 
     if (!items) {
         return null;
-    };
+    };    
 
     const scrollToElement = () => {
         const container: HTMLElement | null = document.getElementById('contact');
@@ -37,7 +37,7 @@ const MainSlider: FC<Props> = ({ data }) => {
 
         return (
             <SlideItem
-                key={item._key}
+                key={item.slug}
                 url={urlForImage}
                 alt={item.image.alt}
                 subtitle={item.title}

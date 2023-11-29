@@ -38,7 +38,7 @@ const MobileCards = (data: any) => {
             rating: card.rating + 1,
         };
 
-        return <RatingCard key={card._key} options={options} />;
+        return <RatingCard key={card.slug} options={options} />;
     });
 
     return feedbacks;
