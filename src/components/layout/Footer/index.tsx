@@ -59,7 +59,7 @@ const Footer: FC<Props> = ({ courses }) => {
                 <div id='contact' className={styles.box}>
                     <div className={styles.contact}>
                         <FormAppointment width='30%'>
-                            <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize='40px' fill='white' group={group} />
+                            <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize='35px' fill='white' group={group} />
                         </FormAppointment>
                     </div>
                 </div>
