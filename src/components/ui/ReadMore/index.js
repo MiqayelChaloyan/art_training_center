@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import styles from './styles.module.sass';
 
 const ReadMore = ({ children, isReadMore }) => {
