@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from 'react';
+
 import styles from './style.module.sass';
 
 const ProgressBar = ({ value = 0, quantity }) => {
@@ -6,7 +7,7 @@ const ProgressBar = ({ value = 0, quantity }) => {
 
     useEffect(() => {
         if (percent < quantity) {
-            setTimeout(() => setPercent(newval => newval + 1), 200);
+            setTimeout(() => setPercent(newval => newval + 1), 60);
         }
     }, [percent]);
 

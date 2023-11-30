@@ -1,5 +1,6 @@
 import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
+import Image from 'next/image';
 
 import Play from '@/components/icons/Play';
 import Container from '@/components/components/Container';
@@ -33,7 +34,6 @@ const VideoPlayer: FC<Props> = ({ data }) => {
     useEffect(() => {
         setVideo(
             <ReactPlayer
-                style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)' }}
                 className='react-player'
                 url={data[0].cooking_courses[0].video_url}
                 controls
@@ -41,16 +41,29 @@ const VideoPlayer: FC<Props> = ({ data }) => {
                 height='100%'
                 muted
                 loop={false}
-                light={urlForImage}
+                  light={
+                    <Image
+                        src={urlForImage}
+                        alt='background-image'
+                        priority
+                        className={styles.image}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)'  }}
+                    />
+                }
                 loading="lazy"
                 playing={true}
                 config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
                 playIcon={
-                    <Play
-                        width='104'
-                        height='104'
-                        fill='white'
-                    />
+                    <div className={styles.icon}>
+                        <Play
+                            width='104'
+                            height='104'
+                            fill='white'
+                        />
+                    </div>
                 }
                 onPlay={() => setFilter(false)}
             />

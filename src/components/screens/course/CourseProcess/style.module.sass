@@ -44,11 +44,12 @@
        padding: 0
    @media screen and ( max-width: 991px )
        display: flex
-       padding-top: 0
-       height: 544px
+       padding-top: 10px
+       height: 511px
    @media screen and ( max-width: 767px )
        display: block
        height: 500px
+       padding-top: 0
 
 .player
     width: 100%
@@ -69,3 +70,15 @@
 .react-player
     background-color: #000000ad !important
     background-blend-mode: multiply !important
+
+.image 
+    object-fit: cover
+    height: 500px
+    width: 100%
+    @media screen and ( max-width: 991px )
+       height: 350px !important
+    @media screen and ( max-width: 767px )
+       height: 235px !important
+
+.icon
+    position: absolute

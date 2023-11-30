@@ -19,7 +19,7 @@ import styles from './style.module.sass';
 const MenuSettings = () => {
 	const dispatch = useAppDispatch();
 	const { pathname } = useRouter();
-	const size = useWindowSize();
+	const size = useWindowSize();	
 
 	return (
 		<div className={size.width >= 767 ? styles.nav_menu : styles.mobile_nav_menu}>

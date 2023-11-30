@@ -28,11 +28,11 @@ type Props = {
 const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToElement }) => {
     const { t } = useTranslation();
     const description = content.length <= 312 ? content : content.slice(0, 313) + '...';
-    
+
     return (
         <div className={styles.emplay_slide}>
-            <div className={styles.box}>
-                <Image
+            <div className={styles.box} style={{ backgroundImage: `url(${url})` }}>
+                {/* <Image
                     src={url}
                     alt={alt}
                     priority
@@ -41,7 +41,7 @@ const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToEleme
                     height={0}
                     sizes="100vw"
                     style={{ objectFit: 'cover' }}
-                />
+                /> */}
                 <div className={styles.contact}>
                     <h1 className={`${styles.title} ${inter.variable}`}>{subtitle}</h1>
                     <p className={inter.variable}>{description}</p>

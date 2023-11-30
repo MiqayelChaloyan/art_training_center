@@ -29,12 +29,14 @@ const MainSlider: FC<Props> = ({ course }) => {
             .fit('max')
             .url();
             
+        const content = item.content.length > 272 ? item.content.slice(0, 272) + '...' : item.content;
+            
         return (
             <SlideItem
                 key={item.slug}
                 url={urlForImage}
                 title={item.title}
-                content={item.content}
+                content={content}
                 alt={item.image.alt}
             />
         );

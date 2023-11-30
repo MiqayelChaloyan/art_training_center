@@ -2,7 +2,7 @@ import { groq } from 'next-sanity';
 import { client } from '../../schemas/client';
 import { HomeContent } from '../../sanity-queries/home-queries';
 
-export const getHomeData = async (language: string): Promise<HomeContent> => {
+export const getHomeData = async (language: string): Promise<HomeContent[]> => {
         const query = groq`*[_type == "home_content"] {
         "slug": slug.current,
         "main_section": main_section[] {

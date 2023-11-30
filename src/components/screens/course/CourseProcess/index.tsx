@@ -1,7 +1,8 @@
 import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
-
 import { useTranslation } from 'react-i18next';
+
+import Image from 'next/image';
 
 import Play from '@/components/icons/Play';
 import Container from '@/components/components/Container';
@@ -19,7 +20,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
     const [video, setVideo] = useState<string | any>(null);
     const [filter, setFilter] = useState<boolean>(true);
     const { t } = useTranslation();
-    
+
     const urlForImage = urlFor(course.course_process[0].video_light)
         .auto('format')
         .fit('max')
@@ -28,23 +29,36 @@ const VideoPlayer: FC<Props> = ({ course }) => {
     useEffect(() => {
         setVideo(
             <ReactPlayer
-                style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)' }}
+                className='react-player'
                 url={course.course_process[0].video_url}
                 controls
                 width='100%'
                 height='100%'
                 muted
                 loop={false}
-                light={urlForImage}
+                light={
+                    <Image
+                        src={urlForImage}
+                        alt='background-image'
+                        priority
+                        className={styles.image}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)'  }}
+                    />
+                }
                 loading='lazy'
                 playing={true}
                 config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
                 playIcon={
-                    <Play
-                        width='104'
-                        height='104'
-                        fill='white'
-                    />
+                    <div className={styles.icon}>
+                        <Play
+                            width='104'
+                            height='104'
+                            fill='white'
+                        />
+                    </div>
                 }
                 onPlay={() => setFilter(false)}
             />
