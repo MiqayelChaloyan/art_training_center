@@ -38,7 +38,7 @@ export const getCourses = async (language: string): Promise<Courses[]> => {
     }
 };
 
-export const getCourseBySlug = async (slug: string, language: string): Promise<Courses[]> => {
+export const getCourseBySlug = async (slug: string, language: string): Promise<Courses> => {
     const query = groq`*[_type == "courses" && slug.current == $slug] {
         "course_name": course_name[$language],
         "course_main": course_main[] {
@@ -75,7 +75,7 @@ export const getCourseBySlug = async (slug: string, language: string): Promise<C
     }
 };
 
-export const getCourseById = async (_id: string, language: string): Promise<Courses[]> => {
+export const getCourseById = async (_id: string, language: string): Promise<Courses> => {
     const query = groq`*[_type == "courses" && _id == $_id][0] {
         "course_name": course_name[$language],
         "course_main": course_main[] {
