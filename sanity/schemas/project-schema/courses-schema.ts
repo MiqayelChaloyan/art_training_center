@@ -48,6 +48,15 @@ export const courses = {
                     type: 'object',
                     fields: [
                         {
+                            name: 'slug',
+                            type: 'slug',
+                            description: "Պիտի եզակի լինի",
+                            options: {
+                                source: 'name',
+                            },
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                        {
                             title: 'Title',
                             name: 'title',
                             type: 'object',
@@ -286,6 +295,15 @@ export const courses = {
                             type: 'number',
                             title: 'Duration of the course',
                             initialValue: 0,
+                            validation: (Rule: any) => Rule.required(),
+                        },
+                        {
+                            name: 'slug',
+                            type: 'slug',
+                            description: "Պիտի եզակի լինի",
+                            options: {
+                                source: 'name',
+                            },
                             validation: (Rule: any) => Rule.required(),
                         },
                     ]

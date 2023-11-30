@@ -9,4 +9,4 @@ export interface HomeContent {
     specialists_section: any
     our_rating_section: any
     video_section_title: any
-}
+};

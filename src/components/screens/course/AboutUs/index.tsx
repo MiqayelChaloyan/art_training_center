@@ -2,6 +2,8 @@ import { FC, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import useWindowSize from '@/hooks/useWindowSize';
+
 import FormAppointment from '@/components/forms/FormAppointment';
 import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
 import Container from '@/components/components/Container';
@@ -19,7 +21,8 @@ const group = {
 };
 
 const AboutUs: FC<Props> = ({ course }) => {
-    const { about_us_content } = course as any;    
+    const { about_us_content } = course as any;
+    const size = useWindowSize();  
     const { t } = useTranslation();
 
     return (
@@ -39,7 +42,7 @@ const AboutUs: FC<Props> = ({ course }) => {
                                 justifyContent='space-around'
                                 title={t('contact-us.title')}
                                 fill='#111111'
-                                fontSize='28px'
+                                fontSize={size.width >= 767 ? '35px' : '17px'}
                                 group={group}
                             />
                         </FormAppointment>

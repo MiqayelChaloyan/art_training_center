@@ -5,6 +5,8 @@ import Image from 'next/image';
 
 import { useTranslation } from 'react-i18next';
 
+import useWindowSize from '@/hooks/useWindowSize';
+
 import FormAppointment from '@/components/forms/FormAppointment';
 import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
 import Map from '@/components/ui/Map';
@@ -26,7 +28,8 @@ type Props = {
 }
 
 const Footer: FC<Props> = ({ courses }) => {
-    const { t, i18n } = useTranslation();
+    const size = useWindowSize();
+    const { t } = useTranslation();
 
     if (!courses.length) {
         return null;
@@ -59,7 +62,7 @@ const Footer: FC<Props> = ({ courses }) => {
                 <div id='contact' className={styles.box}>
                     <div className={styles.contact}>
                         <FormAppointment width='30%'>
-                            <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize='35px' fill='white' group={group} />
+                            <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize={size.width >= 767 ? '35px' : '30px'} fill='white' group={group} />
                         </FormAppointment>
                     </div>
                 </div>

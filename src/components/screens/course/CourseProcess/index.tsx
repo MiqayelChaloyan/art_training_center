@@ -53,7 +53,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
 
     return (
         <div id='video-player' className={styles.container}>
-            <div className={styles.skew} />
+            {/* <div className={styles.skew} /> */}
             <Container>
                 <h1 className={styles.title}>{t('pages.courses_process')}</h1>
                 <div className={styles.video_player}>

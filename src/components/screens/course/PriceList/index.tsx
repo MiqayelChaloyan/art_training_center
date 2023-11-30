@@ -25,7 +25,7 @@ const PriceList: FC<PriceListProps> = ({ course }) => {
     const table = course.price_list && course.price_list.map((item: any) => {
         const result = daysBetweenDates(item.startDate, item.endDate);
         return (
-            <table key={item._key}>
+            <table key={item.slug}>
                 <thead>
                     <tr>
                         <td>{item.course_title}</td>

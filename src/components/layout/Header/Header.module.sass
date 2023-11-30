@@ -109,6 +109,7 @@
 			transition: var(--tr-time)
 			z-index: 0
 			opacity: .99
+			overflow: hidden
 
 .contentDark
 	&:after
@@ -148,6 +149,7 @@
 	position: relative
 	color: var(--color-white)
 	font-size: 20px
+	font-weight: 600
 	&:hover
 		color: #C62020
 	@media screen and ( max-width: 1280px )
@@ -261,11 +263,13 @@
 .btn
 	span
 	color: var(--color-white)
+	font-weight: 600
 	&:hover
 		color: #C62020
 
 .language
 	border-right: none
+	font-weight: 600
 	&:not(:last-child) 
 		border-right: 1px solid white
 

@@ -28,10 +28,10 @@ const MainSlider: FC<Props> = ({ course }) => {
             .auto('format')
             .fit('max')
             .url();
-
+            
         return (
             <SlideItem
-                key={item._id}
+                key={item.slug}
                 url={urlForImage}
                 title={item.title}
                 content={item.content}
