@@ -18,21 +18,15 @@ type Props = {
 
 const VideoPlayer: FC<Props> = ({ course }) => {
     const [video, setVideo] = useState<string | any>(null);
-    const [url, setUrl] = useState<string>('');
     const [filter, setFilter] = useState<boolean>(true);
     const { t } = useTranslation();
 
-    // const urlForImage = urlFor(course.course_process[0].video_light)
-    //     .auto('format')
-    //     .fit('max')
-    //     .url();
+    const urlForImage = urlFor(course.course_process[0].video_light)
+        .auto('format')
+        .fit('max')
+        .url();
 
     useEffect(() => {
-        setUrl(urlFor(course.course_process[0].video_light)
-            .auto('format')
-            .fit('max')
-            .url());
-
         setVideo(
             <ReactPlayer
                 className='react-player'
@@ -44,7 +38,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
                 loop={false}
                 light={
                     <Image
-                        src={url}
+                        src={urlForImage}
                         alt='background-image'
                         priority
                         className={styles.image}
@@ -69,7 +63,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
                 onPlay={() => setFilter(false)}
             />
         );
-    }, []);
+    }, [course]);
 
     return (
         <div id='video-player' className={styles.container}>

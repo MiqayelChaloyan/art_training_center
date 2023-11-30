@@ -55,7 +55,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
 
     const otherLocales = ensureStringInArray(locales, 'en');
 
-    // const changeLocale = (locale: string) => document.cookie = `NEXT_LOCALE=${locale}`;
+    const changeLocale = (locale: string) => document.cookie = `NEXT_LOCALE=${locale}`;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -95,9 +95,10 @@ const Header = ({ typePosition }: IHeaderProps) => {
                         <Link href='/' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.about')}</Link>
                         <Button
                             text={t('navigation.courses')}
-                            onClick={() =>
-                                setTimeout(() => dispatch(openModal()), 500)
-                            }
+                            onClick={() => {
+                                setIsOpenMenu(false);
+                                setTimeout(() => dispatch(openModal()), 500);
+                            }}
                             className={`${styles.btn} ${inter.variable}`}
                         />
                         <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.co-workers')}</Link>
@@ -113,7 +114,10 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                     key={localeIndex}
                                     href={{ pathname, query }}
                                     locale={locale}
-                                    // onClick={() => changeLocale(locale)}
+                                    onClick={() => {
+                                        toggleMenuClick();
+                                        changeLocale(locale);
+                                    }}
                                     style={{ color: activeLocale === locale ? 'red' : 'white', padding: 4 }}
                                     className={styles.language}
                                 >
