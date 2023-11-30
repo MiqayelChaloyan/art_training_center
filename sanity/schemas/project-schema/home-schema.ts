@@ -18,7 +18,7 @@ export const home_content = {
             name: 'main_section',
             type: 'array',
             title: 'Main Section',
-            description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
+            description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ, առնվազն երկու հատ',
             of: [
                 {
                     name: 'object',

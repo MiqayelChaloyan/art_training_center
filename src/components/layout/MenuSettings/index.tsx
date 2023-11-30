@@ -19,7 +19,6 @@ import styles from './style.module.sass';
 const MenuSettings = () => {
 	const dispatch = useAppDispatch();
 	const { pathname } = useRouter();
-
 	const size = useWindowSize();
 
 	return (

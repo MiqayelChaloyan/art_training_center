@@ -41,7 +41,7 @@ export const courses = {
             name: 'course_main',
             type: 'array',
             title: 'Course Main',
-            description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
+            description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ, առնվազն երկու հատ',
             of: [
                 {
                     name: 'object',
