@@ -6,6 +6,7 @@ import AccordionArrow from '../../../icons/AccordionArrow';
 import { urlFor } from '../../../../../sanity/sanity';
 
 import styles from './style.module.sass';
+import useWindowSize from '@/hooks/useWindowSize';
 
 function daysBetweenDates(dateStr1: any, dateStr2: any) {
     const startDate = new Date(dateStr1);
@@ -29,9 +30,10 @@ type Props = {
 const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab }) => {
     const [height, setHeight] = useState(0);
     const { t } = useTranslation();
+    const size = useWindowSize();
 
     const innerStyle = {
-        height: `${activeTab === index ? height : 0}px`,
+        height: `${activeTab === index ? `max-content` : `0px`}`,
     };
 
     const handlePanelMount = () => {
@@ -77,8 +79,8 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
                     <p className={styles.panel__label} role='tab'>
                         {name}
                     </p>
-                    <button onClick={activateTab} style={{ transform: activeTab !== index ? 'rotate(178deg)' : 'rotate(0deg)' }}>
-                        <AccordionArrow width={50} height={50} fill='white' />
+                    <button onClick={activateTab} style={{ transform: activeTab !== index ? 'rotate(178deg)' : 'rotate(0deg)' }} className={styles.button_tab}>
+                        <AccordionArrow width={size.width > 767 ? 50 : 25} height={size.width > 767 ? 50 : 25} fill='white' />
                     </button>
                 </div>
                 <div>

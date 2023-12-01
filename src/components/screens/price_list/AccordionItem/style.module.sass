@@ -2,14 +2,14 @@
     background-color: black
 
 .svg_icon
-    width: 60px
-    height: 60px
+    width: 40px
+    height: 40px
     @media screen and ( max-width: 991px )
-       width: 70px
-       height: 70px
-    @media screen and ( max-width: 767px )
        width: 40px
        height: 40px
+    @media screen and ( max-width: 767px )
+       width: 30px
+       height: 30px
 
 .panel__label 
     position: relative 
@@ -18,7 +18,7 @@
     background: none 
     border: none 
     text-align: left 
-    font-weight: 500 
+    font-weight: bold 
     font-size: 30px 
     font-family: inherit 
     transition: color 0.2s linear 
@@ -57,15 +57,19 @@
     transition: height 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) 
 
 .panel__content 
-    margin: 5px 25px 25px 
+    margin: 5px 0 25px 
     font-size: 19px 
     transition: opacity 0.3s linear 0.18s 
+    @media screen and ( max-width: 991px )
+        margin: 5px auto 
     td 
       border: 2px solid white
-      padding: 20px
+      padding: 30px
       width: 365px
       color: white
       text-align: center
+      font-weight: bold
+      font-size: 20px
     @media screen and (max-device-width: 1600px) 
        td
           width: 270px !important
@@ -80,7 +84,7 @@
     @media screen and ( max-width: 767px )
        td
           padding: 9px !important
-          width: 84px !important
+          width: 100px !important
           font-size: 10px !important
 
 .panel 
@@ -98,5 +102,10 @@
     display: flex
     justify-content: space-between
     align-items: center
+    @media screen and ( max-width: 991px )
+        width: 60%
     @media screen and ( max-width: 767px )
         width: 70%
+
+.button_tab
+    transition: .2s
