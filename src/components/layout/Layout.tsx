@@ -6,12 +6,12 @@ import Modal from '@/components/layout/Modal/';
 
 import Header from './Header';
 import Footer from './Footer';
-
 import CoursesModal from '../courses';
-import { getCourses } from '../../../sanity/services/courses.service';
-import { Courses } from '../../../sanity/sanity-queries/courses';
 import MenuSettings from './MenuSettings';
 import MenuSettingsMobile from './MenuSettingsMobile';
+
+import { getCourses } from '../../../sanity/services/courses.service';
+import { Courses } from '../../../sanity/sanity-queries/courses';
 
 interface LayoutProps {
 	children: React.ReactNode

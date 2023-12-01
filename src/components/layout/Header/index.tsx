@@ -115,7 +115,6 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                     href={{ pathname, query }}
                                     locale={locale}
                                     onClick={() => {
-                                        toggleMenuClick();
                                         changeLocale(locale);
                                     }}
                                     style={{ color: activeLocale === locale ? 'red' : 'white', padding: 4 }}

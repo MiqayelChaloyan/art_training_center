@@ -17,7 +17,7 @@ import { Courses } from '../../../../../sanity/sanity-queries/courses';
 import styles from './style.module.sass';
 
 type Props = {
-    course: Courses;
+    course: Courses
 };
 
 const inter = Inter({
@@ -65,8 +65,8 @@ const VideoPlayer: FC<Props> = ({ course }) => {
                 playIcon={
                     <div className={styles.icon}>
                         <Play
-                            width={size.width > 767 ? 104 : 50}
-                            height={size.width > 767 ? 104 : 50}
+                            width={size.width <= 767 ? 50 : 104}
+                            height={size.width <= 767 ? 50 : 104}
                             fill='white'
                         />
                     </div>

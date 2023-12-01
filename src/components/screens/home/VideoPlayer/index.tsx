@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 type Props = {
-    data: HomeContent[];
+    data: HomeContent[]
 };
 
 const VideoPlayer: FC<Props> = ({ data }) => {
@@ -32,7 +32,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
     const urlForImage = urlFor(data[0].cooking_courses[0].video_light)
         .auto('format')
         .fit('max')
-        .url();
+        .url();        
 
     useEffect(() => {
         setVideo(
@@ -62,8 +62,8 @@ const VideoPlayer: FC<Props> = ({ data }) => {
                 playIcon={
                     <div className={styles.icon}>
                         <Play
-                            width={size.width > 767 ? 104 : 50}
-                            height={size.width > 767 ? 104 : 50}
+                            width={size.width <= 767 ? 50 : 104}
+                            height={size.width <= 767 ? 50 : 104}
                             fill='white'
                         />
                     </div>

@@ -9,7 +9,7 @@ import { Courses } from '../../../sanity/sanity-queries/courses';
 import styles from './style.module.sass';
 
 type CoursesModalProps = {
-    courses: Courses[];
+    courses: Courses[]
 };
 
 const chunkSize = 4;
@@ -21,12 +21,8 @@ const chunkArray = (arr: any, size: number) => {
 };
 
 const CoursesModal: FC<CoursesModalProps> = ({ courses }) => {
-    const { t } = useTranslation();    
-
-    console.log(courses);
-    
-
     const data = chunkArray(courses, chunkSize);
+    const { t } = useTranslation();        
 
     if (!courses) {
         return null;
