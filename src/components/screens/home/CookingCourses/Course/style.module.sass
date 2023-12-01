@@ -27,6 +27,8 @@
     font-weight: 600
     line-height: 31px
     margin-bottom: 15px
+    @media screen and ( max-width: 991px )
+       font-size: 15px
 
 .images
    width: 50%       
@@ -123,6 +125,7 @@
    display: flex
    justify-content: space-around
    align-items: self-start
+   height: max-content
    @media screen and (max-device-width: 1600px) 
    @media screen and (max-device-width: 1200px) 
      display: flex
@@ -130,7 +133,7 @@
    @media screen and ( max-width: 991px )
      display: flex
      top: 0
-     height: 213px
+     height: max-content
    @media screen and ( max-width: 767px )
      display: block
      height: max-content
@@ -148,7 +151,7 @@
     text-decoration: underline
     @media screen and ( max-width: 991px )
         width: 60%
-        font-size: 16px
+        font-size: 12px
     @media screen and ( max-width: 767px )
         font-size: 15px
         padding: 8px 20px

@@ -330,6 +330,7 @@ export const home_content = {
             name: 'specialists_section',
             type: 'array',
             title: 'Specialists Sections',
+            description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ, առնվազն երկու հատ',
             of: [
                 {
                     name: 'object',

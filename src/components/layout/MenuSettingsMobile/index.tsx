@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { useAppDispatch } from '@/hooks/useStore';
 import { openModal } from '@/store/stateModalSlice';
@@ -13,42 +14,43 @@ import Contact from '@/components/icons/Contact';
 
 import styles from './style.module.sass';
 
-const MenuSettings = () => {
+const MenuSettingsMobile = () => {
 	const dispatch = useAppDispatch();
+	const { pathname } = useRouter();
 
 	return (
 		<div className={styles.nav_menu}>
 			<div className={styles.nav_list}>
 				<Link
-					className={styles.btn_home}
+					className={`${pathname === '/' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/'
 					title='Home'
 				>
 					<Home width={20} height={20} fill='white' />
 				</Link>
 				<button
-					className={styles.btn_courses}
+					className={styles.nav__link}
 					onClick={() => setTimeout(() => dispatch(openModal()), 500)}
 					title='Courses'
 				>
 					<Courses width={20} height={20} fill='white' />
 				</button>
 				<Link
-					className={styles.btn_price_list}
+					className={`${pathname === '/price_list' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/price_list'
 					title='Price List'
 				>
 					<PriceList width={20} height={20} fill='white' />
 				</Link>
 				<Link
-					className={styles.btn_co_worker}
+					className={`${pathname === '/co_workers' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/co_workers'
 					title='Co Worker'
 				>
 					<CoWorkers width={25} height={20} fill='white' />
 				</Link>
 				<Link
-					className={styles.btn_contact_us}
+					className={styles.nav__link}
 					href='tel:+37477111111'
 					title='Contact us'
 				>
@@ -59,4 +61,4 @@ const MenuSettings = () => {
 	);
 };
 
-export default MenuSettings;
+export default MenuSettingsMobile;

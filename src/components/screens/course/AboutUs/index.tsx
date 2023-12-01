@@ -43,7 +43,7 @@ const AboutUs: FC<Props> = ({ course }) => {
                                 justifyContent='space-around'
                                 title={t('contact-us.title')}
                                 fill='#111111'
-                                fontSize={size.width >= 991 ? '35px' : '17px'}
+                                fontSize={size.width >= 991 ? '32px' : '17px'}
                                 group={group}
                             />
                         </FormAppointment>

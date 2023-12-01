@@ -11,6 +11,7 @@ import CoursesModal from '../courses';
 import { getCourses } from '../../../sanity/services/courses.service';
 import { Courses } from '../../../sanity/sanity-queries/courses';
 import MenuSettings from './MenuSettings';
+import MenuSettingsMobile from './MenuSettingsMobile';
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -34,6 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 		<Meta>
 			<div className="wrapper">
 				<MenuSettings/>
+				<MenuSettingsMobile/>
 				<div className="wrapper-content">
 					<Header typePosition={`${headerPosition === 'fixed' ? 'fixed' : 'sticky'}`} />
 					<main className="wrapper-main">{children}</main>
