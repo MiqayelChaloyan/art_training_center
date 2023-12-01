@@ -1,8 +1,9 @@
+import { FC, memo, useEffect } from 'react';
+
+import Head from 'next/head';
+
 import Layout from '@/components/layout/Layout';
 import MainScreen from '@/components/screens/home/MainScreen';
-import { HomeContent } from '../../../../sanity/sanity-queries/home-queries';
-import { FC, memo } from 'react';
-import Head from 'next/head';
 
 import AboutUs from './AboutUs';
 import VideoPlayer from './VideoPlayer';
@@ -11,12 +12,23 @@ import Progress from './Progress';
 import Specialists from './Specialists';
 import OurRating from './OurRating';
 
+import { useAppDispatch } from '@/hooks/useStore';
+import { closeModal } from '@/store/stateModalSlice';
+
+import { HomeContent } from '../../../../sanity/sanity-queries/home-queries';
+
 type Props = {
 	data: HomeContent[];
 	isError: boolean,
 };
 
-const Home: FC<Props> = ({ data, isError }) => {	
+const Home: FC<Props> = ({ data, isError }) => {
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(closeModal());
+	}, []);
+
 	return (
 		<Layout headerPosition='fixed'>
 			<Head>

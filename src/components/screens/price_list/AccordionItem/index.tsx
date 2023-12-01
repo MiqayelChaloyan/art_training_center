@@ -1,12 +1,15 @@
 import { FC, useEffect, useState } from 'react';
 
+import { Inter } from 'next/font/google';
+
 import { useTranslation } from 'react-i18next';
+
+import useWindowSize from '@/hooks/useWindowSize';
 
 import AccordionArrow from '../../../icons/AccordionArrow';
 import { urlFor } from '../../../../../sanity/sanity';
 
 import styles from './style.module.sass';
-import useWindowSize from '@/hooks/useWindowSize';
 
 function daysBetweenDates(dateStr1: any, dateStr2: any) {
     const startDate = new Date(dateStr1);
@@ -18,17 +21,23 @@ function daysBetweenDates(dateStr1: any, dateStr2: any) {
 };
 
 type Props = {
-    name: string;
-    list: any;
-    svg: string;
-    alt: string | undefined;
-    activeTab: boolean;
-    index: boolean;
-    activateTab: () => void;
-}
+    name: string
+    list: any
+    svg: string
+    alt: string | undefined
+    activeTab: boolean
+    index: boolean
+    activateTab: () => void
+};
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+});
 
 const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab }) => {
-    const [height, setHeight] = useState(0);
+    // const [height, setHeight] = useState(0);
     const { t } = useTranslation();
     const size = useWindowSize();
 
@@ -36,14 +45,14 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
         height: `${activeTab === index ? `max-content` : `0px`}`,
     };
 
-    const handlePanelMount = () => {
-        const panelHeight = 300;
-        setHeight(panelHeight);
-    };
+    // const handlePanelMount = () => {
+    //     const panelHeight = 300;
+    //     setHeight(panelHeight);
+    // };
 
-    useEffect(() => {
-        handlePanelMount();
-    }, []);
+    // useEffect(() => {
+    //     handlePanelMount();
+    // }, []);
 
     const table = list && list.map((item: any, index: string) => {
         const result = daysBetweenDates(item.startDate, item.endDate);
@@ -52,10 +61,10 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
             <table key={index}>
                 <thead>
                     <tr>
-                        <td>{item.course_title}</td>
-                        <td>{item.amount} AMD</td>
-                        <td>{`${result} ${t('price-list.days')}`}</td>
-                        <td>{`${item.duration} ${t('price-list.hour')}`}</td>
+                        <td className={inter.variable}>{item.course_title}</td>
+                        <td className={inter.variable}>{item.amount} AMD</td>
+                        <td className={inter.variable}>{`${result} ${t('price-list.days')}`}</td>
+                        <td className={inter.variable}>{`${item.duration} ${t('price-list.hour')}`}</td>
                     </tr>
                 </thead>
             </table>
@@ -76,7 +85,7 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
         >
             <div className={styles.panel_box}>
                 <div className={styles.column}>
-                    <p className={styles.panel__label} role='tab'>
+                    <p className={`${styles.panel__label} ${inter.variable}`} role='tab'>
                         {name}
                     </p>
                     <button onClick={activateTab} style={{ transform: activeTab !== index ? 'rotate(178deg)' : 'rotate(0deg)' }} className={styles.button_tab}>

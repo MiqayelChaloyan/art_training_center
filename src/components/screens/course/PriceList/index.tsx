@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Inter } from 'next/font/google';
+
 import { useTranslation } from 'react-i18next';
 
 import Container from '@/components/components/Container';
@@ -8,7 +10,13 @@ import styles from './style.module.sass';
 
 type PriceListProps = {
     course: any;
-}
+};
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+});
 
 function daysBetweenDates(dateStr1: any, dateStr2: any) {
     const startDate = new Date(dateStr1);
@@ -17,7 +25,7 @@ function daysBetweenDates(dateStr1: any, dateStr2: any) {
     const daysDifference = timeDifference / (1000 * 3600 * 24);
 
     return daysDifference;
-}
+};
 
 const PriceList: FC<PriceListProps> = ({ course }) => {
     const { t } = useTranslation();
@@ -28,10 +36,10 @@ const PriceList: FC<PriceListProps> = ({ course }) => {
             <table key={item.slug} className={styles.price_list_table}>
                 <thead>
                     <tr className={styles.list}>
-                        <td>{item.course_title}</td>
-                        <td>{item.amount} AMD</td>
-                        <td>{`${result} ${t('price-list.days')}`}</td>
-                        <td>{`${item.duration} ${t('price-list.hour')}`}</td>
+                        <td className={inter.variable}>{item.course_title}</td>
+                        <td className={inter.variable}>{item.amount} AMD</td>
+                        <td className={inter.variable}>{`${result} ${t('price-list.days')}`}</td>
+                        <td className={inter.variable}>{`${item.duration} ${t('price-list.hour')}`}</td>
                     </tr>
                 </thead>
             </table>
@@ -41,7 +49,7 @@ const PriceList: FC<PriceListProps> = ({ course }) => {
     return (
         <div id='price-list' className={styles.container}>
             <Container>
-                <h1 className={styles.title}>{t('pages.price_list')}</h1>
+                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.price_list')}</h1>
             </Container>
             <div className={styles.table}>
                 {table}

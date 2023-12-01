@@ -24,10 +24,10 @@ const inter = Inter({
 });
 
 const localeStrings: {
-    am: string;
-    ru: string;
-    en: string;
-    [key: string]: string;
+    am: string
+    ru: string
+    en: string
+    [key: string]: string
 } = {
     am: 'Հայ',
     ru: 'Рус',
@@ -119,7 +119,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                         changeLocale(locale);
                                     }}
                                     style={{ color: activeLocale === locale ? 'red' : 'white', padding: 4 }}
-                                    className={styles.language}
+                                    className={`${styles.language} ${inter.variable}`}
                                 >
                                     {localeStrings[locale]}
                                 </Link>

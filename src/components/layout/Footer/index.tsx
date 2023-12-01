@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { Inter } from 'next/font/google';
 
 import { useTranslation } from 'react-i18next';
 
@@ -19,13 +20,20 @@ import { Courses } from '../../../../sanity/sanity-queries/courses';
 
 import styles from './Footer.module.sass';
 
+
+type Props = {
+    courses: Courses[]
+};
+
 const group = {
     ['margin']: '0 auto'
 };
 
-type Props = {
-    courses: Courses[]
-}
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+});
 
 const Footer: FC<Props> = ({ courses }) => {
     const size = useWindowSize();
@@ -49,7 +57,7 @@ const Footer: FC<Props> = ({ courses }) => {
             {row.map((course: any) => (
                 <div className={styles.contain} key={course.slug}>
                     <Link href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.link}>
-                        <p className={styles.copyright}>{course.course_name}</p>
+                        <p className={`${styles.copyright} ${inter.variable}`}>{course.course_name}</p>
                     </Link>
                 </div>
             ))}
@@ -62,13 +70,13 @@ const Footer: FC<Props> = ({ courses }) => {
                 <div id='contact' className={styles.box}>
                     <div className={styles.contact}>
                         <FormAppointment width='30%'>
-                            <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize={size.width >= 767 ? '35px' : '30px'} fill='white' group={group} />
+                            <HeaderForm display='grid' color='white' justifyContent='center' title={t('contact-us.title')} fontSize={size.width >= 767 ? '35px' : '20px'} fill='white' group={group} />
                         </FormAppointment>
                     </div>
                 </div>
                 <div className={styles.google_map}>
                     <Map width='100%' height='100%' />
-                    <p className={styles.address}>{t('adress.adress')}</p>
+                    <p className={`${styles.address} ${inter.variable}`}>{t('adress.adress')}</p>
                 </div>
                 <div className={styles.links}>
                     {links}
@@ -89,7 +97,7 @@ const Footer: FC<Props> = ({ courses }) => {
                                 height='20'
                                 fill='white'
                             />
-                            <p className={styles.info_web}>tell. +374 77 11 11 11</p>
+                            <p className={`${styles.info_web} ${inter.variable}`}>tell. +374 77 11 11 11</p>
                         </Link>
                         <Link href='mailto:art.house@bk.ru' aria-label='/mailto:art.house@bk.ru' className={styles.icon}>
                             <Email
@@ -97,9 +105,9 @@ const Footer: FC<Props> = ({ courses }) => {
                                 height='20'
                                 fill='white'
                             />
-                            <p className={styles.info_web}>Email art.house@bk.ru</p>
+                            <p className={`${styles.info_web} ${inter.variable}`}>Email art.house@bk.ru</p>
                         </Link>
-                        <p className={styles.info_web}>{t('adress.street')}</p>
+                        <p className={`${styles.info_web} ${inter.variable}`}>{t('adress.street')}</p>
                     </div>
                 </div>
             </div>

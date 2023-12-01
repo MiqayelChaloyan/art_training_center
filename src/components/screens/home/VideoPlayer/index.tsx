@@ -2,6 +2,8 @@ import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import Image from 'next/image';
 
+import useWindowSize from '@/hooks/useWindowSize';
+
 import Play from '@/components/icons/Play';
 import Container from '@/components/components/Container';
 
@@ -25,6 +27,7 @@ type Props = {
 const VideoPlayer: FC<Props> = ({ data }) => {
     const [video, setVideo] = useState<string | any>(null);
     const [filter, setFilter] = useState<boolean>(true);
+    const size = useWindowSize();
 
     const urlForImage = urlFor(data[0].cooking_courses[0].video_light)
         .auto('format')
@@ -59,8 +62,8 @@ const VideoPlayer: FC<Props> = ({ data }) => {
                 playIcon={
                     <div className={styles.icon}>
                         <Play
-                            width='104'
-                            height='104'
+                            width={size.width > 767 ? 104 : 50}
+                            height={size.width > 767 ? 104 : 50}
                             fill='white'
                         />
                     </div>

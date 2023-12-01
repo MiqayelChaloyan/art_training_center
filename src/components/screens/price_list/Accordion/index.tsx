@@ -1,11 +1,13 @@
 import React, { FC, useState } from 'react';
+
 import Panel from '../AccordionItem';
-import styles from './style.module.sass';
 import { Courses } from '../../../../../sanity/sanity-queries/courses';
 
+import styles from './style.module.sass';
+
 type Props = {
-    course: Courses[];
-}
+    course: Courses[]
+};
 
 const Accordion: FC<Props> = ({ course }) => {
     const [activeTab, setActiveTab] = useState<number | null>(null);

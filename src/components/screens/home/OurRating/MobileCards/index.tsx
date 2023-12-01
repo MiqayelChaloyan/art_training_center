@@ -1,15 +1,6 @@
 import RatingCard from '../RatingCard';
-import { urlFor } from '../../../../../../sanity/sanity';
-import { FC } from 'react';
 
-// const concatenateTextWithFilter = (arg: any) => {
-//     return arg.reduce((text: string, item: any) => {
-//         if (item.text) {
-//             text += item.text;
-//         }
-//         return text;
-//     }, '');
-// };
+import { urlFor } from '../../../../../../sanity/sanity';
 
 const MobileCards = (data: any) => {
     const feedbacks = data.map((card: any): JSX.Element => {

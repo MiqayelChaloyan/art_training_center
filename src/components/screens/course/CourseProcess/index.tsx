@@ -2,6 +2,10 @@ import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useTranslation } from 'react-i18next';
 
+import { Inter } from 'next/font/google';
+
+import useWindowSize from '@/hooks/useWindowSize';
+
 import Image from 'next/image';
 
 import Play from '@/components/icons/Play';
@@ -16,9 +20,16 @@ type Props = {
     course: Courses;
 };
 
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+});
+
 const VideoPlayer: FC<Props> = ({ course }) => {
     const [video, setVideo] = useState<string | any>(null);
     const [filter, setFilter] = useState<boolean>(true);
+    const size = useWindowSize();
     const { t } = useTranslation();
 
     const urlForImage = urlFor(course.course_process[0].video_light)
@@ -54,8 +65,8 @@ const VideoPlayer: FC<Props> = ({ course }) => {
                 playIcon={
                     <div className={styles.icon}>
                         <Play
-                            width='104'
-                            height='104'
+                            width={size.width > 767 ? 104 : 50}
+                            height={size.width > 767 ? 104 : 50}
                             fill='white'
                         />
                     </div>
@@ -67,9 +78,8 @@ const VideoPlayer: FC<Props> = ({ course }) => {
 
     return (
         <div id='video-player' className={styles.container}>
-            {/* <div className={styles.skew} /> */}
             <Container>
-                <h1 className={styles.title}>{t('pages.courses_process')}</h1>
+                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.courses_process')}</h1>
                 <div className={styles.video_player}>
                     <div className={styles.player}>
                         {video}
