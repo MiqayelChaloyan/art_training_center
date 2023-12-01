@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 import { Inter } from 'next/font/google';
 
-import useWindowSize from '@/hooks/useWindowSize';
-
 import Image from 'next/image';
 
 import Play from '@/components/icons/Play';
@@ -29,7 +27,6 @@ const inter = Inter({
 const VideoPlayer: FC<Props> = ({ course }) => {
     const [video, setVideo] = useState<string | any>(null);
     const [filter, setFilter] = useState<boolean>(true);
-    const size = useWindowSize();
     const { t } = useTranslation();
 
     const urlForImage = urlFor(course.course_process[0].video_light)
@@ -65,8 +62,8 @@ const VideoPlayer: FC<Props> = ({ course }) => {
                 playIcon={
                     <div className={styles.icon}>
                         <Play
-                            width={size.width <= 767 ? 50 : 104}
-                            height={size.width <= 767 ? 50 : 104}
+                            width='90'
+                            height='90'
                             fill='white'
                         />
                     </div>

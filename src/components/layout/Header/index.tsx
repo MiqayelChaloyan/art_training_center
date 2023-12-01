@@ -46,6 +46,8 @@ const Header = ({ typePosition }: IHeaderProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
+    const[isLoading, setIsLoading] = useState(false);
+
     const ensureStringInArray = (arr: any, str: any) => {
         if (!arr.includes(str)) {
             arr.push(str);
@@ -115,6 +117,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                     href={{ pathname, query }}
                                     locale={locale}
                                     onClick={() => {
+                                        setIsOpenMenu(false);
                                         changeLocale(locale);
                                     }}
                                     style={{ color: activeLocale === locale ? 'red' : 'white', padding: 4 }}
