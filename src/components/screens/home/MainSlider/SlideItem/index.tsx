@@ -1,15 +1,12 @@
 import { memo } from 'react';
-
 import { useTranslation } from 'react-i18next';
 
+import { Inter } from 'next/font/google';
 import Image from 'next/image';
 
 import Button from '@/components/ui/Button';
 
-import { Inter } from 'next/font/google';
-
 import styles from './styles.module.sass';
-
 
 const inter = Inter({
     subsets: ['latin'],
@@ -18,11 +15,11 @@ const inter = Inter({
 });
 
 type Props = {
-    url: string;
-    subtitle: string;
-    content: any;
-    alt: string;
-    scrollToElement: (value: number) => void;
+    url: string
+    subtitle: string
+    content: any
+    alt: string
+    scrollToElement: (value: number) => void
 };
 
 const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToElement }) => {

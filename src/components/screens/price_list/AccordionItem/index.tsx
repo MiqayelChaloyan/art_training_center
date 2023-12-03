@@ -1,8 +1,7 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Inter } from 'next/font/google';
-
-import { useTranslation } from 'react-i18next';
 
 import useWindowSize from '@/hooks/useWindowSize';
 
@@ -37,22 +36,12 @@ const inter = Inter({
 });
 
 const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab }) => {
-    // const [height, setHeight] = useState(0);
-    const { t } = useTranslation();
     const size = useWindowSize();
+    const { t } = useTranslation();
 
     const innerStyle = {
         height: `${activeTab === index ? `max-content` : `0px`}`,
     };
-
-    // const handlePanelMount = () => {
-    //     const panelHeight = 300;
-    //     setHeight(panelHeight);
-    // };
-
-    // useEffect(() => {
-    //     handlePanelMount();
-    // }, []);
 
     const table = list && list.map((item: any, index: string) => {
         const result = daysBetweenDates(item.startDate, item.endDate);
@@ -104,4 +93,4 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
 };
 
 
-export default Panel;
+export default memo(Panel);

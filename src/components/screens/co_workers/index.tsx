@@ -12,7 +12,7 @@ import { Co_workers } from '../../../../sanity/sanity-queries/co-workers';
 type CoWorkersProps = {
 	data: Co_workers[]
 	isError: boolean
-}
+};
 
 const CoWorkers: FC<CoWorkersProps> = ({ data, isError }) => {
 	const dispatch = useAppDispatch();

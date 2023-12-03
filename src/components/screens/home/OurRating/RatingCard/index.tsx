@@ -2,11 +2,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Image from 'next/image';
+import { Inter } from 'next/font/google';
 
 import Search from '@/components/icons/Search';
 import Star from '@/components/icons/Star';
-
-import { Inter } from 'next/font/google';
 
 import styles from './style.module.sass';
 

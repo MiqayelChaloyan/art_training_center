@@ -11,7 +11,7 @@ import TextareaField from '@/components/ui/TextareaField';
 import styles from './FormAppointment.module.sass';
 
 interface Props {
-	className?: string,
+	className?: string
 	width?: string
 	children: React.ReactNode
 };
@@ -20,12 +20,12 @@ const initValues = { name: '', email: '', phone: '', message: '' };
 const initState = { isLoading: false, error: '', values: initValues };
 
 const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
-	const [state, setState] = useState(initState);
+	const [state, setState] = useState<any>(initState);
 	const { values, isLoading, error } = state;
     const { t } = useTranslation();
 
 	const handleChange = ({ target }: any) =>
-		setState((prev) => ({
+		setState((prev: any) => ({
 			...prev,
 			values: {
 				...prev.values,
@@ -43,7 +43,7 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 		};
 
 		try {
-			setState((prev) => ({
+			setState((prev: any) => ({
 				...prev,
 				isLoading: true,
 			}));
@@ -67,7 +67,7 @@ const FormAppointment: React.FC<Props> = ({ className, width, children }) => {
 				error: error.message,
 			}));
 		} catch (error: any) {
-			setState((prev) => ({
+			setState((prev: any) => ({
 				...prev,
 				isLoading: false,
 				error: error.message,

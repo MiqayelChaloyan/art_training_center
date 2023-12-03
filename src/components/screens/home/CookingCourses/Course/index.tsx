@@ -18,14 +18,14 @@ const inter = Inter({
 });
 
 type Props = {
-    altTwo: string;
-    altOne: string;
-    urlForImageOne: string;
-    urlForImageTwo: string;
-    scrollToElement: any;
-    content: any;
-    subtitle: string;
-}
+    altTwo: string
+    altOne: string
+    urlForImageOne: string
+    urlForImageTwo: string
+    scrollToElement: any
+    content: any
+    subtitle: string
+};
 
 const Course: FC<Props> = (course) => {
     const [isReadMore, setIsReadMore] = useState<boolean>(true);

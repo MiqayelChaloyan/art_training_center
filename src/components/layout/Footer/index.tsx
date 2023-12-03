@@ -97,7 +97,7 @@ const Footer: FC<Props> = ({ courses }) => {
                                 height='20'
                                 fill='white'
                             />
-                            <p className={`${styles.info_web} ${inter.variable}`}>tell. +374 77 11 11 11</p>
+                            <p className={`${styles.info_web} ${inter.variable}`}>{t('contact.tell')} +374 77 11 11 11</p>
                         </Link>
                         <Link href='mailto:art.house@bk.ru' aria-label='/mailto:art.house@bk.ru' className={styles.icon}>
                             <Email
@@ -105,7 +105,7 @@ const Footer: FC<Props> = ({ courses }) => {
                                 height='20'
                                 fill='white'
                             />
-                            <p className={`${styles.info_web} ${inter.variable}`}>Email art.house@bk.ru</p>
+                            <p className={`${styles.info_web} ${inter.variable}`}>{t('contact.email')} art.house@bk.ru</p>
                         </Link>
                         <p className={`${styles.info_web} ${inter.variable}`}>{t('adress.street')}</p>
                     </div>

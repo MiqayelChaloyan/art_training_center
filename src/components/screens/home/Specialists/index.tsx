@@ -1,16 +1,16 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { Inter } from 'next/font/google';
+
 import Container from '@/components/components/Container';
 import Item from './Item';
 
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-
-import { Inter } from 'next/font/google';
 
 import styles from './style.module.sass';
 
@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 type SectionCoursesProps = {
-    data: HomeContent[];
+    data: HomeContent[]
 };
 
 function SampleNextArrow(props: any) {
@@ -87,4 +87,4 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     );
 };
 
-export default Specialists;
+export default memo(Specialists);

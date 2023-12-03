@@ -1,14 +1,14 @@
 import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
+
 import Image from 'next/image';
+import { Inter } from 'next/font/google';
 
 import Play from '@/components/icons/Play';
 import Container from '@/components/components/Container';
 
 import { urlFor } from '../../../../../sanity/sanity';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-
-import { Inter } from 'next/font/google';
 
 import styles from './style.module.sass';
 

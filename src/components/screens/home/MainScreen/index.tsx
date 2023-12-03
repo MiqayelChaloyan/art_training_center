@@ -7,8 +7,8 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import styles from './style.module.sass';
 
 type MainProps = {
-	data: HomeContent[];
-}
+	data: HomeContent[]
+};
 
 const MainScreen: FC<MainProps> = ({ data }) => {
 	return (

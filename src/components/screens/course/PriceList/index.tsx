@@ -9,7 +9,7 @@ import Container from '@/components/components/Container';
 import styles from './style.module.sass';
 
 type PriceListProps = {
-    course: any;
+    course: any
 };
 
 const inter = Inter({

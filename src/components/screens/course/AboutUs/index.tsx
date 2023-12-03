@@ -15,7 +15,7 @@ import { Courses } from '../../../../../sanity/sanity-queries/courses';
 import styles from './style.module.sass';
 
 type Props = {
-    course: Courses[];
+    course: Courses[]
 };
 
 const inter = Inter({

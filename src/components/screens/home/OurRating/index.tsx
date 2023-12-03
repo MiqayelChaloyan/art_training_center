@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Slider from 'react-slick';
@@ -22,7 +22,7 @@ const inter = Inter({
 });
 
 type Props = {
-    data: HomeContent[];
+    data: HomeContent[]
 };
 
 const OurRating: FC<Props> = ({ data }) => {
@@ -59,4 +59,4 @@ const OurRating: FC<Props> = ({ data }) => {
     );
 };
 
-export default OurRating;
+export default memo(OurRating);

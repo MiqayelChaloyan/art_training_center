@@ -1,8 +1,7 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Inter } from 'next/font/google';
-
-import { useTranslation } from 'react-i18next';
 
 import Accordion from '../Accordion';
 import { Courses } from '../../../../../sanity/sanity-queries/courses';
@@ -10,8 +9,8 @@ import { Courses } from '../../../../../sanity/sanity-queries/courses';
 import styles from './MainScreen.module.sass';
 
 type MainProps = {
-    course: Courses[];
-    isError: boolean;
+    course: Courses[]
+    isError: boolean
 };
 
 const inter = Inter({

@@ -6,7 +6,7 @@ import { Courses } from '../../../../../sanity/sanity-queries/courses';
 import styles from './style.module.sass';
 
 type MainProps = {
-	course: Courses;
+	course: Courses
 };
 
 const MainScreen: FC<MainProps> = ({ course }) => {

@@ -13,6 +13,6 @@ function Button({text, onClick, className}) {
 			<span>{text}</span>
 		</button>
 	);
-}
+};
 
 export default Button;

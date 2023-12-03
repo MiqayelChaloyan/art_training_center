@@ -5,11 +5,10 @@ import Course from '../Course';
 import { urlFor } from '../../../../../../sanity/sanity';
 
 type Props = {
-    data: any;
+    data: any
 };
 
 const Courses: FC<Props> = ({ data }) => {
-
     const scrollToElement = () => {
         const container: HTMLElement | null = document.getElementById('contact');
         if (container) {

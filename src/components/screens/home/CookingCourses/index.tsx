@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 type Props = {
-    data: HomeContent[];
+    data: HomeContent[]
 };
 
 const CookingCourses: FC<Props> = ({ data }) => {

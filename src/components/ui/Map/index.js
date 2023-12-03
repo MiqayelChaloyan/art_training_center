@@ -7,12 +7,10 @@ export default function Map({ width, height }) {
       width={width}
       height={height}
       className={styles.iframe}
-      // allowfullscreen=""
       loading="lazy"
-    // referrerpolicy="no-referrer-when-downgrade"
     >
     </iframe>
   );
-}
+};
 
 

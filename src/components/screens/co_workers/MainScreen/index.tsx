@@ -1,9 +1,8 @@
 import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-
-import { useTranslation } from 'react-i18next';
 
 import Container from '@/components/components/Container';
 
@@ -13,8 +12,8 @@ import { urlFor } from '../../../../../sanity/sanity';
 import styles from './style.module.sass';
 
 type MainProps = {
-    data: Co_workers[];
-    isError: boolean;
+    data: Co_workers[]
+    isError: boolean
 };
 
 const inter = Inter({

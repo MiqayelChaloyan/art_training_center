@@ -234,7 +234,6 @@ export const courses = {
             name: 'price_list',
             type: 'array',
             title: 'Price list',
-            // description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
             of: [
                 {
                     name: 'object',

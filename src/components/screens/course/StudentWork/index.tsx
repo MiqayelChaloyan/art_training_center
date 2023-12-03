@@ -1,8 +1,7 @@
 import { FC, memo, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Inter } from 'next/font/google';
-
-import { useTranslation } from 'react-i18next';
 
 import Container from '@/components/components/Container';
 import Button from '@/components/ui/Button';
@@ -13,7 +12,7 @@ import { Courses } from '../../../../../sanity/sanity-queries/courses';
 import styles from './style.module.sass';
 
 type Props = {
-    course: Courses;
+    course: Courses
 };
 
 const inter = Inter({

@@ -11,7 +11,7 @@ import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 import styles from './styles.module.sass';
 
 type Props = {
-    data: HomeContent[];
+    data: HomeContent[]
 };
 
 const MainSlider: FC<Props> = ({ data }) => {

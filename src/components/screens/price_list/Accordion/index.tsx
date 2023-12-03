@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, memo, useState } from 'react';
 
 import Panel from '../AccordionItem';
 import { Courses } from '../../../../../sanity/sanity-queries/courses';
@@ -35,4 +35,4 @@ const Accordion: FC<Props> = ({ course }) => {
     );
 };
 
-export default Accordion;
+export default memo(Accordion);
