@@ -4,6 +4,7 @@ import CoWorkers from '@/components/screens/co_workers';
 
 import { getCoWorkers } from '../../../sanity/services/co-workers.service';
 import { Co_workers } from '../../../sanity/sanity-queries/co-workers';
+import Link from 'next/link';
 
 type CoWorkersProps = {
 	data: Co_workers[]

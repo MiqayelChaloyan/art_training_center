@@ -1,13 +1,12 @@
 import { FC, memo } from 'react';
-
 import { useTranslation } from 'react-i18next';
+
+import { Inter } from 'next/font/google';
 
 import Container from '@/components/components/Container';
 import Courses from './Courses';
 
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
-
-import { Inter } from 'next/font/google';
 
 import styles from './style.module.sass';
 
@@ -22,9 +21,10 @@ type Props = {
 };
 
 const CookingCourses: FC<Props> = ({ data }) => {
+    const newsItemas = data[0].news_section.slice(0, 3);
     const { t } = useTranslation();
 
-    if (!data[0].news_section) {
+    if (!newsItemas) {
         return null;
     };
 
@@ -34,7 +34,7 @@ const CookingCourses: FC<Props> = ({ data }) => {
             <Container>
                 <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.news')}</h1>
                 <div className={styles.cooking_courses}>
-                    <Courses data={data[0].news_section} />
+                    <Courses data={newsItemas} />
                 </div>
             </Container>
         </div>

@@ -27,6 +27,7 @@ type Props = {
 
 const OurRating: FC<Props> = ({ data }) => {
     const { t } = useTranslation();
+    const ratings = data[0].our_rating_section.slice(0, 3);
 
     const settingsSlider = {
         speed: 1500,
@@ -46,13 +47,13 @@ const OurRating: FC<Props> = ({ data }) => {
                 <div className={styles.feedbacks}>
                     <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.rating')}</h1>
                     <div className={styles.row}>
-                        <Rating data={data[0].our_rating_section} />
+                        <Rating data={ratings} />
                     </div>
                 </div>
             </Container>
             <div className={styles.mobile_cards}>
                 <Slider {...settingsSlider} className={styles.slider}>
-                    {MobileCards(data[0].our_rating_section)}
+                    {MobileCards(ratings)}
                 </Slider>
             </div>
         </div>

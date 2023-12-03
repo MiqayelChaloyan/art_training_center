@@ -20,7 +20,9 @@ type Props = {
 };
 
 const Progress: FC<Props> = ({ data }) => {
-    const items = data[0].progress_section.map((item: any) => {
+    const uploadProgress = data[0].progress_section.slice(0, 4);
+
+    const items = uploadProgress.map((item: any) => {
         return (
             <div key={item.slug} className={styles.column}>
                 <ProgressBar value={0} quantity={item.quantity} />
