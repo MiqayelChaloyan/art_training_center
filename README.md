@@ -1,7 +1,8 @@
 # ART Training Center 
-ART Training Center website
+### ART Training Center website
 (https://art-training-center.vercel.app/en)
-ART Training Center admin 
+
+### ART Training Center admin 
 (https://art-training-center.vercel.app/admin/structure)
 
 ## Figma 
