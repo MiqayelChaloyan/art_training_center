@@ -1,3 +1,4 @@
+import ArrayMaxItems from "@/utils/ArrayMaxItems";
 import { defineArrayMember } from "sanity";
 
 export const home_content = {
@@ -123,6 +124,8 @@ export const home_content = {
             name: 'cooking_courses',
             type: 'array',
             title: 'Cooking Courses Section',
+            components: { input: ArrayMaxItems },
+            validation: (Rule: any) => Rule.max(1),
             description: 'Ոչ պակաս, քան մեկ, և ոչ ավելի, միայն դուք կարող եք դա փոփոխել',
             of: [
                 {
@@ -180,6 +183,8 @@ export const home_content = {
             name: 'news_section',
             type: 'array',
             title: 'News Section',
+            components: { input: ArrayMaxItems },
+            validation: (Rule: any) => Rule.max(3),
             description: 'Ոչ պակաս, քան երեք, և ոչ ավելի, միայն դուք կարող եք դրանք փոփոխել',
             of: [
                 {
@@ -277,6 +282,8 @@ export const home_content = {
             name: 'progress_section',
             type: 'array',
             title: 'Progress Section',
+            components: { input: ArrayMaxItems },
+            validation: (Rule: any) => Rule.max(4),
             description: 'Ոչ պակաս, քան չորս և ոչ ավելի, միայն դուք կարող եք դրանք փոփոխել',
             of: [
                 defineArrayMember({
@@ -458,6 +465,8 @@ export const home_content = {
             name: 'our_rating_section',
             type: 'array',
             title: 'Our Rating Section',
+            components: { input: ArrayMaxItems },
+            validation: (Rule: any) => Rule.max(3),
             description: 'Ոչ պակաս, քան երեք, և ոչ ավելի, միայն դուք կարող եք դրանք փոփոխել',
             of: [
                 {
@@ -493,7 +502,7 @@ export const home_content = {
                             type: 'image',
                             options: { hotspot: true },
                             fields: [
-                        
+
                                 {
                                     name: 'alt',
                                     title: 'Alt',

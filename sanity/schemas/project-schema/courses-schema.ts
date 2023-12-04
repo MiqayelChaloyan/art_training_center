@@ -1,3 +1,4 @@
+import ArrayMaxItems from "@/utils/ArrayMaxItems";
 import { defineArrayMember } from "sanity";
 
 export const courses = {
@@ -146,6 +147,8 @@ export const courses = {
             name: 'course_process',
             type: 'array',
             title: 'Course Process Section',
+            components: { input: ArrayMaxItems },
+            validation: (Rule: any) => Rule.max(1),
             description: 'Ոչ պակաս, քան մեկ, և ոչ ավելի, միայն դուք կարող եք դա փոփոխել',
             of: [
                 {

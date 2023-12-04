@@ -31,7 +31,7 @@
     "**/*.tsx",
     "src/components/screens/home/MainScreen/MainScreen.jsx",
     "src/stories/SectionCategory.stories.tsx"
-, "sanity/services/courses.servies", "sanity/services/co-workers.servies", "src/pages/[locale]/404/index.jsx", "src/components/ui/Slider/index.js", "src/components/ui/Map/index.js"  ],
+, "sanity/services/courses.servies", "sanity/services/co-workers.servies", "src/pages/[locale]/404/index.jsx", "src/components/ui/Slider/index.js", "src/components/ui/Map/index.js", "src/utils/ArrayMaxItems.js"  ],
   "exclude": [
     "node_modules"
   ]
