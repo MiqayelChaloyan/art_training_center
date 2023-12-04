@@ -147,8 +147,6 @@ export const courses = {
             name: 'course_process',
             type: 'array',
             title: 'Course Process Section',
-            components: { input: ArrayMaxItems },
-            validation: (Rule: any) => Rule.max(1),
             description: 'Ոչ պակաս, քան մեկ, և ոչ ավելի, միայն դուք կարող եք դա փոփոխել',
             of: [
                 {
@@ -180,43 +178,31 @@ export const courses = {
             ]
         },
         {
+
             name: 'student_works',
             type: 'array',
             title: 'Student work Section',
             description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ',
             of: [
-                defineArrayMember({
-                    type: 'object',
-                    name: 'tag',
+                {
+                    name: 'image',
+                    type: 'image',
+                    title: 'Image',
+                    options: {
+                        hotspot: true,
+                    },
                     fields: [
                         {
-                            name: 'images',
-                            type: 'array',
-                            title: 'Images',
-                            of: [
-                                {
-                                    name: 'image',
-                                    type: 'image',
-                                    title: 'Image',
-                                    options: {
-                                        hotspot: true,
-                                    },
-                                    fields: [
-                                        {
-                                            name: 'alt',
-                                            type: 'string',
-                                            title: 'Alternative text',
-                                        },
-                                    ],
-                                },
-                            ],
-                            options: {
-                                layout: 'grid',
-                            },
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternative text',
                         },
-                    ]
-                })
-            ]
+                    ],
+                },
+            ],
+            options: {
+                layout: 'grid',
+            },
         },
         {
             name: 'svg',

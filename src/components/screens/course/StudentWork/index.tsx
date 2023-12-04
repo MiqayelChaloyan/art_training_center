@@ -33,9 +33,9 @@ const StudentWork: FC<Props> = ({ course }) => {
         if (container) {
             container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    };    
+    };        
 
-    const images = course.student_works[0].images.slice(0, initialLoadCourses).map((item: any) => {
+    const images = course.student_works.slice(0, initialLoadCourses).map((item: any) => {
 
         const urlForImage = urlFor(item)
             .auto('format')
@@ -61,7 +61,7 @@ const StudentWork: FC<Props> = ({ course }) => {
                 <div className={styles.student_work}>
                     {images}
                 </div>
-                {course.student_works[0].images.length < 8 ? (
+                {course.student_works.length < 8 ? (
                     <div className={styles.block_buttons}>
                         <div className={styles.btn_group}>
                             <Button
@@ -77,8 +77,8 @@ const StudentWork: FC<Props> = ({ course }) => {
                         <div className={styles.btn_group}>
                             <Button
                                 className={styles.view_more_button}
-                                text={course.student_works[0].images.length > initialLoadCourses ? t('button.view-more') : t('button.show-less')}
-                                onClick={course.student_works[0].images.length > initialLoadCourses ? handleLoad : handleBackLoad}
+                                text={course.student_works.length > initialLoadCourses ? t('button.view-more') : t('button.show-less')}
+                                onClick={course.student_works.length > initialLoadCourses ? handleLoad : handleBackLoad}
                             />
                         </div>
                         <div className={styles.btn_group}>
