@@ -423,40 +423,28 @@ export const home_content = {
                             name: 'specialists_section_images',
                             type: 'array',
                             title: 'Specialists Sections Images',
+                            description: 'Ոչ պակաս, քան ութ, և ոչ ավելի, միայն դուք կարող եք դրանք փոփոխել',
                             of: [
-                                defineArrayMember({
-                                    type: 'object',
-                                    name: 'tag',
+                                {
+                                    name: 'image',
+                                    type: 'image',
+                                    title: 'Image',
+                                    options: {
+                                        hotspot: true,
+                                    },
                                     fields: [
                                         {
-                                            name: 'images',
-                                            type: 'array',
-                                            title: 'Images',
-                                            of: [
-                                                {
-                                                    name: 'image',
-                                                    type: 'image',
-                                                    title: 'Image',
-                                                    options: {
-                                                        hotspot: true,
-                                                    },
-                                                    fields: [
-                                                        {
-                                                            name: 'alt',
-                                                            type: 'string',
-                                                            title: 'Alternative text',
-                                                        },
-                                                    ],
-                                                },
-                                            ],
-                                            options: {
-                                                layout: 'grid',
-                                            },
+                                            name: 'alt',
+                                            type: 'string',
+                                            title: 'Alternative text',
                                         },
-                                    ]
-                                })
-                            ]
-                        }
+                                    ],
+                                },
+                            ],
+                            options: {
+                                layout: 'grid',
+                            },
+                        },
                     ]
                 }
             ],

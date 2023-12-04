@@ -112,7 +112,7 @@ const Item = ({ item }: any) => {
                     onClick={goCoursePage}
                 />
                 <div className={styles.box_images}>
-                    {Images({ images: item.specialists_section_images[0].images })}
+                    {Images({ images: item.specialists_section_images })}
                 </div>
             </div>
         </div>
