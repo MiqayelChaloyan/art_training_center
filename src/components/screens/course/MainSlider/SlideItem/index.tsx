@@ -18,8 +18,8 @@ const inter = Inter({
 });
 
 const SlideItem: React.FC<Props> = ({ url, title, content, alt }) => (
-    <div className={styles.emplay_slide}>
-        <div className={styles.box} style={{backgroundImage: `url(${url})`}}>
+    <div className={styles.emplay_slide} style={{backgroundImage: `url(${url})`}}>
+        <div className={styles.box}>
             <div className={styles.contact}>
                 <h1 className={`${styles.title} ${inter.variable}`}>{title}</h1>
                 <p className={inter.variable}>{content}</p>

@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Inter } from 'next/font/google';
-import Image from 'next/image';
 
 import Button from '@/components/ui/Button';
 
@@ -27,18 +26,8 @@ const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToEleme
     const description = content.length <= 312 ? content : content.slice(0, 313) + '...';
 
     return (
-        <div className={styles.emplay_slide}>
+        <div className={styles.emplay_slide} style={{backgroundImage: `url(${url})`}}>
             <div className={styles.box}>
-                <Image
-                    src={url}
-                    alt={alt}
-                    priority
-                    className={styles.image}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{ objectFit: 'cover' }}
-                />
                 <div className={styles.contact}>
                     <h1 className={`${styles.title} ${inter.variable}`}>{subtitle}</h1>
                     <p className={inter.variable}>{description}</p>
