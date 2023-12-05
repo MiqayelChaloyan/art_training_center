@@ -44,7 +44,7 @@ const Footer: FC<Props> = ({ courses }) => {
     };
 
     const matrix = courses.reduce((acc: any, item: any, index: number) => {
-        const rowIndex = Math.floor(index / 4);
+        const rowIndex = Math.floor(index / 6);
         if (!acc[rowIndex]) {
             acc[rowIndex] = [];
         }
@@ -52,15 +52,15 @@ const Footer: FC<Props> = ({ courses }) => {
         return acc;
     }, []);
 
-    const links = matrix.slice(0, 4).map((row: any, rowIndex: number) => (
+    const links = matrix.map((row: any, rowIndex: string) => (
         <div key={rowIndex} className={styles.row}>
-            {row.map((course: any) => (
-                <div className={styles.contain} key={course.slug}>
-                    <Link href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.link}>
+            {
+                row.map((course: any) => (
+                    <Link key={course.slug} href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.link}>
                         <p className={`${styles.copyright} ${inter.variable}`}>{course.course_name}</p>
                     </Link>
-                </div>
-            ))}
+                ))
+            }
         </div>
     ));
 
@@ -79,9 +79,12 @@ const Footer: FC<Props> = ({ courses }) => {
                     <p className={`${styles.address} ${inter.variable}`}>{t('adress.adress')}</p>
                 </div>
                 <div className={styles.links}>
-                    {links}
+                    <div className={styles.courses_links}>
+                        {links}
+                    </div>
                     <div className={styles.contain}>
                         <Image
+                            className={styles.art_center_logo}
                             src={logo}
                             alt="Footer Logo"
                             priority

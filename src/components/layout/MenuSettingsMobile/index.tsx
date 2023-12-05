@@ -26,35 +26,35 @@ const MenuSettingsMobile = () => {
 					href='/'
 					title='Home'
 				>
-					<Home width={20} height={20} fill='white' />
+					<Home width={25} height={25} fill='white' />
 				</Link>
 				<button
 					className={styles.nav__link}
 					onClick={() => setTimeout(() => dispatch(openModal()), 500)}
 					title='Courses'
 				>
-					<Courses width={20} height={20} fill='white' />
+					<Courses width={25} height={25} fill='white' />
 				</button>
 				<Link
 					className={`${pathname === '/price_list' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/price_list'
 					title='Price List'
 				>
-					<PriceList width={20} height={20} fill='white' />
+					<PriceList width={25} height={25} fill='white' />
 				</Link>
 				<Link
 					className={`${pathname === '/co_workers' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/co_workers'
 					title='Co Worker'
 				>
-					<CoWorkers width={25} height={20} fill='white' />
+					<CoWorkers width={30} height={25} fill='white' />
 				</Link>
 				<Link
 					className={styles.nav__link}
 					href='tel:+37477111111'
 					title='Contact us'
 				>
-					<Contact width={20} height={20} fill='white' />
+					<Contact width={25} height={25} fill='white' />
 				</Link>
 			</div>
 		</div>

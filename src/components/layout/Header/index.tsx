@@ -120,7 +120,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                         setIsOpenMenu(false);
                                         changeLocale(locale);
                                     }}
-                                    style={{ color: activeLocale === locale ? 'red' : 'white', padding: 4 }}
+                                    style={{ color: activeLocale === locale ? 'red' : 'white' }}
                                     className={`${styles.language} ${inter.variable}`}
                                 >
                                     {localeStrings[locale]}

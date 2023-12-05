@@ -8,11 +8,19 @@
 .copyright
   color: white
   text-align: center
+  font-size: calc(16px + 2 * (30vw - 477px) / 200)
+  @media screen and ( max-width: 991px )
+    font-size: 12px
+  @media screen and ( max-width: 767px )
+    font-size: 16px
 
 .info_web
   text-align: right
   color: white
   padding-left: 10px
+  font-size: calc(16px + 2 * (30vw - 477px) / 200)
+  @media screen and ( max-width: 991px )
+    font-size: 12px
 
 .contact
     width: 50%
@@ -30,7 +38,7 @@
     margin: 0 auto
     margin-bottom: 72px
     height: 619px
-    padding: 100px
+    padding: 0 100px
     @media screen and ( max-width: 991px )
       width: 100%
       padding: 0
@@ -59,18 +67,25 @@
 
 .links
    display: flex
-   justify-content: space-evenly
+   justify-content: center
    margin-bottom: 88px
-   align-items: flex-start
+   align-items: flex-end
+   width: 97%
+   flex: 1 1 20px
    @media screen and ( max-width: 991px )
       display: flex
       flex-wrap: wrap
+      width: 85%
+      margin: 0 auto
+      margin-bottom: 20px
    @media screen and ( max-width: 767px )
       display: grid
 
 .contain
+   width: 20%
    @media screen and ( max-width: 991px )
       margin: 5px
+      width: 30%
    @media screen and ( max-width: 600px )
       p
          text-align: center
@@ -78,26 +93,35 @@
             font-size: 16px
       img
          margin: 16px auto !important
+   @media screen and ( max-width: 767px )
+      width: 100%
+      margin-bottom: 100px
+
 .logo
     width: 100px
     margin: 30px auto
 
 .google_map
     height: 600px
-    width: 80%
+    width: 82%
     margin: 0 auto
     margin-bottom: 190px
     @media screen and ( max-width: 991px )
        height: 300px
        width: 80%
+       margin-bottom: 50px
     @media screen and ( max-width: 767px )
        width: 100%
+       margin-bottom: 100px
 
 .address
     text-align: right
     color: white
-    font-size: 25px
+    font-size: calc(25px + 10 * (30vw - 477px) / 200)
     padding-top: 15px
+    font-weight: bold
+    @media screen and ( max-width: 991px )
+       font-size: 12px
     @media screen and ( max-width: 767px )
        text-align: right
        width: 98%
@@ -107,6 +131,8 @@
    display: flex
    justify-content: right
    align-items: center
+   @media screen and ( max-width: 991px )
+      justify-content: flex-end
    @media screen and ( max-width: 767px )
       justify-content: center
 
@@ -114,5 +140,26 @@
    display: flex
    justify-content: flex-start
    align-items: center
+   @media screen and ( max-width: 991px )
+      justify-content: flex-start
    @media screen and ( max-width: 767px )
       justify-content: center
+
+.art_center_logo
+   @media screen and ( max-width: 991px )
+      width: 50% 
+      margin: 0 auto
+
+.row
+   margin: 20px
+
+.courses_links
+   width: 64%
+   display: grid
+   grid-template-columns: repeat(4, 1fr)
+   @media screen and ( max-width: 991px )
+      grid-template-columns: repeat(2, 1fr)
+   @media screen and ( max-width: 767px )
+      grid-template-columns: repeat(1, 1fr)
+      margin: 0 auto
+      width: 100%
