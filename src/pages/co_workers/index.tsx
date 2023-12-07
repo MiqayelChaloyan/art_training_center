@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
 
 import CoWorkers from '@/components/screens/co_workers';
+import PageNotFoundError from '@/components/components/404/PageNotFoundError';
 
 import { getCoWorkers } from '../../../sanity/services/co-workers.service';
 import { Co_workers } from '../../../sanity/sanity-queries/co-workers';
-import Link from 'next/link';
 
 type CoWorkersProps = {
 	data: Co_workers[]
@@ -14,7 +14,7 @@ type CoWorkersProps = {
 const COWorkersPage: FC<CoWorkersProps> = ({ data, isError }) => {
 
     if (isError) {
-        return <div>Error loading data</div>;
+        return <PageNotFoundError/>;
     }
 
 	return (<CoWorkers data={data} isError={isError}/>);

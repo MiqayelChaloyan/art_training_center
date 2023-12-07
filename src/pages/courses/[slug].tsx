@@ -5,6 +5,7 @@ import { GetServerSidePropsContext } from 'next';
 
 import Layout from '@/components/layout/Layout';
 import CoursePage from '@/components/screens/course';
+import PageNotFoundError from '@/components/components/404/PageNotFoundError';
 
 import { getCourseBySlug } from '../../../sanity/services/courses.service';
 import { urlFor } from '../../../sanity/sanity';
@@ -15,9 +16,9 @@ type CourseProps = {
 };
 
 const Course = ({ course, isError }: CourseProps) => {
-    
-    if (isError) {
-        return <div>Error loading data</div>;
+            
+    if (isError || !course[0]) {
+        return <PageNotFoundError />
     };
     
     const urlForSeo = urlFor(course[0].course_main[0].image)

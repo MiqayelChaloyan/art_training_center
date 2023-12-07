@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import PriceList from '@/components/screens/price_list';
+import PageNotFoundError from '@/components/components/404/PageNotFoundError';
 
 import { getCourses } from '../../../sanity/services/courses.service';
 import { Courses } from '../../../sanity/sanity-queries/courses';
@@ -13,7 +14,7 @@ type PriceListProps = {
 const PriceListPage: FC<PriceListProps> = ({ course, isError }) => {
     
     if (isError) {
-        return <div>Error loading data</div>;
+        return <PageNotFoundError/>;
     }
 
     return (<PriceList course={course} isError={isError} />);

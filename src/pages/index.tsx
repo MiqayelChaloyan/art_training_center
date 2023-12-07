@@ -1,5 +1,8 @@
-import Home from '@/components/screens/home';
 import { FC, memo } from 'react';
+
+import Home from '@/components/screens/home';
+import PageNotFoundError from '@/components/components/404/PageNotFoundError';
+
 import { HomeContent } from '../../sanity/sanity-queries/home-queries';
 import { getHomeData } from '../../sanity/services/home.service';
 
@@ -10,8 +13,8 @@ type HomePageProps = {
 
 const HomePage: FC<HomePageProps> = ({ data, isError }) => {
 
-  if (isError) {
-    return <div>Error loading data</div>;
+  if (isError || !data) {
+    return <PageNotFoundError/>;
   };
 
   return (<Home data={data} isError={isError} />);
