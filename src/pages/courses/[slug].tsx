@@ -11,14 +11,14 @@ import { getCourseBySlug } from '../../../sanity/services/courses.service';
 import { urlFor } from '../../../sanity/sanity';
 
 type CourseProps = {
-    course: any,
-    isError: boolean,
+    course: any
+    isError: boolean
 };
 
 const Course = ({ course, isError }: CourseProps) => {
             
     if (isError || !course[0]) {
-        return <PageNotFoundError />
+        return <PageNotFoundError />;
     };
     
     const urlForSeo = urlFor(course[0].course_main[0].image)
