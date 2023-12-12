@@ -81,7 +81,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
             `${isOpenMenu ? styles.boxOpenMenu : ''}`
         )}>
             <div className={`container ${styles.wrap}`}>
-                <Link href='/' aria-label='ART Training Center Logo' className={cn(styles.logo, `${isSticky ? styles.logoSticky : ''}`)}>
+                <Link href='/' aria-label='home' className={cn(styles.logo, `${isSticky ? styles.logoSticky : ''}`)}>
                     <Logo
                         width='104'
                         height='104'
@@ -94,7 +94,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                     `${isSticky && isOpenMenu ? styles.contentSticky : ''}`,
                 )}>
                     <div className={styles.nav}>
-                        <Link href='/' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.about')}</Link>
+                        <Link href='/' aria-label='about' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.about')}</Link>
                         <Button
                             text={t('navigation.courses')}
                             onClick={() => {
@@ -103,8 +103,8 @@ const Header = ({ typePosition }: IHeaderProps) => {
                             }}
                             className={`${styles.btn} ${inter.variable}`}
                         />
-                        <Link href='/co_workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.co-workers')}</Link>
-                        <Link href='/price_list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.price-list')}</Link>
+                        <Link href='/co_workers' aria-label='co-workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.co-workers')}</Link>
+                        <Link href='/price_list' aria-label='price-list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.price-list')}</Link>
                     </div>
 
                     <div>

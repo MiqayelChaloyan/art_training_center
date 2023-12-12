@@ -22,6 +22,7 @@ const MenuSettings = () => {
 				<Link
 					className={styles.btn_home}
 					href='/'
+					aria-label='Home'
 					title='Home'
 				>
 					<Home width={20} height={20} fill='white' />
@@ -36,6 +37,7 @@ const MenuSettings = () => {
 				<Link
 					className={styles.btn_price_list}
 					href='/price_list'
+					aria-label='Price List'
 					title='Price List'
 				>
 					<PriceList width={20} height={20} fill='white' />
@@ -43,6 +45,7 @@ const MenuSettings = () => {
 				<Link
 					className={styles.btn_co_worker}
 					href='/co_workers'
+					aria-label='Co Worker'
 					title='Co Worker'
 				>
 					<CoWorkers width={25} height={20} fill='white' />
@@ -50,6 +53,7 @@ const MenuSettings = () => {
 				<Link
 					className={styles.btn_contact_us}
 					href='tel:+37477111111'
+					aria-label='Contact us'
 					title='Contact us'
 				>
 					<Contact width={20} height={20} fill='white' />

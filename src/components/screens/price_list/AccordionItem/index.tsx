@@ -68,7 +68,7 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
     return (
         <div
             className={styles.panel}
-            role='tabpanel'
+            role="tabpanel"
             aria-expanded={activeTab === index}
             id={`panel-${index}`}
         >

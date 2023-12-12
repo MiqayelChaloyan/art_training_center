@@ -44,23 +44,18 @@ const OurRating: FC<Props> = ({ data }) => {
     return (
         <div id='our-rating' className={styles.container}>
             <Container>
-            <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.rating')}</h1>
+                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.rating')}</h1>
                 <div className={styles.feedbacks}>
                     <div className={styles.row}>
                         <Rating data={ratings} />
                     </div>
                 </div>
                 <div className={styles.mobile_cards}>
-                <Slider {...settingsSlider} className={styles.slider}>
-                    {MobileCards(ratings)}
-                </Slider>
-            </div>
+                    <Slider {...settingsSlider} className={styles.slider}>
+                        {MobileCards(ratings)}
+                    </Slider>
+                </div>
             </Container>
-            {/* <div className={styles.mobile_cards}>
-                <Slider {...settingsSlider} className={styles.slider}>
-                    {MobileCards(ratings)}
-                </Slider>
-            </div> */}
         </div>
     );
 };

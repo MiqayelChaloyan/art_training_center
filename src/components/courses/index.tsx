@@ -38,7 +38,7 @@ const CoursesModal: FC<CoursesModalProps> = ({ courses }) => {
     const coursesList = data.map((innerArray) => (
         <div key={innerArray[0]._id} className={styles.courses}>
             {innerArray.map((course: Courses) => (
-                <Link href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} key={course._id} className={styles.link}>
+                <Link href={`/courses/${course.slug}`} aria-label={course.course_name} key={course._id} className={styles.link}>
                     <p className={`${styles.course} ${inter.variable}`}>{course.course_name}</p>
                 </Link>
             ))}

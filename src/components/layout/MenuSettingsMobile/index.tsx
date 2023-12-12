@@ -24,6 +24,7 @@ const MenuSettingsMobile = () => {
 				<Link
 					className={`${pathname === '/' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/'
+					aria-label='Home'
 					title='Home'
 				>
 					<Home width={25} height={25} fill='white' />
@@ -38,6 +39,7 @@ const MenuSettingsMobile = () => {
 				<Link
 					className={`${pathname === '/price_list' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/price_list'
+					aria-label='Price List'
 					title='Price List'
 				>
 					<PriceList width={25} height={25} fill='white' />
@@ -45,6 +47,7 @@ const MenuSettingsMobile = () => {
 				<Link
 					className={`${pathname === '/co_workers' ? `${styles.linkActive}` : ''} ${styles.nav__link}`}
 					href='/co_workers'
+					aria-label='Co Worker'
 					title='Co Worker'
 				>
 					<CoWorkers width={30} height={25} fill='white' />
@@ -52,6 +55,7 @@ const MenuSettingsMobile = () => {
 				<Link
 					className={styles.nav__link}
 					href='tel:+37477111111'
+					aria-label='Contact us'
 					title='Contact us'
 				>
 					<Contact width={25} height={25} fill='white' />

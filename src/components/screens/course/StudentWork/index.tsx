@@ -1,6 +1,7 @@
 import { FC, memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Image from 'next/image';
 import { Inter } from 'next/font/google';
 
 import Container from '@/components/components/Container';
@@ -33,7 +34,7 @@ const StudentWork: FC<Props> = ({ course }) => {
         if (container) {
             container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    };        
+    };
 
     const images = course.student_works.slice(0, initialLoadCourses).map((item: any) => {
 
@@ -44,7 +45,16 @@ const StudentWork: FC<Props> = ({ course }) => {
 
         return (
             <div key={item._key} className={styles.img_block}>
-                <img src={urlForImage} alt={item.alt} className={styles.work_img} />
+                <Image
+                    src={urlForImage}
+                    alt={item.alt}
+                    priority
+                    className={styles.work_img}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ objectFit: 'cover' }}
+                />
             </div>
         );
     });
