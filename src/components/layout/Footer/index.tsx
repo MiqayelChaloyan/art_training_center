@@ -56,7 +56,7 @@ const Footer: FC<Props> = ({ courses }) => {
         <div key={rowIndex} className={styles.row}>
             {
                 row.map((course: any) => (
-                    <Link key={course.slug} href={`/courses/${course.slug}`} aria-label={`/courses/${course.slug}`} className={styles.link}>
+                    <Link key={course.slug} href={`/courses/${course.slug}`} aria-label={course.course_name} className={styles.link}>
                         <p className={`${styles.copyright} ${inter.variable}`}>{course.course_name}</p>
                     </Link>
                 ))
@@ -94,7 +94,7 @@ const Footer: FC<Props> = ({ courses }) => {
                                 width: '24%', height: 'auto', objectFit: 'scale-down', margin: '0 auto', marginRight: 0
                             }}
                         />
-                        <Link href='tel:+37477111111' aria-label='/tel:+37477111111' className={styles.icon}>
+                        <Link href='tel:+37477111111' aria-label='Phone' className={styles.icon}>
                             <Phone
                                 width='20'
                                 height='20'
@@ -102,7 +102,7 @@ const Footer: FC<Props> = ({ courses }) => {
                             />
                             <p className={`${styles.info_web} ${inter.variable}`}>{t('contact.tell')} +374 77 11 11 11</p>
                         </Link>
-                        <Link href='mailto:art.house@bk.ru' aria-label='/mailto:art.house@bk.ru' className={styles.icon}>
+                        <Link href='mailto:art.house@bk.ru' aria-label='Email' className={styles.icon}>
                             <Email
                                 width='20'
                                 height='20'
