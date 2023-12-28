@@ -29,23 +29,17 @@ const chunkArray = (arr: any, size: number) => {
 
 const CoursesModal: FC<CoursesModalProps> = ({ courses }) => {
     const data = chunkArray(courses, chunkSize);
-    const { t } = useTranslation();        
+    const { t } = useTranslation();
 
     if (!courses) {
         return null;
     };
 
-    console.log(data)
-
-    // const coursesList = data.map((innerArray) => (
-    //     <div key={innerArray[0]._id} className={styles.courses}>
-         const coursesList =   courses.map((course: Courses) => (
-                <Link href={`/courses/${course.slug}`} aria-label={course.course_name} key={course._id} className={styles.link}>
-                    <p className={`${styles.course} ${inter.variable}`}>{course.course_name}</p>
-                </Link>
-            ))
-        {/* </div> */}
-    // ));
+    const coursesList = courses.map((course: Courses) => (
+        <Link href={`/courses/${course.slug}`} aria-label={course.course_name} key={course._id} className={styles.link}>
+            <p className={`${styles.course} ${inter.variable}`}>{course.course_name}</p>
+        </Link>
+    ));
 
     return (
         <div className={styles.courses_container}>

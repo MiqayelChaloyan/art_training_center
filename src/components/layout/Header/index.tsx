@@ -121,7 +121,6 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                         setIsOpenMenu(false);
                                         changeLocale(locale);
                                         setTimeout(() => dispatch(openModalLoading()), 2);
-                                        console.log(dispatch(openModalLoading()))
                                     }}
                                     style={{ color: activeLocale === locale ? 'red' : 'white' }}
                                     className={`${styles.language} ${inter.variable}`}

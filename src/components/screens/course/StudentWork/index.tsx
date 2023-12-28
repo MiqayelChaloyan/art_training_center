@@ -52,7 +52,7 @@ const StudentWork: FC<Props> = ({ course }) => {
                 className={`${styles.img_block} ${isFullscreen ? styles.fullscreenContainer : ''}`}
                 onClick={() => {
                     setFullscreen(true);
-                    setImageUrl(urlForImage)
+                    setImageUrl(urlForImage);
                 }}
             >
                 <Image
@@ -87,9 +87,7 @@ const StudentWork: FC<Props> = ({ course }) => {
                             <div>
                                 <button className={styles.close}
                                     title='Close'
-                                    onClick={() => {
-                                        setFullscreen(false)
-                                    }}>
+                                    onClick={() => setFullscreen(false)}>
                                     <Cancel
                                         width='104'
                                         height='104'
