@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import stateModalSlice from './stateModalSlice';
+import stateModalLoadingLanguage from './stateLoadingLanguage';
 
 export const store = configureStore({
 	reducer: {
 		stateModal: stateModalSlice,
+		stateModalLoadingLanguage: stateModalLoadingLanguage,
 		},
 });
 

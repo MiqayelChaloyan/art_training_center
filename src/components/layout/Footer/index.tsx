@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { Inter } from 'next/font/google';
 
 import { useTranslation } from 'react-i18next';
@@ -11,11 +11,11 @@ import useWindowSize from '@/hooks/useWindowSize';
 import FormAppointment from '@/components/forms/FormAppointment';
 import HeaderForm from '@/components/ui/HeaderForm/HeaderForm';
 import Map from '@/components/ui/Map';
+import Logo from '@/components/icons/Logo';
 
 import Email from '@/components/icons/Email';
 import Phone from '@/components/icons/Phone';
 
-import logo from '../../../../public/images/Mask.png';
 import { Courses } from '../../../../sanity/sanity-queries/courses';
 
 import styles from './Footer.module.sass';
@@ -83,17 +83,13 @@ const Footer: FC<Props> = ({ courses }) => {
                         {links}
                     </div>
                     <div className={styles.contain}>
-                        <Image
-                            className={styles.art_center_logo}
-                            src={logo}
-                            alt="Footer Logo"
-                            priority
-                            width={0}
-                            height={0}
-                            style={{
-                                width: '24%', height: 'auto', objectFit: 'scale-down', margin: '0 auto', marginRight: 0
-                            }}
-                        />
+                        <div className={styles.art_center_logo}>
+                            <Logo
+                                width='162'
+                                height='44'
+                                fill='#111111'
+                            />
+                        </div>
                         <Link href='tel:+37477111111' aria-label='Phone' className={styles.icon}>
                             <Phone
                                 width='20'

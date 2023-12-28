@@ -16,6 +16,7 @@ import Button from '@/components/ui/Button';
 import { Inter } from 'next/font/google';
 
 import styles from './Header.module.sass';
+import { openModalLoading } from '@/store/stateLoadingLanguage';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -83,8 +84,8 @@ const Header = ({ typePosition }: IHeaderProps) => {
             <div className={`container ${styles.wrap}`}>
                 <Link href='/' aria-label='home' className={cn(styles.logo, `${isSticky ? styles.logoSticky : ''}`)}>
                     <Logo
-                        width='104'
-                        height='104'
+                        width='162'
+                        height='44'
                         fill='#111111'
                     />
                 </Link>
@@ -119,6 +120,8 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                     onClick={() => {
                                         setIsOpenMenu(false);
                                         changeLocale(locale);
+                                        setTimeout(() => dispatch(openModalLoading()), 2);
+                                        console.log(dispatch(openModalLoading()))
                                     }}
                                     style={{ color: activeLocale === locale ? 'red' : 'white' }}
                                     className={`${styles.language} ${inter.variable}`}

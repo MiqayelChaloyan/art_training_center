@@ -12,6 +12,7 @@ import MenuSettingsMobile from './MenuSettingsMobile';
 
 import { getCourses } from '../../../sanity/services/courses.service';
 import { Courses } from '../../../sanity/sanity-queries/courses';
+import ModalLoading from './LoadingModal';
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -45,6 +46,8 @@ const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 			<Modal>
 				<CoursesModal courses={courses} />
 			</Modal>
+
+			<ModalLoading/>
 		</Meta>
 	);
 };

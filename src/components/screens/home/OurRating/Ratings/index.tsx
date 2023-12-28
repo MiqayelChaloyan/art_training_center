@@ -7,17 +7,17 @@ import { urlFor } from '../../../../../../sanity/sanity';
 const sizes = [
     {
         top: 60,
-        left: 20,
+        left: 2,
         bottom: 20
     },
     {
-        top: 30,
-        left: 25,
-        bottom: 50
+        top: 40,
+        left: 15,
+        bottom: 40
     },
     {
-        top: 80,
-        left: 20,
+        top: 70,
+        left: 2,
         bottom: 5
     }
 ];

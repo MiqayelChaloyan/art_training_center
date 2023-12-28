@@ -19,7 +19,7 @@ const inter = Inter({
     display: 'swap',
 });
 
-const chunkSize = 4;
+const chunkSize = 7;
 
 const chunkArray = (arr: any, size: number) => {
     return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
@@ -35,15 +35,17 @@ const CoursesModal: FC<CoursesModalProps> = ({ courses }) => {
         return null;
     };
 
-    const coursesList = data.map((innerArray) => (
-        <div key={innerArray[0]._id} className={styles.courses}>
-            {innerArray.map((course: Courses) => (
+    console.log(data)
+
+    // const coursesList = data.map((innerArray) => (
+    //     <div key={innerArray[0]._id} className={styles.courses}>
+         const coursesList =   courses.map((course: Courses) => (
                 <Link href={`/courses/${course.slug}`} aria-label={course.course_name} key={course._id} className={styles.link}>
                     <p className={`${styles.course} ${inter.variable}`}>{course.course_name}</p>
                 </Link>
-            ))}
-        </div>
-    ));
+            ))
+        {/* </div> */}
+    // ));
 
     return (
         <div className={styles.courses_container}>

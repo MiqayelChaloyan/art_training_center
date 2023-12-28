@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 
 import Container from '@/components/components/Container';
 import Button from '@/components/ui/Button';
+import Cancel from '@/components/icons/Cancel';
 
 import { urlFor } from '../../../../../sanity/sanity';
 import { Courses } from '../../../../../sanity/sanity-queries/courses';
@@ -24,6 +25,8 @@ const inter = Inter({
 
 const StudentWork: FC<Props> = ({ course }) => {
     const [initialLoadCourses, setInitialLoadCourses] = useState<number>(8);
+    const [isFullscreen, setFullscreen] = useState(false);
+    const [imageUrl, setImageUrl] = useState('');
     const { t } = useTranslation();
 
     useEffect(() => setInitialLoadCourses(8), [course]);
@@ -44,7 +47,14 @@ const StudentWork: FC<Props> = ({ course }) => {
             .url();
 
         return (
-            <div key={item._key} className={styles.img_block}>
+            <div
+                key={item._key}
+                className={`${styles.img_block} ${isFullscreen ? styles.fullscreenContainer : ''}`}
+                onClick={() => {
+                    setFullscreen(true);
+                    setImageUrl(urlForImage)
+                }}
+            >
                 <Image
                     src={urlForImage}
                     alt={item.alt}
@@ -71,6 +81,35 @@ const StudentWork: FC<Props> = ({ course }) => {
                 <div className={styles.student_work}>
                     {images}
                 </div>
+                {
+                    isFullscreen && (
+                        <div className={styles.zoom}>
+                            <div>
+                                <button className={styles.close}
+                                    title='Close'
+                                    onClick={() => {
+                                        setFullscreen(false)
+                                    }}>
+                                    <Cancel
+                                        width='104'
+                                        height='104'
+                                        fill='white'
+                                    />
+                                </button>
+                            </div>
+                            <Image
+                                src={imageUrl}
+                                alt='zoom-image'
+                                priority
+                                className={styles.img}
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                style={{ objectFit: 'cover' }}
+                            />
+                        </div>
+                    )
+                }
                 {course.student_works.length < 8 ? (
                     <div className={styles.block_buttons}>
                         <div className={styles.btn_group}>

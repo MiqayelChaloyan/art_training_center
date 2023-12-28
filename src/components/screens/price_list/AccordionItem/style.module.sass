@@ -62,14 +62,19 @@
     transition: opacity 0.3s linear 0.18s 
     @media screen and ( max-width: 991px )
         margin: 5px auto 
+        width: 79%
+    table
+        margin-bottom: 20px
+        width: 100%
     td 
-      border: 2px solid white
+      border: 3px solid white
       padding: 30px
       width: 365px
       color: white
       text-align: center
       font-weight: bold
       font-size: 20px
+      margin: 0 auto
     @media screen and (max-device-width: 1600px) 
        td
           width: 270px !important
@@ -83,9 +88,11 @@
           font-size: 12px !important
     @media screen and ( max-width: 767px )
        td
+          display: grid
           padding: 2px !important
-          width: 100px !important
-          font-size: 10px !important
+          width: 300px !important
+          font-size: 15px !important
+          margin: 5px auto
 
 .panel 
     &:not(:last-child) 
