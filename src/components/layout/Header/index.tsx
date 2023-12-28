@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch } from '@/hooks/useStore';
 import { openModal } from '@/store/stateModalSlice';
+import { openModalLoading } from '@/store/stateLoadingLanguage';
 
 import cn from 'classnames';
 
@@ -16,7 +17,6 @@ import Button from '@/components/ui/Button';
 import { Inter } from 'next/font/google';
 
 import styles from './Header.module.sass';
-import { openModalLoading } from '@/store/stateLoadingLanguage';
 
 const inter = Inter({
     subsets: ['latin'],
