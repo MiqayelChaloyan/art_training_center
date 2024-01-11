@@ -164,7 +164,10 @@
    width: 64%
    display: grid
    grid-template-columns: repeat(4, 1fr)
+   @media screen and ( max-width: 1350px )
+      width: 73%
    @media screen and ( max-width: 991px )
+      width: 64%
       grid-template-columns: repeat(2, 1fr)
    @media screen and ( max-width: 767px )
       grid-template-columns: repeat(1, 1fr)

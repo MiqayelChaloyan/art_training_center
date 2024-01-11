@@ -2,29 +2,30 @@
     bottom: 66px
     position: relative
     background: #E3E1E1
+    height: 620px
     @media screen and ( max-width: 991px )
        bottom: 40px
-       height: 450px
+       height: max-content
     @media screen and ( max-width: 767px )
        bottom: 20px
        height: max-content
 
 .about_us
    display: flex
-   justify-content: center
-   align-items: baseline
-   height: 448px
+   justify-content: space-around
+   align-items: center
+   height: 428px
    @media screen and (max-device-width: 1600px) 
        padding: 0
    @media screen and (max-device-width: 1200px) 
        padding: 0
    @media screen and ( max-width: 991px )
        display: flex
-       padding-top: 0
+       align-items: flex-start
+       height: 521px
    @media screen and ( max-width: 767px )
        display: block
-       height: auto
-       margin-bottom: 100px
+       height: max-content
    h2
       font-family: sans-serif
       font-size: 24px
@@ -49,32 +50,36 @@
        font-size: 16px
      @media screen and ( max-width: 991px )
        width: 100%
-       font-size: 16px
+       font-size: 12px
      @media screen and ( max-width: 767px )
        margin: 0 auto   
        width: 100%
        text-align: center
+       margin-bottom: 7px
+
+
+.about_us_img
+    width: 90%
+    @media screen and (max-device-width: 1200px) 
+      width: 70%
+    @media screen and (max-device-width: 1600px) 
+      width: 70%
+    @media screen and ( max-width: 991px )
+      width: 75%
+      margin: 100px auto
+    @media screen and ( max-width: 767px )
+      width: 100%
+      padding-bottom: 12px
+      margin: 0 auto
 
 .about_box
     width: 100%
-    margin: 0 auto
     @media screen and (max-device-width: 1200px) 
       width: 100%
     @media screen and (max-device-width: 1600px) 
       width: 100%
     @media screen and ( max-width: 991px )
-      width: 100%
-    @media screen and ( max-width: 767px )
-      width: 100%
-
-.form_box
-    width: 70%
-    @media screen and (max-device-width: 1200px) 
       width: 70%
-    @media screen and (max-device-width: 1600px) 
-      width: 70%
-    @media screen and ( max-width: 991px )
-      width: 100%
     @media screen and ( max-width: 767px )
       width: 100%
 
@@ -155,3 +160,15 @@
        top: -10px
        font-size: 22px
        text-align: center
+
+.img_courses
+    width: 380px
+    height: 380px
+    margin: 0 auto
+    @media screen and ( max-width: 991px )
+      width: 250px
+      height: 250px
+    @media screen and ( max-width: 767px )
+      margin-bottom: 45px
+      width: 200px
+      height: 200px
