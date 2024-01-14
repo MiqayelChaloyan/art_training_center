@@ -72,11 +72,15 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
 
     return (
         <div id='specialists' className={styles.container}>
-            <div className={styles.skew} />
-            <Container>
+            <div className={styles.skew}>
                 <div className={`${styles.title} ${inter.variable}`}>
                     {t('pages.specialists')}
                 </div>
+            </div>
+            <Container>
+                {/* <div className={`${styles.title} ${inter.variable}`}>
+                    {t('pages.specialists')}
+                </div> */}
                 <div className={styles.specialists}>
                     <Slider {...settings}>
                         {slidesItems}
