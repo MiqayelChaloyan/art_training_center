@@ -13,7 +13,7 @@ export const projectId = assertValue(
 
 export const useCdn = false;
 
-export const title = 'art.trainging.center';
+export const title = 'art.training.center';
 
 export const basePath = '/admin';
 
