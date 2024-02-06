@@ -9,7 +9,10 @@ import Content from '../../../../ui/ReadMore';
 
 import { Inter } from 'next/font/google';
 
+import { getCourseById } from '../../../../../../sanity/services/courses.service';
+
 import styles from './style.module.sass';
+import { useRouter } from 'next/router';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -25,15 +28,22 @@ type Props = {
     scrollToElement: any
     content: any
     subtitle: string
+    categories: any
 };
 
 const Course: FC<Props> = (course) => {
+    const router = useRouter();
+    const { t, i18n } = useTranslation();
     const [isReadMore, setIsReadMore] = useState<boolean>(true);
-    const { t } = useTranslation();
 
     const toggleReadMore = () => {
         setIsReadMore(!isReadMore);
-    };    
+    };
+
+    const goCoursePage = async () => {
+        const data = await getCourseById(course.categories._ref, i18n.language);
+        return router.push(`${i18n.language}/courses/${data.slug}`);
+    };
 
     return (
         <div className={styles.course}>
@@ -51,6 +61,12 @@ const Course: FC<Props> = (course) => {
                         text={t('button.contact-us')}
                         onClick={course.scrollToElement}
                     />
+                    <button onClick={goCoursePage} className={styles.courses_link_btn_arrow}>
+                        <div className={styles.arrow}>
+                            <div className={styles.arrow_top}></div>
+                            <div className={styles.arrow_bottom}></div>
+                        </div>
+                    </button>
                 </div>
             </div>
             <div className={styles.images}>
@@ -74,6 +90,9 @@ const Course: FC<Props> = (course) => {
                     sizes="100vw"
                     style={{ objectFit: 'cover' }}
                 />
+            </div>
+            <div onClick={goCoursePage} className={styles.courses_link_btn_arrow_mobile}>
+                <div className={styles.arrow_long_right}></div>
             </div>
         </div>
     );

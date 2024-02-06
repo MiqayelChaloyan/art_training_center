@@ -22,7 +22,8 @@ export const getHomeData = async (language: string): Promise<HomeContent[]> => {
             "content": content[$language],
             "news_image_one": news_image_one,
             "news_image_two": news_image_two,
-            "slug": slug.current
+            "slug": slug.current,
+            "categories": categories,
         },
         "progress_section": progress_section[] {
             "title": title[$language],

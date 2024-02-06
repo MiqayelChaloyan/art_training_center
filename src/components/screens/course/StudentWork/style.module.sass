@@ -80,10 +80,12 @@
        top: -40px
        font-size: 25px
     @media screen and ( max-width: 767px )
-       width: 85%
-       top: -15px
-       font-size: 20px
+       width: 100%
+       top: -28px
+       font-size: 27px
        text-align: center
+       right: 0
+       left: 0
 
 .student_work
     display: flex
@@ -117,9 +119,14 @@
        width: 155px
        height: 200px
     @media screen and ( max-width: 767px )
-       width: 150px
-       height: 208px
-
+       width: 60%
+       height: 300px
+       margin: 0 auto
+       margin-bottom: 54px
+       &:hover 
+         transform: none
+         filter: none
+         
 .contact_button
     font-family: sans-serif
     display: flex
@@ -208,3 +215,18 @@
       @media screen and ( max-width: 767px )
          width: 18px
          height: 18px
+
+.works
+    display: block
+    @media screen and ( max-width: 767px )
+        display: none
+
+.slider
+    display: none
+    justify-content: center
+    align-items: center
+    width: 95%
+    margin: 0 auto
+    @media screen and ( max-width: 767px )
+       display: block
+       height: 360px

@@ -21,10 +21,10 @@ type Props = {
 };
 
 const CookingCourses: FC<Props> = ({ data }) => {
-    const newsItemas = data[0].news_section.slice(0, 3);
+    const newsItems = data[0].news_section.slice(0, 3);
     const { t } = useTranslation();
 
-    if (!newsItemas) {
+    if (!newsItems) {
         return null;
     };
 
@@ -34,7 +34,7 @@ const CookingCourses: FC<Props> = ({ data }) => {
             <Container>
                 <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.news')}</h1>
                 <div className={styles.cooking_courses}>
-                    <Courses data={newsItemas} />
+                    <Courses data={newsItems} />
                 </div>
             </Container>
         </div>

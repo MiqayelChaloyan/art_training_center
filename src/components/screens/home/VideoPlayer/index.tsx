@@ -29,7 +29,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
     const urlForImage = urlFor(data[0].cooking_courses[0].video_light)
         .auto('format')
         .fit('max')
-        .url();        
+        .url();
 
     useEffect(() => {
         setVideo(
@@ -41,7 +41,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
                 height='100%'
                 muted
                 loop={false}
-                  light={
+                light={
                     <Image
                         src={urlForImage}
                         alt='background-image'
@@ -50,7 +50,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
                         width={0}
                         height={0}
                         sizes="100vw"
-                        style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)'  }}
+                        style={{ filter: filter ? 'brightness(0.5)' : 'brightness(1)' }}
                     />
                 }
                 loading="lazy"

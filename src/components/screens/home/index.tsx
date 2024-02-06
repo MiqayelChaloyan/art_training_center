@@ -33,7 +33,7 @@ const Home: FC<Props> = ({ data, isError }) => {
 		<Layout headerPosition='fixed'>
 			<Head>
 				<title>ART Training Center</title>
-				<meta name='description' content='Training Center' />
+				<meta name='description' content='ART Training Center' />
 			</Head>
 			<MainScreen data={data}/>
 			<AboutUs data={data}/>

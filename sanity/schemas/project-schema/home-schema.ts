@@ -274,6 +274,13 @@ export const home_content = {
                                 }
                             ]
                         },
+                        {
+                            name: 'categories',
+                            type: 'reference',
+                            title: 'Course Category',
+                            to: [{ type: 'courses' }],
+                            validation: (Rule: any) => Rule.required(),
+                        },
                     ]
                 }
             ]

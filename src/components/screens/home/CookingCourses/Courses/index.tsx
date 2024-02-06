@@ -36,6 +36,7 @@ const Courses: FC<Props> = ({ data }) => {
                 scrollToElement,
                 altOne: item.news_image_one.alt,
                 altTwo: item.news_image_two.alt,
+                categories: item.categories
             };            
 
             return (

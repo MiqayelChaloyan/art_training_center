@@ -8,6 +8,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Inter } from 'next/font/google';
 
 import Container from '@/components/components/Container';
+import { NextArrow } from '@/components/ui/NextArrow';
+import { PrevArrow } from '@/components/ui/PrevArrow';
 import Item from './Item';
 
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
@@ -22,28 +24,6 @@ const inter = Inter({
 
 type SectionCoursesProps = {
     data: HomeContent[]
-};
-
-function SampleNextArrow(props: any) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={`${className} ${styles.arrow_next}`}
-            style={{ ...style, display: 'block', width: 50, height: 50 }}
-            onClick={onClick}
-        />
-    );
-}
-
-function SamplePrevArrow(props: any) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={`${className} ${styles.arrow_prev}`}
-            style={{ ...style, display: 'block', width: 50, height: 50 }}
-            onClick={onClick}
-        />
-    );
 };
 
 const Specialists: FC<SectionCoursesProps> = ({ data }) => {
@@ -66,8 +46,8 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
         centerPadding: '0',
         focusOnSelect: true,
         initialSlide: 0,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />
     };
 
     return (
@@ -78,9 +58,6 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
                 </div>
             </div>
             <Container>
-                {/* <div className={`${styles.title} ${inter.variable}`}>
-                    {t('pages.specialists')}
-                </div> */}
                 <div className={styles.specialists}>
                     <Slider {...settings}>
                         {slidesItems}
