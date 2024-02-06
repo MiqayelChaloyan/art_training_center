@@ -3,22 +3,14 @@ import { FC, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import Button from '@/components/ui/Button';
 import Content from '../../../../ui/ReadMore';
 
-import { Inter } from 'next/font/google';
-
 import { getCourseById } from '../../../../../../sanity/services/courses.service';
 
 import styles from './style.module.sass';
-import { useRouter } from 'next/router';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 type Props = {
     altTwo: string
@@ -48,16 +40,16 @@ const Course: FC<Props> = (course) => {
     return (
         <div className={styles.course}>
             <div className={styles.content}>
-                <h3 className={`${styles.subtitle} ${inter.variable}`}>{course.subtitle}</h3>
+                <h3 className={styles.subtitle}>{course.subtitle}</h3>
                 <Content content={course.content} isReadMore={isReadMore} />
                 <div className={styles.buttons_group}>
                     <Button
-                        className={`${styles.view_btn} ${inter.variable}`}
+                        className={styles.view_btn}
                         text={isReadMore ? t('button.view-more') : t('button.show-less')}
                         onClick={toggleReadMore}
                     />
                     <Button
-                        className={`${styles.button} ${inter.variable}`}
+                        className={styles.button}
                         text={t('button.contact-us')}
                         onClick={course.scrollToElement}
                     />

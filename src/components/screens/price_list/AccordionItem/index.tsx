@@ -1,8 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Inter } from 'next/font/google';
-
 import useWindowSize from '@/hooks/useWindowSize';
 
 import AccordionArrow from '../../../icons/AccordionArrow';
@@ -29,12 +27,6 @@ type Props = {
     activateTab: () => void
 };
 
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
-
 const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab }) => {
     const size = useWindowSize();
     const { t } = useTranslation();
@@ -50,10 +42,10 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
             <table key={index}>
                 <thead>
                     <tr>
-                        <td className={inter.variable}>{item.course_title}</td>
-                        <td className={inter.variable}>{item.amount} AMD</td>
-                        <td className={inter.variable}>{`${result} ${t('price-list.days')}`}</td>
-                        <td className={inter.variable}>{`${item.duration} ${t('price-list.hour')}`}</td>
+                        <td>{item.course_title}</td>
+                        <td>{item.amount} AMD</td>
+                        <td>{`${result} ${t('price-list.days')}`}</td>
+                        <td>{`${item.duration} ${t('price-list.hour')}`}</td>
                     </tr>
                 </thead>
             </table>
@@ -74,7 +66,7 @@ const Panel: FC<Props> = ({ name, list, svg, alt, activeTab, index, activateTab 
         >
             <div className={styles.panel_box}>
                 <div className={styles.column}>
-                    <p className={`${styles.panel__label} ${inter.variable}`} role='tab'>
+                    <p className={styles.panel__label} role='tab'>
                         {name}
                     </p>
                     <button onClick={activateTab} style={{ transform: activeTab !== index ? 'rotate(178deg)' : 'rotate(0deg)' }} className={styles.button_tab}>

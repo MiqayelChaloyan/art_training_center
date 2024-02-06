@@ -14,15 +14,7 @@ import cn from 'classnames';
 import Logo from '@/components/icons/Logo';
 import Button from '@/components/ui/Button';
 
-import { Inter } from 'next/font/google';
-
 import styles from './Header.module.sass';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 const localeStrings: {
     am: string
@@ -93,17 +85,17 @@ const Header = ({ typePosition }: IHeaderProps) => {
                     `${isSticky && isOpenMenu ? styles.contentSticky : ''}`,
                 )}>
                     <div className={styles.nav}>
-                        <Link href='/' aria-label='about' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.about')}</Link>
+                        <Link href='/' aria-label='about' className={`${styles.link} ${pathname === '/' ? styles.linkActive : ''}`}>{t('navigation.about')}</Link>
                         <Button
                             text={t('navigation.courses')}
                             onClick={() => {
                                 setIsOpenMenu(false);
                                 setTimeout(() => dispatch(openModal()), 500);
                             }}
-                            className={`${styles.btn} ${inter.variable}`}
+                            className={styles.btn}
                         />
-                        <Link href='/co_workers' aria-label='co-workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.co-workers')}</Link>
-                        <Link href='/price_list' aria-label='price-list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''} ${inter.variable}`}>{t('navigation.price-list')}</Link>
+                        <Link href='/co_workers' aria-label='co-workers' className={`${styles.link} ${pathname === '/co_workers' ? styles.linkActive : ''}`}>{t('navigation.co-workers')}</Link>
+                        <Link href='/price_list' aria-label='price-list' className={`${styles.link} ${pathname === '/price_list' ? styles.linkActive : ''}`}>{t('navigation.price-list')}</Link>
                     </div>
 
                     <div>
@@ -121,7 +113,7 @@ const Header = ({ typePosition }: IHeaderProps) => {
                                         setTimeout(() => dispatch(openModalLoading()), 2);
                                     }}
                                     style={{ color: activeLocale === locale ? 'red' : 'white' }}
-                                    className={`${styles.language} ${inter.variable}`}
+                                    className={styles.language}
                                 >
                                     {localeStrings[locale]}
                                 </Link>

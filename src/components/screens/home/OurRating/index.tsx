@@ -11,15 +11,7 @@ import MobileCards from './MobileCards';
 
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
-import { Inter } from 'next/font/google';
-
 import styles from './style.module.sass';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 type Props = {
     data: HomeContent[]
@@ -44,7 +36,7 @@ const OurRating: FC<Props> = ({ data }) => {
     return (
         <div id='our-rating' className={styles.container}>
             <Container>
-                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.rating')}</h1>
+                <h1 className={styles.title}>{t('pages.rating')}</h1>
                 <div className={styles.feedbacks}>
                     <div className={styles.row}>
                         <Rating data={ratings} />

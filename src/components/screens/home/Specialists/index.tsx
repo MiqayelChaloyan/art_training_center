@@ -5,8 +5,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { Inter } from 'next/font/google';
-
 import Container from '@/components/components/Container';
 import { NextArrow } from '@/components/ui/NextArrow';
 import { PrevArrow } from '@/components/ui/PrevArrow';
@@ -15,12 +13,6 @@ import Item from './Item';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
 import styles from './style.module.sass';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 type SectionCoursesProps = {
     data: HomeContent[]
@@ -53,7 +45,7 @@ const Specialists: FC<SectionCoursesProps> = ({ data }) => {
     return (
         <div id='specialists' className={styles.container}>
             <div className={styles.skew}>
-                <div className={`${styles.title} ${inter.variable}`}>
+                <div className={styles.title}>
                     {t('pages.specialists')}
                 </div>
             </div>

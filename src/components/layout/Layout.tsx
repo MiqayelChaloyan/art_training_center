@@ -46,7 +46,6 @@ const Layout: React.FC<LayoutProps> = ({ children, headerPosition }) => {
 			<Modal>
 				<CoursesModal courses={courses} />
 			</Modal>
-
 			<ModalLoading/>
 		</Meta>
 	);

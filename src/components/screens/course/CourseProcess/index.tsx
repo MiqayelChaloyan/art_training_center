@@ -2,8 +2,6 @@ import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useTranslation } from 'react-i18next';
 
-import { Inter } from 'next/font/google';
-
 import Image from 'next/image';
 
 import Play from '@/components/icons/Play';
@@ -17,12 +15,6 @@ import styles from './style.module.sass';
 type Props = {
     course: Courses
 };
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 const VideoPlayer: FC<Props> = ({ course }) => {
     const [video, setVideo] = useState<string | any>(null);
@@ -76,7 +68,7 @@ const VideoPlayer: FC<Props> = ({ course }) => {
     return (
         <div id='video-player' className={styles.container}>
             <Container>
-                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.courses_process')}</h1>
+                <h1 className={styles.title}>{t('pages.courses_process')}</h1>
                 <div className={styles.video_player}>
                     <div className={styles.player}>
                         {video}

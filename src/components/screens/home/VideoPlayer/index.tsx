@@ -2,7 +2,6 @@ import { FC, memo, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 
 import Play from '@/components/icons/Play';
 import Container from '@/components/components/Container';
@@ -11,12 +10,6 @@ import { urlFor } from '../../../../../sanity/sanity';
 import { HomeContent } from '../../../../../sanity/sanity-queries/home-queries';
 
 import styles from './style.module.sass';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 type Props = {
     data: HomeContent[]
@@ -74,7 +67,7 @@ const VideoPlayer: FC<Props> = ({ data }) => {
         <div id='video-player' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={`${styles.title} ${inter.variable}`}>{data[0].cooking_courses[0].video_section_title}</h1>
+                <h1 className={styles.title}>{data[0].cooking_courses[0].video_section_title}</h1>
                 <div className={styles.video_player}>
                     <div className={styles.player}>
                         {video}

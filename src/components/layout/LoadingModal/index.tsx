@@ -4,8 +4,9 @@ import cn from 'classnames';
 
 import { useAppSelector, useAppDispatch } from '@/hooks/useStore';
 
-import styles from './ModalLoading.module.sass';
 import { closeModalLoading } from '@/store/stateLoadingLanguage';
+
+import styles from './ModalLoading.module.sass';
 
 
 const ModalLoading = () => {
