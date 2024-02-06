@@ -1,17 +1,9 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Inter } from 'next/font/google';
-
 import Button from '@/components/ui/Button';
 
 import styles from './styles.module.sass';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 type Props = {
     url: string
@@ -29,10 +21,10 @@ const SlideItem: React.FC<Props> = ({ url, alt, subtitle, content, scrollToEleme
         <div className={styles.emplay_slide} style={{backgroundImage: `url(${url})`}}>
             <div className={styles.box}>
                 <div className={styles.contact}>
-                    <h1 className={`${styles.title} ${inter.variable}`}>{subtitle}</h1>
-                    <p className={inter.variable}>{description}</p>
+                    <h1 className={styles.title}>{subtitle}</h1>
+                    <p>{description}</p>
                     <Button
-                        className={`${styles.contact_btn} ${inter.variable}`}
+                        className={styles.contact_btn}
                         text={t('button.contact-us')}
                         onClick={scrollToElement}
                     />

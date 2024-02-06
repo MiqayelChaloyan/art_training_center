@@ -2,7 +2,6 @@ import { FC, memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 
 import Container from '@/components/components/Container';
 import Button from '@/components/ui/Button';
@@ -18,12 +17,6 @@ type Props = {
     course: Courses
 };
 
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
-
 const StudentWork: FC<Props> = ({ course }) => {
     const [initialLoadCourses, setInitialLoadCourses] = useState<number>(8);
     const [isFullscreen, setFullscreen] = useState(false);
@@ -31,7 +24,6 @@ const StudentWork: FC<Props> = ({ course }) => {
     const { t } = useTranslation();
 
     useEffect(() => setInitialLoadCourses(8), [course]);
-
 
     const scrollToElement = () => {
         const container: HTMLElement | null = document.getElementById('contact');
@@ -78,7 +70,7 @@ const StudentWork: FC<Props> = ({ course }) => {
         <div id='student-work' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.student_work')}</h1>
+                <h1 className={styles.title}>{t('pages.student_work')}</h1>
                 <div className={styles.works}>
                     <div className={styles.student_work}>
                         {images}

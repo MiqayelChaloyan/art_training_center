@@ -8,7 +8,6 @@ import MainScreen from './MainScreen';
 
 import { Co_workers } from '../../../../sanity/sanity-queries/co-workers';
 
-
 type CoWorkersProps = {
 	data: Co_workers[]
 	isError: boolean

@@ -1,7 +1,6 @@
 import { FC, memo } from 'react';
 
 import Link from 'next/link';
-import { Inter } from 'next/font/google';
 
 import { useTranslation } from 'react-i18next';
 
@@ -12,12 +11,6 @@ import styles from './style.module.sass';
 type CoursesModalProps = {
     courses: Courses[]
 };
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 const chunkSize = 7;
 
@@ -37,13 +30,13 @@ const CoursesModal: FC<CoursesModalProps> = ({ courses }) => {
 
     const coursesList = courses.map((course: Courses) => (
         <Link href={`/courses/${course.slug}`} aria-label={course.course_name} key={course._id} className={styles.link}>
-            <p className={`${styles.course} ${inter.variable}`}>{course.course_name}</p>
+            <p className={styles.course}>{course.course_name}</p>
         </Link>
     ));
 
     return (
         <div className={styles.courses_container}>
-            <p className={`${styles.title} ${inter.variable}`}>{t('pages.courses')}</p>
+            <p className={styles.title}>{t('pages.courses')}</p>
             <div className={styles.list}>
                 {coursesList}
             </div>

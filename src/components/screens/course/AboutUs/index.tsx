@@ -2,8 +2,6 @@ import { FC, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { Inter } from 'next/font/google';
-
 import useWindowSize from '@/hooks/useWindowSize';
 
 import FormAppointment from '@/components/forms/FormAppointment';
@@ -17,12 +15,6 @@ import styles from './style.module.sass';
 type Props = {
     course: Courses[]
 };
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 const group = {
     ['margin']: '0',
@@ -38,10 +30,10 @@ const AboutUs: FC<Props> = ({ course }) => {
         <div id='about-us' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.about_courses')}</h1>
+                <h1 className={styles.title}>{t('pages.about_courses')}</h1>
                 <div className={styles.about_us}>
                     <div className={styles.about_box}>
-                        <p className={inter.variable}>{content}</p>
+                        <p>{content}</p>
                     </div>
                     <div className={styles.form_box}>
                         <FormAppointment width='30%'>

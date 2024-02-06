@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Inter } from 'next/font/google';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
@@ -11,12 +10,6 @@ import { urlFor } from '../../../../../../sanity/sanity';
 import { getCourseById } from '../../../../../../sanity/services/courses.service';
 
 import styles from './style.module.sass';
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 const Images = ({ images }: any) => {
     const firstDivImages = images.slice(0, Math.ceil(images.length / 2));
@@ -104,7 +97,7 @@ const Item = ({ item }: any) => {
             <div className={styles.box}>
                 <div className={styles.header}>
                     <div className={styles.point} />
-                    <h2 className={`${styles.subtitle} ${inter.variable}`}>{item.title}</h2>
+                    <h2 className={styles.subtitle}>{item.title}</h2>
                 </div>
                 <Button
                     className={styles.contact_btn}

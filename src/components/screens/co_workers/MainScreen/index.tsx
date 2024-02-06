@@ -2,7 +2,6 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 
 import Container from '@/components/components/Container';
 
@@ -15,12 +14,6 @@ type MainProps = {
     data: Co_workers[]
     isError: boolean
 };
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'swap',
-});
 
 const MainScreen: FC<MainProps> = ({ data, isError }) => {
     const { t } = useTranslation();
@@ -45,9 +38,9 @@ const MainScreen: FC<MainProps> = ({ data, isError }) => {
                         style={{ objectFit: 'cover' }}
                     />
                 </div>
-                <p className={`${styles.text} ${inter.variable}`}>{item.company_name}</p>
-                <p className={`${styles.text} ${inter.variable}`}>{item.cooperation}</p>
-                <p className={`${styles.text} ${inter.variable}`}>{item.implemented_projects}</p>
+                <p className={styles.text}>{item.company_name}</p>
+                <p className={styles.text}>{item.cooperation}</p>
+                <p className={styles.text}>{item.implemented_projects}</p>
             </div>
         );
     });
@@ -56,7 +49,7 @@ const MainScreen: FC<MainProps> = ({ data, isError }) => {
         <div id='main-screen' className={styles.container}>
             <div className={styles.skew} />
             <Container>
-                <h1 className={`${styles.title} ${inter.variable}`}>{t('pages.co-worker')}</h1>
+                <h1 className={styles.title}>{t('pages.co-worker')}</h1>
                 <div className={styles.workers}>
                     {workers}
                 </div>
