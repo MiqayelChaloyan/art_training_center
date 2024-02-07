@@ -22,7 +22,7 @@ const OurRating: FC<Props> = ({ data }) => {
     const ratings = data[0].our_rating_section.slice(0, 3);
 
     const settingsSlider = {
-        speed: 1500,
+        speed: 3000,
         autoplay: true,
         autoplaySpeed: 2500,
         slidesToShow: 1,

@@ -22,7 +22,7 @@ export const home_content = {
             description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ, առնվազն երկու հատ',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {
@@ -129,7 +129,7 @@ export const home_content = {
             description: 'Ոչ պակաս, քան մեկ, և ոչ ավելի, միայն դուք կարող եք դա փոփոխել',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {
@@ -188,7 +188,7 @@ export const home_content = {
             description: 'Ոչ պակաս, քան երեք, և ոչ ավելի, միայն դուք կարող եք դրանք փոփոխել',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {
@@ -347,7 +347,7 @@ export const home_content = {
             description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ, առնվազն երկու հատ',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {
@@ -465,7 +465,7 @@ export const home_content = {
             description: 'Ոչ պակաս, քան երեք, և ոչ ավելի, միայն դուք կարող եք դրանք փոփոխել',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {

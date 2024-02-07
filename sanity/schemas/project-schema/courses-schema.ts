@@ -45,7 +45,7 @@ export const courses = {
             description: 'Դուք կարող եք ավելացնել ցանկացած թվով նկարներ, առնվազն երկու հատ',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {
@@ -150,7 +150,7 @@ export const courses = {
             description: 'Ոչ պակաս, քան մեկ, և ոչ ավելի, միայն դուք կարող եք դա փոփոխել',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {
@@ -225,7 +225,7 @@ export const courses = {
             title: 'Price list',
             of: [
                 {
-                    name: 'object',
+                    name: 'Object',
                     type: 'object',
                     fields: [
                         {
